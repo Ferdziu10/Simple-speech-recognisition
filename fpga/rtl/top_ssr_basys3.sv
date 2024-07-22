@@ -19,8 +19,8 @@ module top_ssr_basys3 (
     input  wire btnC,
     input  wire sw0,
     output wire JA3,
-    output wire JA4,
-    output wire led0
+    output wire led0,
+    inout wire JA4 
 );
 
 
