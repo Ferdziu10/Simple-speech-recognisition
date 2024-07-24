@@ -40,3 +40,6 @@ xrun.log
 *.bit
 *.tiff
 *.log
+*.npy
+*.h5
+.DS_Store
