@@ -38,8 +38,6 @@ model.add(Dense(64, activation='relu'))
 model.add(Dropout(0.2))
 model.add(Dense(32, activation='relu'))
 model.add(Dropout(0.2))
-model.add(Dense(16, activation='relu'))
-model.add(Dropout(0.2))
 model.add(Dense(3, activation='softmax'))  # Change to 3 output units for 3 classes
 
 # Compile model
