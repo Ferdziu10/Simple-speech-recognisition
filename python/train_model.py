@@ -7,11 +7,15 @@ Created on Tue Jul 23 14:53:53 2024
 """
 from matplotlib import pyplot as plt
 import numpy as np
+import seaborn as sns
+import tensorflow as tf
+from sklearn.metrics import confusion_matrix
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.utils import to_categorical  # Import from Keras
 from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import confusion_matrix
 
 # Load prepared data
 X_train = np.load('X_train.npy')
@@ -29,16 +33,20 @@ y_test_categorical = to_categorical(y_test_encoded)
 # Build model
 model = Sequential()
 model.add(Dense(128, input_shape=(X_train.shape[1],), activation='relu'))
-model.add(Dropout(0.1))
+model.add(Dropout(0.2))
 model.add(Dense(64, activation='relu'))
-model.add(Dropout(0.1))
+model.add(Dropout(0.2))
+model.add(Dense(32, activation='relu'))
+model.add(Dropout(0.2))
+model.add(Dense(16, activation='relu'))
+model.add(Dropout(0.2))
 model.add(Dense(3, activation='softmax'))  # Change to 3 output units for 3 classes
 
 # Compile model
 model.compile(optimizer=Adam(learning_rate=0.001), loss='categorical_crossentropy', metrics=['accuracy'])
 
 # Train model
-history = model.fit(X_train, y_train_categorical, epochs=150, batch_size=64, validation_data=(X_test, y_test_categorical))
+history = model.fit(X_train, y_train_categorical, epochs=250, batch_size=64, validation_data=(X_test, y_test_categorical))
 plt.plot(history.history['accuracy'])
 plt.plot(history.history['val_accuracy'])
 plt.title('model accuracy')
@@ -53,6 +61,25 @@ plt.ylabel('loss')
 plt.xlabel('epoch')
 plt.legend(['train', 'val'], loc='upper left')
 plt.show()
+
+y_pred = model.predict(X_test)
+print(y_test_categorical.shape, y_pred.shape)
+cm = confusion_matrix(np.argmax(y_test_categorical, axis=1), np.argmax(y_pred, axis=1))
+print(cm)
+def plot_confusion_matrix(cm, class_names):
+    plt.figure(figsize=(10, 7))
+    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=class_names, yticklabels=class_names)
+    plt.xlabel('Predicted')
+    plt.ylabel('True')
+    plt.title('Confusion Matrix')
+    plt.show()
+
+# Define class names
+class_names = ['on', 'off', 'other']  # Adjust according to your class names
+
+# Plot confusion matrix
+plot_confusion_matrix(cm, class_names)
+
 # Save the model
 model.save('sound_classification_model.h5')
 

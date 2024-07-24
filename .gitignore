@@ -42,3 +42,4 @@ xrun.log
 *.log
 *.npy
 *.h5
+.DS_Store
