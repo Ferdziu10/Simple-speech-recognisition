@@ -40,3 +40,5 @@ xrun.log
 *.bit
 *.tiff
 *.log
+*.npy
+*.h5

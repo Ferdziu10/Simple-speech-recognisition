@@ -1,3 +1,11 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Jul 23 14:53:53 2024
+
+@author: ferdziu10
+"""
+
 import numpy as np
 import librosa
 from tensorflow.keras.models import load_model
@@ -27,13 +35,15 @@ def predict(file_path, model):
 model = load_model('sound_classification_model.h5')
 
 # Path to the new audio file
-file_path = '/Users/Ferdziu10/Desktop/WAV/on_test.wav'  # Upewnij się, że plik istnieje w tej lokalizacji
+file_path = '/Users/Ferdek/Downloads/Simple-speech-recognisition/python/WAV/test/on_test.wav'  # Upewnij się, że plik istnieje w tej lokalizacji
 
 # Predict
 if os.path.exists(file_path):
     prediction = predict(file_path, model)
+    print(prediction)
     if prediction is not None:
-        print(f'Predicted class: {"on" if prediction == 0 else "off"}')
+        classes = ['on', 'off', 'other']
+        print(f'Predicted class: {classes[prediction]}')
     else:
         print("Error in feature extraction")
 else:
