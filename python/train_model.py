@@ -8,14 +8,13 @@ Created on Tue Jul 23 14:53:53 2024
 from matplotlib import pyplot as plt
 import numpy as np
 import seaborn as sns
-import tensorflow as tf
 from sklearn.metrics import confusion_matrix
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.utils import to_categorical  # Import from Keras
 from sklearn.preprocessing import LabelEncoder
-from sklearn.metrics import confusion_matrix
+
 
 # Load prepared data
 X_train = np.load('X_train.npy')
@@ -79,7 +78,7 @@ class_names = ['on', 'off', 'other']  # Adjust according to your class names
 plot_confusion_matrix(cm, class_names)
 
 # Save the model
-model.save('sound_classification_model.h5')
+model.save('sound_classification_model1.h5')
 
 # Evaluate the model
 loss, accuracy = model.evaluate(X_test, y_test_categorical)
