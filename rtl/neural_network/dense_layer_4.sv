@@ -1,7 +1,9 @@
+import nn_parameters::*;
 module dense_layer_4 (
     input logic signed [7:0] input_vector [0:IN_SIZE_4-1],
     output logic [15:0] probabilities [0:OUT_SIZE_4-1]
 );
+
     logic signed [7:0] weight_matrix [0:OUT_SIZE_4-1][0:IN_SIZE_4-1];
     logic signed [7:0] bias_vector [0:OUT_SIZE_4-1];
     logic [15:0] exp_lut [0:255];  // Example size, adjust as needed
@@ -14,8 +16,8 @@ module dense_layer_4 (
     
     // Load weights, biases, and LUT
     initial begin
-        $readmemh(WEIGHTS_FILE, weight_matrix);
-        $readmemh(BIASES_FILE, bias_vector);
+        $readmemh(WEIGHTS_FILE_4, weight_matrix);
+        $readmemh(BIAS_FILE_4, bias_vector);
         $readmemh(EXP_LUT_FILE, exp_lut);
     end
 
