@@ -1,8 +1,9 @@
-module dropout_layer (
-    input logic [OUT_SIZE_2-1:0] input_vector,
-    output logic [OUT_SIZE_2-1:0] output_vector
+import nn_parameters::*;
+module dropout_layer_2 (
+    input logic [7:0] input_vector [OUT_SIZE_2-1:0],
+    output logic [7:0] output_vector [OUT_SIZE_2-1:0]
 );
-    import nn_parameters::*;
+
     integer i;
     real random_value;
 

@@ -1,0 +1,10 @@
+sv work ../../rtl/neural_network/nn_parameters.sv \
+        ../../rtl/neural_network/dense_layer_4.sv \
+        ../../rtl/neural_network/dense_layer_3.sv \
+        ../../rtl/neural_network/dense_layer_2.sv \
+        ../../rtl/neural_network/dense_layer_1.sv \
+        ../../rtl/neural_network/dropout_layer_1.sv \
+        ../../rtl/neural_network/dropout_layer_2.sv \
+        ../../rtl/neural_network/dropout_layer_3.sv \
+        ../../rtl/neural_network/top_nn.sv \
+        top_nn_tb.sv

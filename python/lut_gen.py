@@ -1,27 +1,16 @@
 import numpy as np
 
-# Parameters
-LUT_SIZE = 256  # Adjust size as needed
-MAX_EXP_VALUE = 10  # Maximum value for which to compute exponentials
+# Define the range of inputs for the LUT
+input_range = np.arange(-128, 128, dtype=np.int16)
 
-# Generate LUT values
-def generate_exp_lut(size, max_value):
-    exp_lut = np.zeros(size, dtype=np.uint16)  # Use appropriate dtype for your precision
+# Generate the exponential values (e.g., using np.exp for demonstration)
+# Here, we'll scale the input range to avoid overflow in np.exp
+# In practice, you'd use a suitable function or approximation
+exp_values = np.exp(input_range / 32.0) * (2**8)  # Scale and convert to fixed-point
+exp_values = np.clip(exp_values, 0, 65535).astype(np.uint16)  # Ensure values fit in 16-bit
 
-    # Compute exponential values
-    for i in range(size):
-        # Map index to value (e.g., scaled from 0 to MAX_EXP_VALUE)
-        value = (i / (size - 1)) * max_value
-        exp_lut[i] = np.clip(np.exp(value) * (2**16), 0, 2**16 - 1)  # Scale to fit in uint16
-
-    return exp_lut
-
-# Save LUT to file
-def save_lut_to_file(lut, filename):
-    np.savetxt(filename, lut, fmt='%d')
-
-# Generate and save the LUT
-exp_lut = generate_exp_lut(LUT_SIZE, MAX_EXP_VALUE)
-save_lut_to_file(exp_lut, 'exp_lut.txt')
-
-print("Exponential LUT generated and saved.")
+# Convert to hexadecimal format and save to a file
+with open('lut.txt', 'w') as f:
+    for val in exp_values:
+        hex_val = format(val, '04x')  # 16-bit hexadecimal
+        f.write(f"{hex_val}\n")

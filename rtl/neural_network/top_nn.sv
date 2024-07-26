@@ -1,6 +1,6 @@
 module top_nn (
     input logic signed [7:0] input_vector [0:IN_SIZE_1-1],
-    output logic signed [15:0] output_vector [0:OUT_SIZE_4-1]
+    output logic signed [15:0] output_probabilities [0:OUT_SIZE_4-1]
 );
     import nn_parameters::*;
 
@@ -29,11 +29,11 @@ dense_layer_2 u_dense_layer_2 (
 
 dropout_layer_2 u_dropout_layer_2 (
     .input_vector(dplayer2_output),
-    .output_vector(dplayer1_output)
+    .output_vector(dslayer2_output)
 );
 
 dense_layer_3 u_dense_layer_3 (
-    .input_vector(input_vector),
+    .input_vector(dslayer2_output),
      .output_vector(dslayer3_output)
 );
 
@@ -44,7 +44,7 @@ dropout_layer_3 u_dropout_layer_3 (
 
 dense_layer_4 u_dense_layer_4 (
     .input_vector(dplayer3_output),
-    .output_vector(output_vector)
+    .probabilities(output_probabilities)
 );
 
 
