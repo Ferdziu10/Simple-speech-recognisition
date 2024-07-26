@@ -78,9 +78,11 @@ class_names = ['on', 'off', 'other']  # Adjust according to your class names
 plot_confusion_matrix(cm, class_names)
 
 # Save the model
-model.save('sound_classification_model1.h5')
+model.save('sound_classification_model.h5')
 
 # Evaluate the model
 loss, accuracy = model.evaluate(X_test, y_test_categorical)
 print(f"Test Loss: {loss}")
 print(f"Test Accuracy: {accuracy}")
+print(X_train.shape[1])
+print(X_test.shape[1])

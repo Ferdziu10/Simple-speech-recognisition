@@ -35,7 +35,7 @@ def predict(file_path, model):
 model = load_model('sound_classification_model.h5')
 
 # Path to the new audio file
-file_path = '/Users/Ferdek/Downloads/Simple-speech-recognisition/python/WAV/test/on_test.wav'  # Upewnij się, że plik istnieje w tej lokalizacji
+file_path = 'C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/python/WAV/test/other_test1.wav'  # Upewnij się, że plik istnieje w tej lokalizacji
 
 # Predict
 if os.path.exists(file_path):

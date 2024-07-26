@@ -17,7 +17,7 @@ module top_nn_tb;
     // Stimulus process
     initial begin
         // Initialize input_vector with values from a preprocessed WAV file
-        $readmemb("../../python/generated_files/input_vector.mem", input_vector);
+        $readmemh("../../python/generated_files/input_vectoroth1.mem", input_vector);
 
         // Wait for some time to observe output
         #100;

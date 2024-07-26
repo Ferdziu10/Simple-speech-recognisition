@@ -21,9 +21,9 @@ def extract_features(file_path):
     return np.concatenate([mfccs_mean, mfccs_std])
 
 # Path to directories
-on_dir = '/Users/Ferdek/Downloads/Simple-speech-recognisition/python/WAV/dataset/on'
-off_dir = '/Users/Ferdek/Downloads/Simple-speech-recognisition/python/WAV/dataset/off'
-other_dir = '/Users/Ferdek/Downloads/Simple-speech-recognisition/python/WAV/dataset/other'
+on_dir = '/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/python/WAV/dataset/on'
+off_dir = 'C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/python/WAV/dataset/off'
+other_dir = 'C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/python/WAV/dataset/other'
 
 # Load and extract features
 X, y = [], []
@@ -62,3 +62,4 @@ np.save('X_train.npy', X_train)
 np.save('X_test.npy', X_test)
 np.save('y_train.npy', y_train)
 np.save('y_test.npy', y_test)
+

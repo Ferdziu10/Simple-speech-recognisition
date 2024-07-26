@@ -1,25 +1,45 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Fri Jul 26 11:23:29 2024
+Created on Tue Jul 23 14:53:53 2024
 
-@author: Kacper
+@author: ferdziu10
 """
 
 import numpy as np
-import scipy.io.wavfile as wav
+import librosa
 
-def preprocess_wav(input_wav, output_file):
-    # Read the WAV file
-    sample_rate, data = wav.read(input_wav)
+def extract_features(file_path):
+    y, sr = librosa.load(file_path, sr=None)
+    mfccs = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=13)
+    mfccs_mean = np.mean(mfccs, axis=1)
+    mfccs_std = np.std(mfccs, axis=1)
+    return np.concatenate([mfccs_mean, mfccs_std])
 
-    # Normalize data to 8-bit signed integer range
-    data = data / np.max(np.abs(data))  # Normalize to [-1, 1]
-    data = np.int8(data * 127)  # Scale to [-128, 127]
+def save_features_to_mem(features, mem_file, bit_width=16):
+    max_value = 2**bit_width - 1
+    min_value = 0
 
-    # Write data to a memory initialization file
-    with open(output_file, 'w') as f:
-        for sample in data:
-            f.write(f"{sample:08b}\n")
+    # Scale features to fit in the desired range
+    scaled_features = np.clip(features, min_value, max_value)
+    
+    # Save as .mem file
+    with open(mem_file, 'w') as f:
+        for feature in scaled_features:
+            # Convert each feature to an integer and then to hexadecimal
+            feature_int = int(round(feature))  # Round to the nearest integer
+            hex_val = format(feature_int, '0{}X'.format(bit_width // 4))  # Convert to hex
+            f.write(f"{hex_val}\n")
 
-# Preprocess the WAV file
-preprocess_wav('WAV/test/off_test.wav', 'generated_files/input_vector.mem')
+# Path to the WAV file
+wav_file_path = 'C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/python/WAV/test/on_test.wav'
+mem_output_file = 'generated_files/input_vectoron.mem'
+
+# Extract features
+features = extract_features(wav_file_path)
+
+# Save features to a .mem file
+save_features_to_mem(features, mem_output_file, bit_width=16)
+
+print(f"Features from {wav_file_path} saved to {mem_output_file}")
+

@@ -26,26 +26,26 @@ def convert_decimal_to_hex(input_file, output_file):
             raise ValueError("Unsupported number of dimensions for conversion.")
 
 # Convert and save the weights
-convert_decimal_to_hex('dense1_weights.txt', 'dense1_weights_hex.txt')
+convert_decimal_to_hex('dense11_weights.txt', 'dense11_weights_hex.txt')
 
 # Convert and save the biases
-convert_decimal_to_hex('dense1_biases.txt', 'dense1_biases_hex.txt')
+convert_decimal_to_hex('dense11_biases.txt', 'dense11_biases_hex.txt')
 
 # Convert and save the second dense layer weights
-convert_decimal_to_hex('dense2_weights.txt', 'dense2_weights_hex.txt')
+convert_decimal_to_hex('dense12_weights.txt', 'dense22_weights_hex.txt')
 
 # Convert and save the second dense layer biases
-convert_decimal_to_hex('dense2_biases.txt', 'dense2_biases_hex.txt')
+convert_decimal_to_hex('dense12_biases.txt', 'dense22_biases_hex.txt')
 
 # Convert and save the third dense layer weights
-convert_decimal_to_hex('dense3_weights.txt', 'dense3_weights_hex.txt')
+convert_decimal_to_hex('dense13_weights.txt', 'dense33_weights_hex.txt')
 
 # Convert and save the third dense layer biases
-convert_decimal_to_hex('dense3_biases.txt', 'dense3_biases_hex.txt')
+convert_decimal_to_hex('dense13_biases.txt', 'dense33_biases_hex.txt')
 
 # Convert and save the fourth dense layer weights
-convert_decimal_to_hex('dense4_weights.txt', 'dense4_weights_hex.txt')
+convert_decimal_to_hex('dense14_weights.txt', 'dense44_weights_hex.txt')
 
 # Convert and save the fourth dense layer biases
-convert_decimal_to_hex('dense4_biases.txt', 'dense4_biases_hex.txt')
+convert_decimal_to_hex('dense14_biases.txt', 'dense44_biases_hex.txt')
 
