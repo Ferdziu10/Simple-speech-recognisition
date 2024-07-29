@@ -6,7 +6,7 @@ module top_nn_tb;
 
     // Testbench signals
     logic signed [7:0] input_vector [0:IN_SIZE-1];  // Unpacked array
-    logic [15:0] output_probabilities [0:OUT_SIZE-1];  // Unpacked array
+    logic [255:0] output_probabilities [0:OUT_SIZE-1];  // Unpacked array
 
     // Instantiate the top_nn module
     top_nn uut (
@@ -17,7 +17,7 @@ module top_nn_tb;
     // Stimulus process
     initial begin
         // Initialize input_vector with values from a preprocessed WAV file
-        $readmemh("../../python/generated_files/input_vectoroth1.mem", input_vector);
+        $readmemh("../../python/generated_files/input_vectoroth.mem", input_vector);
 
         // Wait for some time to observe output
         #100;

@@ -1,15 +1,15 @@
 module top_nn (
     input logic signed [7:0] input_vector [0:IN_SIZE_1-1],
-    output logic signed [15:0] output_probabilities [0:OUT_SIZE_4-1]
+    output logic signed [255:0] output_probabilities [0:OUT_SIZE_4-1]
 );
     import nn_parameters::*;
 
-    logic signed [7:0] dslayer1_output [0:OUT_SIZE_1-1];
-    logic signed [7:0] dplayer1_output [0:OUT_SIZE_1-1];
-    logic signed [7:0] dslayer2_output [0:OUT_SIZE_2-1];
-    logic signed [7:0] dplayer2_output [0:OUT_SIZE_2-1];
-    logic signed [7:0] dslayer3_output [0:OUT_SIZE_3-1];
-    logic signed [7:0] dplayer3_output [0:OUT_SIZE_3-1];
+    logic signed [15:0] dslayer1_output [0:OUT_SIZE_1-1];
+    logic signed [15:0] dplayer1_output [0:OUT_SIZE_1-1];
+    logic signed [23:0] dslayer2_output [0:OUT_SIZE_2-1];
+    logic signed [23:0] dplayer2_output [0:OUT_SIZE_2-1];
+    logic signed [31:0] dslayer3_output [0:OUT_SIZE_3-1];
+    logic signed [31:0] dplayer3_output [0:OUT_SIZE_3-1];
 
     // Instantiate Dense Layers
 dense_layer_1 u_dense_layer_1 (

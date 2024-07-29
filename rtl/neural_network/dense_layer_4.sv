@@ -1,16 +1,16 @@
 import nn_parameters::*;
 module dense_layer_4 (
-    input logic signed [7:0] input_vector [0:IN_SIZE_4-1],
-    output logic [15:0] probabilities [0:OUT_SIZE_4-1]
+    input logic signed [31:0] input_vector [0:IN_SIZE_4-1],
+    output logic [255:0] probabilities [0:OUT_SIZE_4-1]
 );
 
     logic signed [7:0] weight_matrix [0:OUT_SIZE_4-1][0:IN_SIZE_4-1];
     logic signed [7:0] bias_vector [0:OUT_SIZE_4-1];
-    logic [15:0] exp_lut [0:255];  // Example size, adjust as needed
+    logic [39:0] exp_lut [0:65535];  // Adjusted size for 40-bit values with 16-bit indexing
 
-    logic signed [15:0] logits [0:OUT_SIZE_4-1];
-    logic [15:0] exp_values [0:OUT_SIZE_4-1];
-    logic [15:0] sum_exp;
+    logic signed [39:0] logits [0:OUT_SIZE_4-1];
+    logic [39:0] exp_values [0:OUT_SIZE_4-1];
+    logic [55:0] sum_exp;  // Use wider bit width for sum to prevent overflow
 
     integer i, j;
     
@@ -33,7 +33,8 @@ module dense_layer_4 (
         // Compute exponentials using LUT
         for (i = 0; i < OUT_SIZE_4; i++) begin
             // For simplicity, assuming logits are in a suitable range for the LUT
-            exp_values[i] = exp_lut[logits[i][15:8]];  // Adjust as necessary
+            // Use the most significant 16 bits of the 40-bit logits value
+            exp_values[i] = exp_lut[logits[i][39:24]];  // Adjust indexing as necessary
         end
 
         // Compute sum of exponentials
@@ -44,7 +45,7 @@ module dense_layer_4 (
 
         // Normalize to get probabilities
         for (i = 0; i < OUT_SIZE_4; i++) begin
-            probabilities[i] = (exp_values[i] * 1000000) / sum_exp;  // Scale probabilities to [0, 1] range
+            probabilities[i] = (exp_values[i] * (2**39)) / sum_exp;  // Scale probabilities to [0, 1] range
         end
     end
 endmodule

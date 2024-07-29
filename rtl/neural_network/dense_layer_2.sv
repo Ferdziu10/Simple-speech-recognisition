@@ -1,8 +1,8 @@
 import nn_parameters::*;
 
 module dense_layer_2 (
-    input logic signed [7:0] input_vector [0:IN_SIZE_2-1],
-    output logic signed [7:0] output_vector [0:OUT_SIZE_2-1]
+    input logic signed [15:0] input_vector [0:IN_SIZE_2-1],
+    output logic signed [23:0] output_vector [0:OUT_SIZE_2-1]
 );
 
 

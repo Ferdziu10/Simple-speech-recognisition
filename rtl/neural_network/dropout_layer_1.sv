@@ -1,7 +1,7 @@
 import nn_parameters::*;
 module dropout_layer_1 (
-    input logic [7:0] input_vector [OUT_SIZE_1-1:0],
-    output logic [7:0] output_vector [OUT_SIZE_1-1:0]
+    input logic [15:0] input_vector [OUT_SIZE_1-1:0],
+    output logic [15:0] output_vector [OUT_SIZE_1-1:0]
 );
 
     integer i;

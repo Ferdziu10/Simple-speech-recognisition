@@ -22,7 +22,7 @@ localparam IN_SIZE_4 = 32;
 localparam OUT_SIZE_4 = 3;
 localparam WEIGHTS_FILE_4 = "../../python/generated_files/dense44_weights_hex.txt";
 localparam BIAS_FILE_4 = "../../python/generated_files/dense44_biases_hex.txt";
-localparam EXP_LUT_FILE = "../../python/generated_files/lut_hex.txt";
+localparam EXP_LUT_FILE = "../../python/generated_files/lut_40bit.txt";
 
 //parameters for dropout layers
 localparam DROPOUT_RATE = 0.2;
