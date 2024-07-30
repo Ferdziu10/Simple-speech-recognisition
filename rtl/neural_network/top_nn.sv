@@ -1,6 +1,6 @@
 module top_nn (
     input logic signed [7:0] input_vector [0:IN_SIZE_1-1],
-    output logic signed [255:0] output_probabilities [0:OUT_SIZE_4-1]
+    output logic signed [39:0] output_probabilities [0:OUT_SIZE_4-1]
 );
     import nn_parameters::*;
 

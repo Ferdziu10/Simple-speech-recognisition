@@ -1,0 +1,3 @@
+sv work ../../rtl/neural_network/nn_parameters.sv \
+        ../../rtl/neural_network/neuron_1l.sv \
+        neuron_1l_tb.sv

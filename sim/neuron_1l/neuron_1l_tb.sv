@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 import nn_parameters::*;
-module dense_layer_1_tb;
+module neuron_1l_tb;
 
     // Parameters for the testbench (these should match the values in your `nn_parameters` package)
     parameter IN_SIZE_1 = 26;  // Example input size
@@ -10,10 +10,10 @@ module dense_layer_1_tb;
     logic clk;
     logic rst;
     logic signed [7:0] input_vector [0:IN_SIZE_1-1];
-    logic [15:0] output_vector [0:OUT_SIZE_1-1];
+    logic [15:0] output_vector;
 
     // Instantiate the module under test (MUT)
-    dense_layer_1 mut (
+    neuron_1l mut (
         .clk(clk),
         .rst(rst),
         .input_vector(input_vector),
@@ -24,9 +24,9 @@ module dense_layer_1_tb;
         clk = 0;
         rst = 0;
 
-        #1000;
+        #10;
         rst = 1;
-        #1000;
+        #10;
         rst = 0;
         // Initialize input vector with some values
         $readmemh("../../python/generated_files/input_vectoron.mem", input_vector);
@@ -36,13 +36,12 @@ module dense_layer_1_tb;
         $readmemh(BIAS_FILE_1, mut.bias_vector);
 
         // Wait for the combinational logic to process the inputs
-        #30000;
-        // Display the results
+        #10;
         // Display the results
         $display("Input Vector: %p", input_vector);
-        for (int j = 0; j < OUT_SIZE_1; j++) begin
-            $display("output_vector[%0d]: %0d", j, output_vector[j]);
-        end
+        $display("output_vector: %p", output_vector);
+        
+
         // End the simulation
         $stop;
         end

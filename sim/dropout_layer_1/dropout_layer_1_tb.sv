@@ -7,26 +7,27 @@ module dropout_layer_1_tb;
   
 
     // Testbench signals
-    logic signed [7:0] input_vector [0:OUT_SIZE_1-1];
-    logic [7:0] output_vector [0:OUT_SIZE_1-1];
+    logic signed [15:0] input_vector [0:OUT_SIZE_1-1];
+    logic [15:0] output_vector [0:OUT_SIZE_1-1];
 
     // Instantiate the module under test (MUT)
     dropout_layer_1 mut (
+        .clk(clk)
         .input_vector(input_vector),
         .output_vector(output_vector)
     );
 
     initial begin
         // Initialize input vector with some values
-        input_vector = '{8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4 };
+        $readmemh("../../python/generated_files/input_dropout1_hex.txt", input_vector);
 
         // Wait for the combinational logic to process the inputs
         #10;
 
         // Display the results
         $display("Input Vector: %p", input_vector);
-        for (int i = 0; i < OUT_SIZE_1; i++) begin
-            $display("output_vector[%0d]: %0d", i, output_vector[i]);
+        for (int j = 0; i < OUT_SIZE_1; i++) begin
+            $display("output_vector[%0d]: %0d", j, output_vector[j]);
         end
 
         // End the simulation

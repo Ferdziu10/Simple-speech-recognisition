@@ -1,6 +1,6 @@
 import nn_parameters::*;
 
-module dense_layer_1 (
+module neuron_1l (
     input clk,
     input rst,
     input logic signed [7:0] input_vector [0:IN_SIZE_1-1],
@@ -14,7 +14,7 @@ module dense_layer_1 (
     logic signed [7:0] i;
     logic signed [7:0] i_nxt;
 
-    integer j, k;
+
 
     initial begin
         // Load weights from file
@@ -23,34 +23,30 @@ module dense_layer_1 (
         $readmemh(BIAS_FILE_1, bias_vector);
     end
 
-    
+    integer i;
     always_ff @(posedge clk) begin
-        if(rst) begin
-            for (k = 0; k < OUT_SIZE_1; k++) 
-            output_vector[k] <= '0;
+        if(rst)
+            output_vector[j] <= '0;
             i <= '0;
-        end else begin
-            for (k = 0; k < OUT_SIZE_1; k++)
-            output_vector[k] <= output_vector_nxt[k];
+        else 
+            output_vector[j] <= output_vector_nxt[j];
             i <= i_nxt;
-    end
     end
     
 
     always_comb begin
         
-        if (i < IN_SIZE_1) begin
+        if (i_nxt < IN_SIZE_1) begin
             i_nxt = i + 1;
-            for (j = 0; j < OUT_SIZE_1; j++) 
+            for (j = 0; i < OUT_SIZE_2; j++) 
             output_vector_nxt[j] = output_vector[j] +  bias_vector[j] + input_vector[i] * weight_matrix[j][i];
         end else begin
             i_nxt = i;
-            for (j = 0; j < OUT_SIZE_1; j++) begin
+            for (j = 0; i < OUT_SIZE_2; j++) 
             if (output_vector[j] < 0) 
             output_vector_nxt [j] = 0;
             else
             output_vector_nxt [j] = output_vector [j];
-            end
         end
 
         end
