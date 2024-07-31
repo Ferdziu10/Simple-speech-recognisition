@@ -29,14 +29,14 @@ module dense_layer_1_tb;
         #1000;
         rst = 0;
         // Initialize input vector with some values
-        $readmemh("../../python/generated_files/input_vectoron.mem", input_vector);
+        $readmemh("../../python/generated_files/input_vectoroth.mem", input_vector);
 
         // Load weights, biases, and LUT
         $readmemh(WEIGHTS_FILE_1, mut.weight_matrix);
         $readmemh(BIAS_FILE_1, mut.bias_vector);
 
         // Wait for the combinational logic to process the inputs
-        #30000;
+        #40000;
         // Display the results
         // Display the results
         $display("Input Vector: %p", input_vector);

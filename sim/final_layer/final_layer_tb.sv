@@ -1,50 +1,47 @@
 `timescale 1ns / 1ps
 import nn_parameters::*;
-module neuron_1l_tb;
+module final_layer_tb;
 
     // Parameters for the testbench (these should match the values in your `nn_parameters` package)
-    parameter IN_SIZE_1 = 26;  // Example input size
-    parameter OUT_SIZE_1 = 128;  // Example output size
+      // Example input size
+    parameter OUT_SIZE_4 = 3;  // Example output size
 
     // Testbench signals
     logic clk;
     logic rst;
-    logic signed [7:0] input_vector [0:IN_SIZE_1-1];
-    logic [15:0] output_vector;
+    logic signed [39:0] input_vector [0:OUT_SIZE_4-1];
+    logic [1:0] output_value ;
+    
 
     // Instantiate the module under test (MUT)
-    neuron_1l mut (
-        .clk(clk),
-        .rst(rst),
+    final_layer mut (
         .input_vector(input_vector),
-        .output_vector(output_vector)
+        .output_value(output_value),
+        .clk(clk),
+        .rst(rst)
     );
+
     always #5 clk = ~clk;
     initial begin
         clk = 0;
         rst = 0;
 
-        #10;
+        #1000;
         rst = 1;
-        #10;
+        #1000;
         rst = 0;
         // Initialize input vector with some values
-        $readmemh("../../python/generated_files/input_vectoron.mem", input_vector);
-
-        // Load weights, biases, and LUT
-        $readmemh(WEIGHTS_FILE_1, mut.weight_matrix);
-        $readmemh(BIAS_FILE_1, mut.bias_vector);
+        input_vector = '{40'd500, 40'd300000, 40'd2000000};
 
         // Wait for the combinational logic to process the inputs
-        #10;
+        #30000;
+
         // Display the results
         $display("Input Vector: %p", input_vector);
-        $display("output_vector: %p", output_vector);
+        $display(" output_value: %p", output_value);
         
-
         // End the simulation
         $stop;
-        end
-
+    end
 
 endmodule

@@ -1,13 +1,20 @@
 import nn_parameters::*;
 
 module dense_layer_2 (
+    input clk,
+    input rst,
     input logic signed [15:0] input_vector [0:IN_SIZE_2-1],
     output logic signed [23:0] output_vector [0:OUT_SIZE_2-1]
 );
 
 
-    logic signed [7:0] weight_matrix [0:OUT_SIZE_2-1][0:IN_SIZE_2-1];
+    logic signed [7:0] weight_matrix [0:IN_SIZE_2-1][0:OUT_SIZE_2-1];
     logic signed [7:0] bias_vector [0:OUT_SIZE_2-1];
+    logic signed [23:0] output_vector_nxt [0:OUT_SIZE_2-1];
+    logic [7:0] i;
+    logic [7:0] i_nxt;
+
+    integer j, k;
 
     initial begin
         // Load weights from file
@@ -16,15 +23,34 @@ module dense_layer_2 (
         $readmemh(BIAS_FILE_2, bias_vector);
     end
 
-    integer i, j;
-    always_comb begin
-        for (i = 0; i < OUT_SIZE_2; i++) begin
-            output_vector[i] = bias_vector[i];
-            for (j = 0; j < IN_SIZE_2; j++) begin
-                output_vector[i] = output_vector[i] + input_vector[j] * weight_matrix[i][j];
-            end
-            // ReLU activation function
-            if (output_vector[i] < 0) output_vector[i] = 0;
-        end
+    
+    always_ff @(posedge clk) begin
+        if(rst) begin
+            for (k = 0; k < OUT_SIZE_2; k++) 
+            output_vector[k] <= '0;
+            i <= '0;
+        end else begin
+            for (k = 0; k < OUT_SIZE_2; k++)
+            output_vector[k] <= output_vector_nxt[k];
+            i <= i_nxt;
     end
+    end
+    
+
+    always_comb begin
+        if (i < IN_SIZE_2) begin
+            i_nxt = i + 1;
+            for (j = 0; j < OUT_SIZE_2; j++) 
+            output_vector_nxt[j] = output_vector[j] +  bias_vector[j] + input_vector[i] * weight_matrix[i][j];
+        end else begin
+            i_nxt = i;
+            for (j = 0; j < OUT_SIZE_2; j++) begin
+                if (output_vector[j] < 0) 
+                    output_vector_nxt [j] = 0;
+                else
+                    output_vector_nxt [j] = output_vector [j];
+            end
+        end
+
+        end
 endmodule

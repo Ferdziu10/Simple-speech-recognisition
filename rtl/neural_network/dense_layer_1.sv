@@ -8,11 +8,11 @@ module dense_layer_1 (
 );
 
 
-    logic signed [7:0] weight_matrix [0:OUT_SIZE_1-1][0:IN_SIZE_1-1];
+    logic signed [7:0] weight_matrix [0:IN_SIZE_1-1][0:OUT_SIZE_1-1];
     logic signed [7:0] bias_vector [0:OUT_SIZE_1-1];
     logic signed [15:0] output_vector_nxt [0:OUT_SIZE_1-1];
-    logic signed [7:0] i;
-    logic signed [7:0] i_nxt;
+    logic [7:0] i;
+    logic [7:0] i_nxt;
 
     integer j, k;
 
@@ -42,7 +42,7 @@ module dense_layer_1 (
         if (i < IN_SIZE_1) begin
             i_nxt = i + 1;
             for (j = 0; j < OUT_SIZE_1; j++) 
-            output_vector_nxt[j] = output_vector[j] +  bias_vector[j] + input_vector[i] * weight_matrix[j][i];
+            output_vector_nxt[j] = output_vector[j] +  bias_vector[j] + input_vector[i] * weight_matrix[i][j];
         end else begin
             i_nxt = i;
             for (j = 0; j < OUT_SIZE_1; j++) begin
