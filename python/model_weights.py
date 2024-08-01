@@ -8,10 +8,10 @@ model = load_model('sound_classification_model.h5')
 weights, biases = model.layers[6].get_weights()
 
 # Quantize weights and biases (example using 8-bit quantization)
-weights_q = np.round(weights * 127).astype(np.int8)
-biases_q = np.round(biases * 127).astype(np.int8)
+weights_q = np.round(weights * 32767).astype(np.int16)
+biases_q = np.round(biases * 32767).astype(np.int16)
 
 # Save weights and biases to a file
-np.savetxt('dense14_weights.txt', weights_q, fmt='%d')
-np.savetxt('dense14_biases.txt', biases_q, fmt='%d')
+np.savetxt('dense24_weights.txt', weights_q, fmt='%d')
+np.savetxt('dense24_biases.txt', biases_q, fmt='%d')
 

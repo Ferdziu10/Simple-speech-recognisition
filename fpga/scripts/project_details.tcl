@@ -27,6 +27,7 @@ set target xc7a35tcpg236-1
 # Specify .xdc files location                   -- EDIT
 set xdc_files {
     constraints/top_ssr_basys3.xdc
+    constraints/clk_wiz_0.xdc
 }
 
 # Specify SystemVerilog design files location   -- EDIT
@@ -35,19 +36,22 @@ set sv_files {
     ../rtl/neural_network/dense_layer_2.sv
     ../rtl/neural_network/dense_layer_3.sv
     ../rtl/neural_network/dense_layer_4.sv
+    ../rtl/neural_network/final_layer.sv
     ../rtl/neural_network/dropout_layer_1.sv
     ../rtl/neural_network/dropout_layer_2.sv
     ../rtl/neural_network/dropout_layer_3.sv
     ../rtl/neural_network/nn_parameters.sv
     ../rtl/neural_network/top_nn.sv
-    ../rtl/neural_network/top_ssr.sv
+    ../rtl/led_logic/led_logic.sv
+    ../rtl/board/example_mod.sv
+    ../rtl/top_ssr.sv
     rtl/top_ssr_basys3.sv
 }
 
 # Specify Verilog design files location         -- EDIT
-# set verilog_files {
-#     path/to/file.v
-# }
+set verilog_files {
+    rtl/clk_wiz_0_clk_wiz.v
+}
 
 # Specify VHDL design files location            -- EDIT
 # set vhdl_files {

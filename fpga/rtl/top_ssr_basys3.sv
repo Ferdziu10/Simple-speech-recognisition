@@ -72,10 +72,10 @@ wire locked;
 top_ssr u_top_ssr (
     .clk(clk100MHz),
     .rst(btnC),
-    .mic(sw0),
+    .but(sw0),
     .scl(JA3),
     .sda(JA4),
-    .out(led0)
+    .led0(led0)
 
 );
 

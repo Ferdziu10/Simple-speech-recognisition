@@ -2,21 +2,21 @@ import nn_parameters::*;
 module dropout_layer_3 (
     input clk,
     input rst,
-    input logic signed [31:0] input_vector [OUT_SIZE_3-1:0],
-    output logic signed [31:0] output_vector [OUT_SIZE_3-1:0]
+    input logic signed [55:0] input_vector [OUT_SIZE_3-1:0],
+    output logic signed [55:0] output_vector [OUT_SIZE_3-1:0]
 );
 
-    logic signed [31:0] output_vector_nxt [OUT_SIZE_3-1:0];
+    logic signed [55:0] output_vector_nxt [OUT_SIZE_3-1:0];
 
     integer i, k;
     real random_value;
 
     always_ff@(posedge clk) begin
         if (rst) begin
-            for (k = 0; k < OUT_SIZE_1; k++) 
+            for (k = 0; k < OUT_SIZE_3; k++) 
                 output_vector[k] <= '0;
         end else begin
-            for (k = 0; k < OUT_SIZE_1; k++) 
+            for (k = 0; k < OUT_SIZE_3; k++) 
                 output_vector[k] <= output_vector_nxt[k];
         end
     end

@@ -3,7 +3,7 @@ import nn_parameters::*;
 module final_layer (
     input clk,
     input rst,
-    input logic signed [39:0] input_vector [0:OUT_SIZE_4-1],
+    input logic signed [71:0] input_vector [0:OUT_SIZE_4-1],
     output logic [1:0] output_value
 );
     logic [1:0] output_value_nxt ;
@@ -19,13 +19,12 @@ always_ff @(posedge clk) begin
 end
 
 always_comb begin
-        if(input_vector[0]<input_vector[1]) begin
-            if(input_vector[1]>input_vector[2])
-                output_value_nxt = 2'b01;
-            else
-                output_value_nxt = 2'b10;
-        end else
-            output_value_nxt = 2'b00;
+        if(input_vector[0] > 0)
+            output_value_nxt = 2'b01;
+        else if(input_vector[2] > 0)
+            output_value_nxt = 2'b10;
+        else
+        output_value_nxt = 2'b00;            
 end
 
 endmodule

@@ -1,8 +1,8 @@
 module led_logic(
     input  logic clk,          // zegar systemowy
     input  logic rst,           // reset
-    input  wire [1:0] speech_rec, // wynik rozpoznania mowy 0(nie rozponzano nic), 1(on), 2(off) 
-    input  logic sw0,           // przełącznik
+    input  logic [1:0] speech_rec, // wynik rozpoznania mowy 0(nie rozponzano nic), 1(on), 2(off) 
+    input  logic but,           // przełącznik
     output logic led0           // dioda
 );
 
@@ -17,15 +17,15 @@ always_ff @(posedge clk) begin
 end
 
 always_comb begin
-    if(sw0) begin
+    if(but) begin
         case(speech_rec) 
             2'b00: led0_nxt = led0;
             2'b01: led0_nxt = 1;
-            2'b10: sled0_nxt = 0;
+            2'b10: led0_nxt = 0;
             default: led0_nxt= led0;
         endcase
     end else
-        led0_nxt= led0
+        led0_nxt= led0;
 end
 
 endmodule
