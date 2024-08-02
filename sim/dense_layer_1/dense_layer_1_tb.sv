@@ -10,7 +10,7 @@ module dense_layer_1_tb;
     logic clk;
     logic rst;
     logic signed [7:0] input_vector [0:IN_SIZE_1-1];
-    logic [15:0] output_vector [0:OUT_SIZE_1-1];
+    logic [23:0] output_vector [0:OUT_SIZE_1-1];
 
     // Instantiate the module under test (MUT)
     dense_layer_1 mut (

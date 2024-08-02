@@ -9,8 +9,8 @@ module dropout_layer_1_tb;
     // Testbench signals
     logic clk;
     logic rst;
-    logic signed [15:0] input_vector [0:OUT_SIZE_1-1];
-    logic [15:0] output_vector [0:OUT_SIZE_1-1];
+    logic signed [23:0] input_vector [0:OUT_SIZE_1-1];
+    logic [23:0] output_vector [0:OUT_SIZE_1-1];
 
     // Instantiate the module under test (MUT)
     dropout_layer_1 mut (

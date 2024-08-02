@@ -9,8 +9,8 @@ module dense_layer_4_tb;
     // Testbench signals
     logic clk;
     logic rst;
-    logic signed [31:0] input_vector [0:IN_SIZE_4-1];
-    logic signed [39:0] output_vector [0:OUT_SIZE_4-1];
+    logic signed [55:0] input_vector [0:IN_SIZE_4-1];
+    logic signed [71:0] output_vector [0:OUT_SIZE_4-1];
     
 
     // Instantiate the module under test (MUT)
