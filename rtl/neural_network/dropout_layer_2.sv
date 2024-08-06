@@ -2,11 +2,11 @@ import nn_parameters::*;
 module dropout_layer_2 (
     input clk,
     input rst,
-    input logic signed [39:0] input_vector [OUT_SIZE_2-1:0],
-    output logic signed [39:0] output_vector [OUT_SIZE_2-1:0]
+    input logic signed [43:0] input_vector [OUT_SIZE_2-1:0],
+    output logic signed [43:0] output_vector [OUT_SIZE_2-1:0]
 );
 
-    logic signed [39:0] output_vector_nxt [OUT_SIZE_2-1:0];
+    logic signed [43:0] output_vector_nxt [OUT_SIZE_2-1:0];
 
     integer i, k;
     real random_value;

@@ -5,7 +5,7 @@ module top_nn_tb;
     localparam OUT_SIZE = 3;    // Adjust to your actual output size
 
     // Testbench signals
-    logic signed [7:0] input_vector [0:IN_SIZE-1];  // Unpacked array
+    logic signed [:0] input_vector [0:IN_SIZE-1];  // Unpacked array
     logic [1:0] output_value;  // Unpacked array
     logic clk;
     logic rst;

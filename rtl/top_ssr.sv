@@ -8,19 +8,26 @@ module top_ssr(
 );
 
 logic [1:0] value;
-logic signed [7:0] input_vector [25:0];
+logic [11:0] adc_data;
+logic [11:0] features [25:0];
 example_mod u_example_mod(
     .clk,
     .rst,
     .sda,
     .scl,
-    .input_vector
+    .adc_data
+);
+top_ap u_top_ap(
+    .clk,
+    .rst,
+    .adc_data,
+    .output_vector(features)
 );
 top_nn u_top_nn(
     .clk,
     .rst,
-    .input_vector,
-    .output_value (value)
+    .input_vector(features),
+    .output_value(value)
 );
 led_logic u_led_logic(
     .clk,

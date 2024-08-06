@@ -3,27 +3,24 @@ module example_mod(
     input  logic rst,           // reset
     inout logic sda, 
     inout logic scl,           
-    output logic signed [7:0] input_vector [25:0]        // dioda
+    output logic [11:0] adc_data        
 );
 
-logic signed [7:0] input_vector_nxt [25:0];
+logic signed [11:0] adc_data_nxt;
 
-integer k;
 always_ff @(posedge clk) begin
     if(rst)begin
-    for (k = 0; k < 26; k++) 
-        input_vector[k] <= '0;
+        adc_data <= '0;
     end else begin
-        for (k = 0; k < 26; k++) 
-        input_vector[k] <= input_vector_nxt[k];
+        adc_data <= adc_data_nxt;
 end
 end
 
 always_comb begin
     if(sda == scl) 
-        input_vector_nxt[1] = 8'b00000001;
+        adc_data_nxt = 11'b00000000001;
     else
-        input_vector_nxt[1] = input_vector[1];
+        adc_data_nxt = adc_data;
 end
 
 endmodule

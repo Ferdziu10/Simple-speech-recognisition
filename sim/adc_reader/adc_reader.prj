@@ -1,0 +1,2 @@
+sv work ../../rtl/audio_processing/adc_reader.sv \
+        adc_reader_tb.sv

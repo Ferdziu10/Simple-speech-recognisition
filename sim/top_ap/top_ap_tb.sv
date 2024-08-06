@@ -1,0 +1,66 @@
+module top_ap_tb;
+
+    // Parameters
+    parameter DATA_WIDTH = 12; // ADC is 12-bit
+    parameter DATA_FILE = "../../python/generated_files/input_adcoff2.txt"; // File containing the ADC-like data
+
+    // Testbench signals
+    reg clk;
+    reg rst;
+    reg [DATA_WIDTH-1:0] adc_data;
+    wire [11:0] output_vector [0:25]; // Output from the module under test
+
+    // Instantiate the top_ap module
+    top_ap uut (
+        .clk(clk),
+        .rst(rst),
+        .adc_data(adc_data),
+        .output_vector(output_vector)
+    );
+
+    // Clock generation
+    always #5 clk = ~clk; // 100 MHz clock
+
+    // Load data from file and feed to DUT
+    initial begin
+        integer data_file;
+        integer scan_result;
+        reg [DATA_WIDTH-1:0] data;
+        
+        // Initialize
+        clk = 0;
+        rst = 1;
+        adc_data = 0;
+        
+        // Reset pulse
+        #10 rst = 0;
+        #10 rst = 1;
+
+        // Open data file
+        data_file = $fopen(DATA_FILE, "r");
+        if (data_file == 0) begin
+            $display("Error: could not open file %s", DATA_FILE);
+            $finish;
+        end
+        
+        // Read and apply data
+        while (!$feof(data_file)) begin
+            scan_result = $fscanf(data_file, "%h\n", data);
+            adc_data = data;
+            #10; // Wait for a few clock cycles to simulate processing time
+        end
+        
+        $fclose(data_file);
+        #100; // Wait to capture final outputs
+        $finish;
+    end
+
+    // Capture and display the processed data
+    always @(posedge clk) begin
+        if (rst) begin
+            $display("Time: %0t, ADC Data: %0h", $time, adc_data);
+            $display("Output Vector: %p", output_vector);
+        end
+    end
+
+endmodule

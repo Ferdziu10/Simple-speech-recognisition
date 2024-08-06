@@ -1,0 +1,5 @@
+sv work ../../rtl/audio_processing/adc_reader.sv \
+                ../../rtl/audio_processing/extractor_1.sv \
+                ../../rtl/audio_processing/extractor_2.sv \
+        ../../rtl/audio_processing/top_ap.sv \
+        top_ap_tb.sv
