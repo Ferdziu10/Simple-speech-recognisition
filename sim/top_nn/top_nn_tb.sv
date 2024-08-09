@@ -5,7 +5,7 @@ module top_nn_tb;
     localparam OUT_SIZE = 3;    // Adjust to your actual output size
 
     // Testbench signals
-    logic signed [:0] input_vector [0:IN_SIZE-1];  // Unpacked array
+    logic signed [11:0] input_vector [0:IN_SIZE-1];  // Unpacked array
     logic [1:0] output_value;  // Unpacked array
     logic clk;
     logic rst;
@@ -27,7 +27,7 @@ module top_nn_tb;
         #1000;
         rst = 0;
         // Initialize input_vector with values from a preprocessed WAV file
-        $readmemh("../../python/generated_files/input_vectoroff.mem", input_vector);
+        $readmemh("../../python/generated_files/input_vectoroth3.mem", input_vector);
 
         // Wait for some time to observe output
         #100;

@@ -1,8 +1,8 @@
 module log_comput (
     input logic clk,
     input logic reset,
-    input logic [15:0] mel_in [0:12],
-    output logic [15:0] log_out [0:12],
+    input logic [11:0] mel_in [0:12],
+    output logic [11:0] log_out [0:12],
     input logic mel_ready,
     output logic log_ready
 );

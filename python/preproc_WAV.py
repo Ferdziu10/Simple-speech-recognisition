@@ -32,8 +32,8 @@ def save_features_to_mem(features, mem_file, bit_width=16):
             f.write(f"{hex_val}\n")
 
 # Path to the WAV file
-wav_file_path = '/home/ferdek/PROJ/Simple-speech-recognisition/python/WAV/test/off8_aug_10.wav'
-mem_output_file = '/home/ferdek/PROJ/Simple-speech-recognisition/python/generated_files/input_vectoroff2.mem'
+wav_file_path = '/home/ferdek/PROJ/Simple-speech-recognisition/python/WAV/test/otherrec.wav'
+mem_output_file = '/home/ferdek/PROJ/Simple-speech-recognisition/python/generated_files/input_vectoroth3.mem'
 
 # Extract features
 features = extract_features(wav_file_path)

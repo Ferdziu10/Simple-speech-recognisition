@@ -1,13 +1,13 @@
 module framing (
     input logic clk,
     input logic rst,
-    input logic [15:0] sample_in,
-    output logic [15:0] frame_out [0:255],
+    input logic [11:0] sample_in,
+    output logic [11:0] frame_out [0:255],
     output logic frame_ready
 );
-    logic [15:0] frame_out_nxt [0:255];
-    logic [15:0] buffer [0:255];
-    logic [15:0] buffer_nxt [0:255];
+    logic [11:0] frame_out_nxt [0:255];
+    logic [11:0] buffer [0:255];
+    logic [11:0] buffer_nxt [0:255];
     logic [7:0] index;
     logic [7:0] index_nxt;
     logic frame_ready_nxt;
