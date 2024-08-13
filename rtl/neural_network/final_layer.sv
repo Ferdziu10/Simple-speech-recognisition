@@ -19,11 +19,12 @@ always_ff @(posedge clk) begin
 end
 
 always_comb begin
-        if(input_vector[0] > 0)
+        if(input_vector[0] > input_vector[1]) begin
+            if(input_vector[2] > input_vector[0])
             output_value_nxt = 2'b01;
-        else if(input_vector[2] > 0)
+            else
             output_value_nxt = 2'b10;
-        else
+        end else
         output_value_nxt = 2'b00;            
 end
 
