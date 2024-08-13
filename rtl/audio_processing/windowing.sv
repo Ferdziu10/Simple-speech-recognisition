@@ -7,9 +7,12 @@ module windowing (
     output logic window_ready
 );
 
-    // Hamming window coefficients in 12-bit fixed-point format
+    logic [11:0] windowed_frame_nxt [0:255];
+    logic window_ready_nxt;
     logic [11:0] hamming_window [0:255];
-    
+    logic [23:0] mult_result;
+    logic [23:0] mult_result_nxt;
+    integer i,k;
     // Initialize the Hamming window coefficients
     initial begin
         hamming_window[0] = 12'd0;
@@ -282,21 +285,32 @@ module windowing (
      //   end
    // end
 
-    always_ff @(posedge clk or posedge reset) begin
+    always_ff @(posedge clk) begin
         if (reset) begin
             window_ready <= 1'b0;
-        end else if (frame_ready) begin
-            for (integer i = 0; i < 256; i = i + 1) begin
-                // 12-bit frame * 12-bit window = 24-bit result
-                logic [23:0] mult_result;
-                mult_result = frame_in[i] * hamming_window[i];
-
-                // Right shift by 11 to get back to 12-bit
-                windowed_frame[i] <= mult_result[22:11];
-            end
-            window_ready <= 1'b1;
+            for (k = 0; k < 256; k++)
+            windowed_frame[k] <= 12'd0;
+            mult_result <= 24'd0;
         end else begin
-            window_ready <= 1'b0;
+            window_ready <= window_ready_nxt;
+            for (k = 0; k < 256; k++)
+            windowed_frame[k] <= windowed_frame_nxt[k];
+            mult_result <= mult_result_nxt;
+        end 
+    end
+
+    always_comb begin
+        if(frame_ready) begin
+            for (i = 0; i < 256; i++) begin
+                mult_result_nxt = frame_in[i] * hamming_window[i];
+                windowed_frame_nxt[i] = mult_result_nxt[22:11];
+            end
+            window_ready_nxt = 1'b1;
+        end else begin
+            for (i = 0; i < 256; i++) 
+                windowed_frame_nxt[i] = windowed_frame[i];
+            mult_result_nxt = mult_result;
+            window_ready_nxt = window_ready;
         end
     end
 
