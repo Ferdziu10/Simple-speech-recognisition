@@ -19,7 +19,7 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-module reshape_output#(parameter OUT_WIDTH=1)(
+module reshape_output#(parameter OUT_WIDTH=26)(
     input clk,
     input reset,
     input [15:0] in[40],

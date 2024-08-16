@@ -1,4 +1,4 @@
-module zero_padding_12_to_16 (
+module zero_padding (
     input  logic [11:0] data_in,   // 12-bitowe dane wejściowe
     output logic [15:0] data_out   // 16-bitowe dane wyjściowe
 );

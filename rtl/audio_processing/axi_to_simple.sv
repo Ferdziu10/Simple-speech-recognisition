@@ -1,6 +1,6 @@
 module axi_to_simple (
     input logic clk,
-    input logic reset,
+    input logic rst,
     input logic [15:0] axi_tdata,
     input logic axi_tvalid,
     output logic axi_tready,
@@ -10,8 +10,8 @@ module axi_to_simple (
     output logic simple_last_out   // Sygnał TLAST na wyjściu prostego interfejsu
 );
 
-always_ff @(posedge clk or posedge reset) begin
-    if (reset) begin
+always_ff @(posedge clk) begin
+    if (rst) begin
         simple_data_out <= 16'b0;
         simple_valid_out <= 1'b0;
         simple_last_out <= 1'b0;    // Zresetowanie sygnału TLAST

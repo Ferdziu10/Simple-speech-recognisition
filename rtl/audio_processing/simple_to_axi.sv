@@ -1,6 +1,6 @@
 module simple_to_axi (
     input logic clk,
-    input logic reset,
+    input logic rst,
     input logic [15:0] simple_data_in,
     input logic simple_valid_in,
     output logic simple_ready_out,
@@ -9,8 +9,8 @@ module simple_to_axi (
     input logic axi_tready
 );
 
-always_ff @(posedge clk or posedge reset) begin
-    if (reset) begin
+always_ff @(posedge clk) begin
+    if (rst) begin
         axi_tdata <= 16'b0;
         axi_tvalid <= 1'b0;
         simple_ready_out <= 1'b1;
