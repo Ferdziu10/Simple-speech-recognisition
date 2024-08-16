@@ -21,7 +21,7 @@ def process_wav_to_adc(file_path, output_file, adc_bits=12):
     with open(output_file, 'w') as f:
         for sample in adc_data:
             # Convert the sample to a 12-bit value in hexadecimal format
-            hex_val = format(sample & 0xFFF, '03x')  # Masking to ensure 12-bit value
+            hex_val = format(sample & 0xFFFF, '04x')  # Masking to ensure 12-bit value
             f.write(f"{hex_val}\n")
 
 

@@ -57,7 +57,7 @@ module mfcc
     logic filt_bank_ready;
     logic d_pow_spec_valid;
     logic q_pow_spec_valid;
-//    logic pow_spec_last;
+    logic pow_spec_last;
     logic reshape_ready;
     logic filt_bank_valid;
     
@@ -87,10 +87,10 @@ module mfcc
                                         .out(d_filter_bank_input),
                                         .s_ready(pow_spec_ready),
                                         .s_valid(qq_frame_valid),
-//                                        .s_last(s_last),
+                                        .s_last(s_last),
                                         .m_ready(filt_bank_ready),
-                                        .m_valid(d_pow_spec_valid)
-//                                        .m_last(pow_spec_last)
+                                        .m_valid(d_pow_spec_valid),
+                                        .m_last(pow_spec_last)
                                         );
                                   
     filter_bank#(.N(N/2)) my_filt_bank

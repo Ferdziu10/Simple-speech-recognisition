@@ -12,6 +12,10 @@ logic s_axi_tready;
 logic m_axis_tvalid;
 logic m_axis_tlast;
 logic m_axis_tready;
+logic simple_valid_in;
+logic simple_ready_out;
+logic simple_valid_out;
+logic simple_last_out;
 
 zero_padding u_zero_padding(
     .data_in(adc_data),
