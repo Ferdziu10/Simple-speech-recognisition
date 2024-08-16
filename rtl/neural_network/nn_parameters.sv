@@ -23,7 +23,4 @@ localparam OUT_SIZE_4 = 3;
 localparam WEIGHTS_FILE_4 = "../../python/generated_files/dense24_weights_hex.txt";
 localparam BIAS_FILE_4 = "../../python/generated_files/dense24_biases_hex.txt";
 
-//parameters for dropout layers
-localparam DROPOUT_RATE = 0.2;
-
 endpackage

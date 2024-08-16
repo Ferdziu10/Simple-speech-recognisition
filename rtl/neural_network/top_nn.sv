@@ -1,15 +1,15 @@
 module top_nn (
     input logic clk,
     input logic rst,
-    input logic signed [7:0] input_vector [0:IN_SIZE_1-1],
+    input logic signed [15:0] input_vector [0:IN_SIZE_1-1],
     output logic [1:0] output_value 
 );
     import nn_parameters::*;
 
-    logic signed [23:0] dslayer1_output [0:OUT_SIZE_1-1];
-    logic signed [39:0] dslayer2_output [0:OUT_SIZE_2-1];
-    logic signed [55:0] dslayer3_output [0:OUT_SIZE_3-1];
-    logic signed [71:0] dslayer4_output [0:OUT_SIZE_4-1];
+    logic signed [31:0] dslayer1_output [0:OUT_SIZE_1-1];
+    logic signed [47:0] dslayer2_output [0:OUT_SIZE_2-1];
+    logic signed [63:0] dslayer3_output [0:OUT_SIZE_3-1];
+    logic signed [79:0] dslayer4_output [0:OUT_SIZE_4-1];
 
 
     // Instantiate Dense Layers
