@@ -24,7 +24,7 @@ module mfcc_tb(
 
     );
     
-    localparam OUT_WIDTH = 5;
+    localparam OUT_WIDTH = 26;
     localparam N = 512;
     localparam STRIDE = 512;
     
