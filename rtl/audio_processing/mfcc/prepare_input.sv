@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module prepare_input #(parameter N=512, parameter STRIDE=64)(
+module prepare_input #(parameter N=512, parameter STRIDE=256)(
     input clk,
     input reset,
     input [15:0] in,

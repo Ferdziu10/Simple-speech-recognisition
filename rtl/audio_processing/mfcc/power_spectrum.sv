@@ -100,8 +100,8 @@ module power_spectrum #(parameter int N=512)(
                      .s_axis_data_tlast(s_last),
                      .m_axis_data_tdata({o_re, o_im}),
                      .m_axis_data_tvalid(fft_out_valid),
-                     .m_axis_data_tready(m_ready)
-//                     .m_axis_data_tlast(m_last)
+                     .m_axis_data_tready(m_ready),
+                     .m_axis_data_tlast(m_last)
                      );
 
     always_comb begin

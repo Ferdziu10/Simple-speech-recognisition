@@ -20,7 +20,31 @@ logic simple_last_out;
 zero_padding u_zero_padding(
     .data_in(adc_data),
     .data_out(ext_data)
-)
+);
+pre_empahsis u_pre_emphasis(
+    .clk,
+    .rst,
+    .smaple_in(ext_data),
+    .sample_out
+);
+framing u_framing(
+    .clk,
+    .rst,
+
+);
+windowing u_windowing(
+
+);
+top_fft u_top_fft(
+
+);
+filter_bank_v2 u_filter_bank_v2(
+
+);
+reshape_output u_reshape_output(
+
+);
+/*
 simple_to_axi u_simple_to_axi(
     .clk,
     .rst,
@@ -53,5 +77,6 @@ axi_to_simple u_axi_to_simple(
     .simple_valid_out,
     .simple_last_out
 );
+*/
 
 endmodule

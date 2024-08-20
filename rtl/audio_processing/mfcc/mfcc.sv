@@ -27,7 +27,7 @@ module mfcc
 
     parameter N = 512,          // Must be power of 2. Replace shift registers in hamming and filter_bank with python generated line when N is not 512
     parameter STRIDE = 256,     // Must be power of 2
-    parameter OUT_WIDTH = 26     // Must be between 1 and 40
+    parameter OUT_WIDTH = 5     // Must be between 1 and 40
     )(
     input clk,
     input reset,
