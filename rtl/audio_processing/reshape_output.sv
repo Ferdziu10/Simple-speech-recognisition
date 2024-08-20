@@ -25,11 +25,6 @@ module reshape_output#(parameter OUT_WIDTH=26)(
     input [15:0] in[40],
     output [15:0] out[OUT_WIDTH],
     
-    input s_valid,
-    output s_ready,
-    output m_valid,
-    input m_ready,
-    output m_last
     );
     localparam OUT_LENGTH = 40/OUT_WIDTH;
     
@@ -37,13 +32,8 @@ module reshape_output#(parameter OUT_WIDTH=26)(
     logic [5:0] q_counter;
     logic [5:0] d_counter;
     
-    logic d_valid;
-    logic q_valid;
-    
-    assign m_valid = q_valid;
-    assign m_last = q_counter == OUT_LENGTH-1;
     assign out = banks[0];
-    assign s_ready = !q_valid;
+
     
     always_comb begin
         if(s_valid & s_ready) begin

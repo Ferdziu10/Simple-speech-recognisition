@@ -17,32 +17,50 @@ logic simple_ready_out;
 logic simple_valid_out;
 logic simple_last_out;
 
-zero_padding u_zero_padding(
-    .data_in(adc_data),
-    .data_out(ext_data)
-);
 pre_empahsis u_pre_emphasis(
     .clk,
     .rst,
-    .smaple_in(ext_data),
+    .sample_in(adc_data),
     .sample_out
 );
 framing u_framing(
     .clk,
     .rst,
-
+    .sample_in,
+    .frame_out,
+    .frame_ready
 );
 windowing u_windowing(
-
+    .clk,
+    .rst,
+    .frame_in,
+    .frame_ready,
+    .window_ready,
+    .windowed_frame
 );
 top_fft u_top_fft(
-
+    .clk,
+    .rst,
+    .frame_in,
+    .fft_imag_out,
+    .fft_real_out,
+    .fft_done
 );
-filter_bank_v2 u_filter_bank_v2(
-
+zero_padding u_zero_padding(
+    .data_in(),
+    .data_out(ext_data)
+);
+mel_filter_bank u_filter_bank_v2(
+    .clk,
+    .rst,
+    .in,
+    .out
 );
 reshape_output u_reshape_output(
-
+    .clk,
+    .rst,
+    .in,
+    .out
 );
 /*
 simple_to_axi u_simple_to_axi(
