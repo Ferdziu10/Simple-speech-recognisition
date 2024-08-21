@@ -11,9 +11,9 @@ module mel_filter_bank_wrapper #(
     output [15:0] out[40]
 );
 
-    reg [31:0] sample_in;    // 32-bit sample to feed into the mel_filter_bank
-    reg [7:0] sample_index;  // Index to track which sample to feed next
-    wire internal_m_valid;   // Internal valid signal from the mel_filter_bank
+    logic [31:0] sample_in;    // 32-bit sample to feed into the mel_filter_bank
+    logic [7:0] sample_index;  // Index to track which sample to feed next
+    logic internal_m_valid;   // Internal valid signal from the mel_filter_bank
 
     // Instantiate the mel_filter_bank module
     mel_filter_bank #(.N(N)) filter_bank (
@@ -28,7 +28,7 @@ module mel_filter_bank_wrapper #(
     );
 
     // Manage sample feeding
-    always @(posedge clk or posedge reset) begin
+    always_ff @(posedge clk or posedge reset) begin
         if (reset) begin
             sample_index <= 0;
             sample_in <= 0;
