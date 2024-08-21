@@ -1,5 +1,5 @@
-module FFT #(
-    parameter   WIDTH = 12
+module FFT256 #(
+    parameter   WIDTH = 16
 )(
     input               clock,  //  Master Clock
     input               reset,  //  Active High Asynchronous Reset
