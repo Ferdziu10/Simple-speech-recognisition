@@ -1,0 +1,7 @@
+sv work ../../rtl/audio_processing/mel_filter/mel_filter_bank.sv \
+        ../../rtl/audio_processing/mel_filter/dB_LUT.sv \
+        ../../rtl/audio_processing/mel_filter/mel_filter_bank_wrapper.sv \
+        mel_filter_bank_wrapper_tb.sv
+verilog work ../common/glbl.v \
+../../rtl/audio_processing/ip/mult_gen_1/mult_gen_1_stub.v 
+
