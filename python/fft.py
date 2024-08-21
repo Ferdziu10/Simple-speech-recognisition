@@ -20,7 +20,7 @@ def fft_12bit(input_data):
         raise ValueError("Input data must have exactly 256 points.")
 
     # Convert input data to complex numbers with imaginary part = 0
-    input_complex = np.array([inverse_twos_complement(x, 12) for x in input_data], dtype=np.complex64)
+    input_complex = np.array([inverse_twos_complement(x, 16) for x in input_data], dtype=np.complex64)
 
     # Perform FFT
     fft_result = np.fft.fft(input_complex, norm = "forward")
@@ -30,19 +30,19 @@ def fft_12bit(input_data):
     imag_part = np.imag(fft_result).astype(np.int16)
 
     # Clip the real and imaginary parts to fit within 12-bit signed integer range
-    real_part_clipped = np.clip(real_part, a_min = -2048,a_max = 2047)
-    imag_part_clipped = np.clip(imag_part, a_min = -2048,a_max = 2047)
+    real_part_clipped = np.clip(real_part, a_min = -32768,a_max = 32767)
+    imag_part_clipped = np.clip(imag_part, a_min = -32768,a_max = 32767)
 
     # Convert back to two's complement format
-    real_part_12bit = [twos_complement(int(val), 12) for val in real_part_clipped]
-    imag_part_12bit = [twos_complement(int(val), 12) for val in imag_part_clipped]
+    real_part_12bit = [twos_complement(int(val), 16) for val in real_part_clipped]
+    imag_part_12bit = [twos_complement(int(val), 16) for val in imag_part_clipped]
 
     return real_part_12bit, imag_part_12bit
 
 # Example test
 if __name__ == "__main__":
     # Generate example 12-bit input data (values between -2048 and 2047)
-    input_data = np.random.randint(-2048, 2048, size=256).tolist()
+    input_data = np.random.randint(-32768, 32768, size=256).tolist()
 
     # Perform FFT
     real_output, imag_output = fft_12bit(input_data)
