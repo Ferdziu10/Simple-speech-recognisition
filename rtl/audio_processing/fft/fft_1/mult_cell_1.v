@@ -47,7 +47,7 @@ always @(posedge clk or negedge rst_n) begin
     else if(en) begin
         mult_1_shift <= mult_1 << 1;
         rdy <= 1;
-        mult_2_shift <= {0, mult_2[7:1]};
+        mult_2_shift <= {8'd0, mult_2[7:1]};
         if(mult_2[0]) begin
             mult_next <= mult_pre + mult_1;
         end

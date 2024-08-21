@@ -40,7 +40,7 @@ module booth_top_1(
 	booth_1 uut0 (
     	.mult_1({mult_1[1:0],1'b0}),
     	.mult_2(mult_2),
-    	.mult_pre(0),
+    	.mult_pre(24'd0),
     	.clk(clk),
     	.rst_n(rst_n),
     	.en(en),
@@ -51,7 +51,7 @@ module booth_top_1(
 	booth_1 uut1 (
     	.mult_1({mult_1[3:1]}),
     	.mult_2(mult_2),
-    	.mult_pre(0),
+    	.mult_pre(24'd0),
     	.clk(clk),
     	.rst_n(rst_n),
     	.en(en),
@@ -62,7 +62,7 @@ module booth_top_1(
 	booth_1 uut2 (
     	.mult_1({mult_1[5:3]}),
     	.mult_2(mult_2),
-    	.mult_pre(0),
+    	.mult_pre(24'd0),
     	.clk(clk),
     	.rst_n(rst_n),
     	.en(en),
@@ -73,7 +73,7 @@ module booth_top_1(
 	booth_1 uut3 (
     	.mult_1({mult_1[7:5]}),
     	.mult_2(mult_2),
-    	.mult_pre(0),
+    	.mult_pre(24'd0),
     	.clk(clk),
     	.rst_n(rst_n),
     	.en(en),
@@ -83,7 +83,7 @@ module booth_top_1(
 	booth_1 uut4 (
     	.mult_1({mult_1[9:7]}),
     	.mult_2(mult_2),
-    	.mult_pre(0),
+    	.mult_pre(24'd0),
     	.clk(clk),
     	.rst_n(rst_n),
     	.en(en),
@@ -93,7 +93,7 @@ module booth_top_1(
 	booth_1 uut5 (
     	.mult_1({mult_1[11:9]}),
     	.mult_2(mult_2),
-    	.mult_pre(0),
+    	.mult_pre(24'd0),
     	.clk(clk),
     	.rst_n(rst_n),
     	.en(en),

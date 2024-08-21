@@ -65,7 +65,7 @@ module butterfly_1(
     	.d(x_n_0_img),
     	.clk(clk),
     	.rst_n(rst_n),
-    	.en(1),
+    	.en(1'd1),
     	.result_img(result_img),
 		.result_real(result_real)
     );
