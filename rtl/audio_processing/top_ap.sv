@@ -50,11 +50,21 @@ zero_padding u_zero_padding(
     .data_in(),
     .data_out(ext_data)
 );
-mel_filter_bank u_filter_bank_v2(
+axi_set u_axi_set(
+    .clk,
+    .rst,
+    .m_ready,
+    .s_valid
+);
+mel_filter_bank_wrapper u_mel_filter_bank_wrapper(
     .clk,
     .rst,
     .in,
-    .out
+    .out,
+    .s_ready,
+    .m_valid,
+    .s_valid,
+    .m_ready
 );
 reshape_output u_reshape_output(
     .clk,
