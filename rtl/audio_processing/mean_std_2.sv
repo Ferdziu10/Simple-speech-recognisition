@@ -1,14 +1,14 @@
 `timescale 1ns / 1ps
 
-module extractor_2 (
+module mean_std_2 (
     input logic clk,
     input logic rst,
-    input logic [23:0] sum,
-    input logic [23:0] sum_sq,
-    output logic [11:0] features [25:0]
+    input logic [31:0] sum,
+    input logic [31:0] sum_sq,
+    output logic [15:0] features [25:0]
 );
 
-logic [11:0] features_nxt [25:0];
+logic [15:0] features_nxt [25:0];
 
 
 integer i,k;

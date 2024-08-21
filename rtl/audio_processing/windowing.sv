@@ -1,6 +1,6 @@
 module windowing (
     input logic clk,
-    input logic reset,
+    input logic rst,
     input logic [11:0] frame_in [0:255],
     output logic [11:0] windowed_frame [0:255],
     input logic frame_ready,
@@ -286,7 +286,7 @@ hamming_window[255] = 12'd164;
    // end
 
     always_ff @(posedge clk) begin
-        if (reset) begin
+        if (rst) begin
             window_ready <= 1'b0;
             for (k = 0; k < 256; k++)
             windowed_frame[k] <= 12'd0;

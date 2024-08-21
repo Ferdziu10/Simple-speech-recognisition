@@ -1,15 +1,15 @@
 `timescale 1ns / 1ps
 
-module extractor_1 (
+module mean_std_1 (
     input logic clk,
     input logic rst,
-    input logic [11:0] data_in [0:255],
-    output logic [23:0] sum,
-    output logic [23:0] sum_sq 
+    input logic [15:0] data_in [0:39],
+    output logic [31:0] sum,
+    output logic [31:0] sum_sq 
 );
 
-logic [23:0] sum_nxt;
-logic [23:0] sum_sq_nxt;
+logic [31:0] sum_nxt;
+logic [31:0] sum_sq_nxt;
 
 integer i,k;
 
@@ -24,7 +24,7 @@ always_ff @(posedge clk) begin
 end
 
 always_comb begin
-    for (i = 0; i < 256; i++) begin
+    for (i = 0; i < 40; i++) begin
         sum_nxt = sum + data_in [i];
         sum_sq_nxt = sum_sq + data_in [i] * data_in [i];
     end

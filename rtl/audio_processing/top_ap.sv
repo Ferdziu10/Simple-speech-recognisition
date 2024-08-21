@@ -4,18 +4,14 @@ module top_ap(
     input logic [11:0] adc_data,
     output logic [15:0] output_vector [25:0]
 );
-logic [15:0] ext_data;
-logic [15:0] axi_indata;
-logic [15:0] axi_outdata [25:0];
-logic s_axis_tvalid;
-logic s_axi_tready;
-logic m_axis_tvalid;
-logic m_axis_tlast;
-logic m_axis_tready;
-logic simple_valid_in;
-logic simple_ready_out;
-logic simple_valid_out;
-logic simple_last_out;
+logic s_valid;
+logic s_ready;
+logic m_valid;
+logic m_ready;
+logic [15:0] mel_out [39:0];
+logic [15:0] reshape_out [39:0];
+logic [31:0] sum;
+logic [31:0] sum_sq;
 
 pre_empahsis u_pre_emphasis(
     .clk,
@@ -48,7 +44,7 @@ top_fft u_top_fft(
 );
 zero_padding u_zero_padding(
     .data_in(),
-    .data_out(ext_data)
+    .data_out()
 );
 axi_set u_axi_set(
     .clk,
@@ -59,8 +55,8 @@ axi_set u_axi_set(
 mel_filter_bank_wrapper u_mel_filter_bank_wrapper(
     .clk,
     .rst,
-    .in,
-    .out,
+    .in(),
+    .out(mel_out),
     .s_ready,
     .m_valid,
     .s_valid,
@@ -69,9 +65,23 @@ mel_filter_bank_wrapper u_mel_filter_bank_wrapper(
 reshape_output u_reshape_output(
     .clk,
     .rst,
-    .in,
-    .out
+    .in(mel_out),
+    .out(reshape_out)
 );
+mean_std_1 u_mean_std_1(
+    .clk,
+    .rst,
+    .data_in(reshape_out),
+    .sum,
+    .sum_sq
+);
+mean_std_2 u_mean_std_2(
+    .clk,
+    .rst,
+    .sum,
+    .sum_sq,
+    .features(output_vector)
+)
 /*
 simple_to_axi u_simple_to_axi(
     .clk,
