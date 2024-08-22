@@ -1,5 +1,0 @@
-sv work  tiff_writer.sv \
-         tb_pmod_ad7991.sv
-
-vhdl work   ../rtl/adc/i2c_master.vhd \
-            ../rtl/adc/pmod_adc_ad7991.vhd

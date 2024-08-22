@@ -1,0 +1,4 @@
+sv work  tb_pmod.sv
+
+vhdl work   ../../rtl/adc/i2c_master.vhd \
+            ../../rtl/adc/pmod_adc_ad7991.vhd
