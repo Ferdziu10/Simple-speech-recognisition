@@ -47,8 +47,8 @@ module magnitude(
             end
         
 
-        // Wynik końcowy to przybliżone x po zakończeniu iteracji
-        magnitude = x;
+            // Wynik końcowy to przybliżone x po zakończeniu iteracji
+            magnitude = x;
         end
     end
 
