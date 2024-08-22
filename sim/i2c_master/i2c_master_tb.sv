@@ -1,4 +1,4 @@
-module tb_i2c_master();
+module i2c_master_tb();
 
   // Parameters
   localparam input_clk = 50000000;
