@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module pmod_tb;
+module tb_pmod_adc_ad7991;
 
   // Parametry testbench
   parameter sys_clk_freq = 50_000_000; // 50 MHz system clock
@@ -9,13 +9,16 @@ module pmod_tb;
   // Sygnaly testbench
   logic clk;
   logic reset_n;
-  tri scl;  // sygnał SCL jako tri-state (może być sterowany lub odczytywany)
-  tri sda;  // sygnał SDA jako tri-state (może być sterowany lub odczytywany)
+  logic scl;  // sygnał SCL jako logic
+  reg sda;    // sygnał SDA jako reg
   logic i2c_ack_err;
   logic [11:0] adc_ch0_data;
   logic [11:0] adc_ch1_data;
   logic [11:0] adc_ch2_data;
   logic [11:0] adc_ch3_data;
+
+  // Trójstanowa wersja sda
+  assign sda_tri = (sda_out_en) ? sda : 1'bz;
 
   // Instancja DUT (Device Under Test)
   pmod_adc_ad7991 #(
@@ -24,7 +27,7 @@ module pmod_tb;
     .clk(clk),
     .reset_n(reset_n),
     .scl(scl),
-    .sda(sda),
+    .sda(sda_tri),
     .i2c_ack_err(i2c_ack_err),
     .adc_ch0_data(adc_ch0_data),
     .adc_ch1_data(adc_ch1_data),
@@ -108,8 +111,10 @@ module pmod_tb;
     begin
       for (i = 7; i >= 0; i = i - 1) begin
         @(posedge scl);
+        sda_out_en = 1;  // Włącz sterowanie linią SDA
         sda = data[i];
         @(negedge scl);
+        sda_out_en = 0;  // Wyłącz sterowanie linią SDA (trójstan)
       end
     end
   endtask
