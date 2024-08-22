@@ -11,6 +11,9 @@ module tb_pmod_adc_ad7991;
   logic reset_n;
   logic scl;  // sygnał SCL jako logic
   reg sda;    // sygnał SDA jako reg
+  logic sda_out_en; // sygnał kontrolujący wyjście SDA (enable)
+  wire sda_tri; // połączony sygnał SDA trójstanowy
+
   logic i2c_ack_err;
   logic [11:0] adc_ch0_data;
   logic [11:0] adc_ch1_data;
@@ -47,7 +50,9 @@ module tb_pmod_adc_ad7991;
 
     // Inicjalizacja sygnałów
     reset_n = 0;
-    #100; // Czekaj 100 ns
+    sda_out_en = 0; // Wyłączamy kontrolę SDA na początku
+    sda = 1'bz;     // Ustawiamy SDA w stan wysokiej impedancji
+    #100;           // Czekaj 100 ns
     reset_n = 1;
 
     // Symulacja prostych danych na magistrali I2C
@@ -115,6 +120,7 @@ module tb_pmod_adc_ad7991;
         sda = data[i];
         @(negedge scl);
         sda_out_en = 0;  // Wyłącz sterowanie linią SDA (trójstan)
+        sda = 1'bz;
       end
     end
   endtask
