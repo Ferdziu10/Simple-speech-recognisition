@@ -1,0 +1,5 @@
+sv work magnitude_tb.sv \
+        ../../rtl/audio_processing/magnitude.sv 
+
+
+        

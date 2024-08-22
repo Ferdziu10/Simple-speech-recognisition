@@ -1,4 +1,4 @@
-module complex_magnitude(
+module magnitude(
     input  logic [15:0] real_part,   // 16-bitowa część rzeczywista
     input  logic [15:0] imag_part,   // 16-bitowa część urojona
     output logic [31:0] magnitude    // 32-bitowy wynik (moduł)
