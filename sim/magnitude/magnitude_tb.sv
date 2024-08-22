@@ -6,7 +6,7 @@ module magnitude_tb;
     logic [31:0] magnitude;
 
     // Instancja testowanego modułu
-    complex_magnitude uut (
+    magnitude uut (
         .real_part(real_part),
         .imag_part(imag_part),
         .magnitude(magnitude)

@@ -19,24 +19,32 @@ module magnitude(
 
     // Obliczanie kwadratów i sumy kwadratów części rzeczywistej i urojonej
     always_comb begin
-        real_squared = real_part * real_part;
-        imag_squared = imag_part * imag_part;
-        sum_squares  = real_squared + imag_squared;
-        //magnitude    = $sqrt(sum_squares);  // Obliczanie pierwiastka kwadratowego z sumy kwadratów
+        if( real_part == 0 && imag_part == 0)
+            magnitude = 0;
+        else if(real_part == 0)
+            magnitude = imag_part;
+        else if(imag_part == 0)
+            magnitude = real_part;
+        else begin
+            real_squared = real_part * real_part;
+            imag_squared = imag_part * imag_part;
+            sum_squares  = real_squared + imag_squared;
+            //magnitude    = $sqrt(sum_squares);  // Obliczanie pierwiastka kwadratowego z sumy kwadratów
 
-        // Inicjalizacja przybliżenia
-        x = sum_squares;
+            // Inicjalizacja przybliżenia
+            x = sum_squares;
 
-        // Iteracyjny proces algorytmu Newtona-Raphsona
-        for (int i = 0; i < ITERATIONS; i++) begin
-            x_next = (x + sum_squares / x) >> 1; // x_next = (x + sum_squares / x) / 2
-            error = (x > x_next) ? (x - x_next) : (x_next - x);
+            // Iteracyjny proces algorytmu Newtona-Raphsona
+            for (int i = 0; i < ITERATIONS; i++) begin
+                x_next = (x + sum_squares / x) >> 1; // x_next = (x + sum_squares / x) / 2
+                error = (x > x_next) ? (x - x_next) : (x_next - x);
 
-            // Jeżeli różnica między kolejnymi przybliżeniami jest mała, można przerwać iterację
-            if (error < 1) begin
-                break;
+                // Jeżeli różnica między kolejnymi przybliżeniami jest mała, można przerwać iterację
+                if (error < 1) begin
+                    break;
+                end
+                x = x_next;
             end
-            x = x_next;
         end
 
         // Wynik końcowy to przybliżone x po zakończeniu iteracji
