@@ -45,10 +45,11 @@ module magnitude(
                 end
                 x = x_next;
             end
-        end
+        
 
         // Wynik końcowy to przybliżone x po zakończeniu iteracji
         magnitude = x;
+        end
     end
 
 endmodule
