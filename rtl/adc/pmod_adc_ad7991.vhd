@@ -39,7 +39,7 @@ ENTITY pmod_adc_ad7991 IS
 END pmod_adc_ad7991;
 
 ARCHITECTURE behavior OF pmod_adc_ad7991 IS
-  TYPE machine IS(start, read_data, output_result);     --needed states
+  TYPE machine IS (start, read_data, output_result);     --needed states
   SIGNAL state        : machine;                        --state machine
   SIGNAL config       : STD_LOGIC_VECTOR(7 DOWNTO 0);   --value to set the Sensor Configuration Register
   SIGNAL i2c_ena      : STD_LOGIC;                      --i2c enable signal
@@ -67,7 +67,7 @@ ARCHITECTURE behavior OF pmod_adc_ad7991 IS
       data_wr   : IN     STD_LOGIC_VECTOR(7 DOWNTO 0); --data to write to slave
       busy      : OUT    STD_LOGIC;                    --indicates transaction in progress
       data_rd   : OUT    STD_LOGIC_VECTOR(7 DOWNTO 0); --data read from slave
-      ack_error : BUFFER STD_LOGIC;                    --flag if improper acknowledge from slave
+      ack_error : OUT    STD_LOGIC;                    --flag if improper acknowledge from slave
       sda       : INOUT  STD_LOGIC;                    --serial data output of i2c bus
       scl       : INOUT  STD_LOGIC);                   --serial clock output of i2c bus
   END COMPONENT;
@@ -83,7 +83,7 @@ BEGIN
              scl => scl);
 
   PROCESS(clk, reset_n)
-    VARIABLE busy_cnt : INTEGER RANGE 0 TO 8 := 0;               --counts the busy signal transistions during one transaction
+    VARIABLE busy_cnt : INTEGER RANGE 0 TO 8 := 0;               --counts the busy signal transitions during one transaction
     VARIABLE counter  : INTEGER RANGE 0 TO sys_clk_freq/10 := 0; --counts 100ms to wait before communicating
   BEGIN
     IF(reset_n = '0') THEN               --reset activated
@@ -104,7 +104,7 @@ BEGIN
             counter := counter + 1;              --increment counter
           ELSE                                 --100ms reached
             counter := 0;                        --clear counter
-            state <= read_data;                  --initate ADC conversions and retrieve data
+            state <= read_data;                  --initiate ADC conversions and retrieve data
           END IF;
         
         --initiate ADC conversions and retrieve data
@@ -141,53 +141,34 @@ BEGIN
             WHEN 6 =>                                       --6th busy high: command 6 latched, okay to issue command 2
               IF(i2c_busy = '0') THEN                         --indicates data read in command 6 is ready
                 adc_buffer_c(7 DOWNTO 0) <= i2c_data_rd;        --retrieve LSB data from command 6
-              END IF;  
+              END IF;
             WHEN 7 =>                                       --7th busy high: command 7 latched, okay to issue command 2
               IF(i2c_busy = '0') THEN                         --indicates data read in command 7 is ready
                 adc_buffer_d(15 DOWNTO 8) <= i2c_data_rd;       --retrieve MSB data from command 7
-              END IF;          
-            WHEN 8 =>                                       --8th busy high: command 8 latched
-              i2c_ena <= '0';                                 --deassert enable to stop transaction after command 8
+              END IF;
+            WHEN 8 =>                                       --8th busy high: command 8 latched, okay to issue command 2
               IF(i2c_busy = '0') THEN                         --indicates data read in command 8 is ready
                 adc_buffer_d(7 DOWNTO 0) <= i2c_data_rd;        --retrieve LSB data from command 8
-                busy_cnt := 0;                                  --reset busy_cnt for next transaction
-                state <= output_result;                         --output the results
+                busy_cnt := 0;                                --clear the busy counter
+                i2c_ena <= '0';                               --clear the i2c enable signal
+                state <= output_result;                       --output the read result
               END IF;
-            WHEN OTHERS => NULL;
+            WHEN OTHERS =>
+              NULL;
           END CASE;
 
-        --match received ADC data to outputs
+        --output result to ADC channels
         WHEN output_result =>
-          CASE adc_buffer_a(13 DOWNTO 12) IS             --determine which channel was read first
-            WHEN "00" =>                                   --first data read was channel 0
-              adc_ch0_data <= adc_buffer_a(11 DOWNTO 0);     --write ADC channel 0 data to output
-              adc_ch1_data <= adc_buffer_b(11 DOWNTO 0);     --write ADC channel 1 data to output
-              adc_ch2_data <= adc_buffer_c(11 DOWNTO 0);     --write ADC channel 2 data to output
-              adc_ch3_data <= adc_buffer_d(11 DOWNTO 0);     --write ADC channel 3 data to output
-            WHEN "01" =>                                   --first data read was channel 1
-              adc_ch1_data <= adc_buffer_a(11 DOWNTO 0);     --write ADC channel 1 data to output
-              adc_ch2_data <= adc_buffer_b(11 DOWNTO 0);     --write ADC channel 2 data to output
-              adc_ch3_data <= adc_buffer_c(11 DOWNTO 0);     --write ADC channel 3 data to output
-              adc_ch0_data <= adc_buffer_d(11 DOWNTO 0);     --write ADC channel 0 data to output
-            WHEN "10" =>                                   --first data read was channel 2
-              adc_ch2_data <= adc_buffer_a(11 DOWNTO 0);     --write ADC channel 2 data to output
-              adc_ch3_data <= adc_buffer_b(11 DOWNTO 0);     --write ADC channel 3 data to output
-              adc_ch0_data <= adc_buffer_c(11 DOWNTO 0);     --write ADC channel 0 data to output
-              adc_ch1_data <= adc_buffer_d(11 DOWNTO 0);     --write ADC channel 1 data to output
-            WHEN "11" =>                                   --first data read was channel 3
-              adc_ch3_data <= adc_buffer_a(11 DOWNTO 0);     --write ADC channel 3 data to output
-              adc_ch0_data <= adc_buffer_b(11 DOWNTO 0);     --write ADC channel 0 data to output
-              adc_ch1_data <= adc_buffer_c(11 DOWNTO 0);     --write ADC channel 1 data to output
-              adc_ch2_data <= adc_buffer_d(11 DOWNTO 0);     --write ADC channel 2 data to output
-            WHEN OTHERS => NULL;
-          END CASE;       
-          state <= read_data;                            --initiate next conversions and retrieve data
-
-        --default to start state
+          adc_ch0_data <= adc_buffer_a(15 DOWNTO 4);      --Channel 0 conversion result
+          adc_ch1_data <= adc_buffer_b(15 DOWNTO 4);      --Channel 1 conversion result
+          adc_ch2_data <= adc_buffer_c(15 DOWNTO 4);      --Channel 2 conversion result
+          adc_ch3_data <= adc_buffer_d(15 DOWNTO 4);      --Channel 3 conversion result
+          state <= read_data;                             --go back to beginning of read process to get more data
+          
         WHEN OTHERS =>
-          state <= start;
-
+          NULL;
       END CASE;
     END IF;
-  END PROCESS;   
+  END PROCESS;
 END behavior;
+
