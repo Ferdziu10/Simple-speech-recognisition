@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module pmod;
+module pmod_tb;
 
   // Parametry testbench
   parameter sys_clk_freq = 50_000_000; // 50 MHz system clock
