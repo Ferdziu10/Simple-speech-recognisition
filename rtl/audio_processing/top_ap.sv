@@ -12,50 +12,75 @@ logic [15:0] mel_out [39:0];
 logic [15:0] reshape_out [39:0];
 logic [31:0] sum;
 logic [31:0] sum_sq;
+logic [15:0] imag_out;
+logic [15:0] real_out;
+logic [31:0] magnitude;
+logic [11:0] emph_out;
+logic [11:0] framed_out [255:0];
+logic frame_ready;
+logic window_ready;
+logic [11:0] window_out [255:0];
+logic [11:0] wrap_win;
+logic [15:0] shift_win;
+
 
 pre_empahsis u_pre_emphasis(
     .clk,
     .rst,
     .sample_in(adc_data),
-    .sample_out
+    .sample_out(emph_out)
 );
 framing u_framing(
     .clk,
     .rst,
-    .sample_in,
-    .frame_out,
+    .sample_in(emph_out),
+    .frame_out(framed_out),
     .frame_ready
 );
 windowing u_windowing(
     .clk,
     .rst,
-    .frame_in,
+    .frame_in(framed_out),
     .frame_ready,
     .window_ready,
-    .windowed_frame
+    .windowed_frame(window_out)
 );
-top_fft u_top_fft(
-    .clk,
-    .rst,
-    .frame_in,
-    .fft_imag_out,
-    .fft_real_out,
-    .fft_done
+wrapper u_wrapper(
+    //.in(window_out),
+    //.out(wrap_win)
+//tbd
 );
 zero_padding u_zero_padding(
-    .data_in(),
-    .data_out()
+    .data_in(wrap_win),
+    .data_out(shift_win)
 );
+
+FFT256 u_FFT256(
+    .clock(clk),
+    .reset(rst),
+    .di_en,
+    .di_re(shift_win),
+    .di_im('0),
+    .do_im(imag_out),
+    .do_re(real_out),
+    .do_en
+);
+magnitude u_magnitude(
+    .imag_part(imag_out),
+    .real_part(real_out),
+    .magnitude
+);
+
 axi_set u_axi_set(
     .clk,
     .rst,
     .m_ready,
     .s_valid
 );
-mel_filter_bank_wrapper u_mel_filter_bank_wrapper(
+mel_filter_bank u_mel_filter_bank(
     .clk,
     .rst,
-    .in(),
+    .in(magnitude),
     .out(mel_out),
     .s_ready,
     .m_valid,
