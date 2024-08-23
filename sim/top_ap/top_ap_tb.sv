@@ -8,7 +8,7 @@ module top_ap_tb;
     reg clk;
     reg rst;
     reg [DATA_WIDTH-1:0] adc_data;
-    wire [11:0] output_vector [0:25]; // Output from the module under test
+    wire [15:0] output_vector [0:25]; // Output from the module under test
 
     // Instantiate the top_ap module
     top_ap uut (
@@ -35,6 +35,7 @@ module top_ap_tb;
         // Reset pulse
         #10 rst = 0;
         #10 rst = 1;
+        rst = 0;
 
         // Open data file
         data_file = $fopen(DATA_FILE, "r");

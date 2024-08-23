@@ -18,7 +18,7 @@ module pre_emphasis (
         end
     end
     always_comb begin
-        sample_out_nxt = sample_in - (prev_sample >>> 1);
+        sample_out_nxt = sample_in; //- (prev_sample >>> 1);
         prev_sample_nxt = sample_in;
     end
 endmodule

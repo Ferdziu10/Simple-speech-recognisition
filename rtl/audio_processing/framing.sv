@@ -31,7 +31,7 @@ module framing (
         end
     end
     always_comb begin
-        buffer[index] <= sample_in;
+        buffer_nxt[index] <= sample_in;
         if (index == 8'd255) begin
             index_nxt = 8'd0;
             frame_ready_nxt = 1'b1;

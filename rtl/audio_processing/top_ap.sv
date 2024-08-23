@@ -4,10 +4,10 @@ module top_ap(
     input logic [11:0] adc_data,
     output logic [15:0] output_vector [25:0]
 );
-logic s_valid;
-logic s_ready;
-logic m_valid;
-logic m_ready;
+logic s_ready_res;
+logic s_ready_mel;
+logic m_valid_mel;
+logic m_valid_res;
 logic [15:0] mel_out [39:0];
 logic [15:0] reshape_out [39:0];
 logic [31:0] sum;
@@ -19,12 +19,14 @@ logic [11:0] emph_out;
 logic [11:0] framed_out [255:0];
 logic frame_ready;
 logic window_ready;
+logic wrapper_ready;
+logic fft_ready;
 logic [11:0] window_out [255:0];
 logic [11:0] wrap_win;
 logic [15:0] shift_win;
 
 
-pre_empahsis u_pre_emphasis(
+pre_emphasis u_pre_emphasis(
     .clk,
     .rst,
     .sample_in(adc_data),
@@ -46,9 +48,12 @@ windowing u_windowing(
     .windowed_frame(window_out)
 );
 wrapper u_wrapper(
-    //.in(window_out),
-    //.out(wrap_win)
-//tbd
+    .clk,
+    .rst,
+    .window_ready,
+    .wrapper_ready,
+    .in(window_out),
+    .out(wrap_win)
 );
 zero_padding u_zero_padding(
     .data_in(wrap_win),
@@ -58,41 +63,41 @@ zero_padding u_zero_padding(
 FFT256 u_FFT256(
     .clock(clk),
     .reset(rst),
-    .di_en,
+    .di_en(wrapper_ready),
     .di_re(shift_win),
     .di_im('0),
     .do_im(imag_out),
     .do_re(real_out),
-    .do_en
+    .do_en(fft_ready)
 );
+
 magnitude u_magnitude(
     .imag_part(imag_out),
     .real_part(real_out),
     .magnitude
 );
 
-axi_set u_axi_set(
-    .clk,
-    .rst,
-    .m_ready,
-    .s_valid
-);
 mel_filter_bank u_mel_filter_bank(
     .clk,
-    .rst,
+    .reset(rst),
     .in(magnitude),
     .out(mel_out),
-    .s_ready,
-    .m_valid,
-    .s_valid,
-    .m_ready
+    .s_ready(s_ready_mel),
+    .m_valid(m_valid_mel),
+    .s_valid(fft_ready),
+    .m_ready(fft_ready)
 );
 reshape_output u_reshape_output(
     .clk,
-    .rst,
+    .reset(rst),
     .in(mel_out),
-    .out(reshape_out)
+    .out(reshape_out),
+    .s_ready(s_ready_res),
+    .s_valid(m_valid_mel),
+    .m_ready(m_valid_mel),
+    .m_valid(m_valid_res)
 );
+///TBD
 mean_std_1 u_mean_std_1(
     .clk,
     .rst,
@@ -106,7 +111,7 @@ mean_std_2 u_mean_std_2(
     .sum,
     .sum_sq,
     .features(output_vector)
-)
+);
 /*
 simple_to_axi u_simple_to_axi(
     .clk,

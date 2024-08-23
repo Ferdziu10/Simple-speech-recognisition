@@ -1,5 +1,20 @@
-sv work ../../rtl/audio_processing/adc_reader.sv \
-                ../../rtl/audio_processing/extractor_1.sv \
-                ../../rtl/audio_processing/extractor_2.sv \
+sv work ../../rtl/audio_processing/pre_emphasis.sv \
+        ../../rtl/audio_processing/framing.sv \
+        ../../rtl/audio_processing/windowing.sv \
+        ../../rtl/audio_processing/wrapper.sv \
+        ../../rtl/audio_processing/zero_padding.sv \
+        ../../rtl/audio_processing/mel_filter/mel_filter_bank.sv \
+        ../../rtl/audio_processing/mel_filter/dB_LUT.sv \
+        ../../rtl/audio_processing/reshape_output.sv \
+        ../../rtl/audio_processing/magnitude.sv \
+        ../../rtl/audio_processing/mean_std_1.sv \
+        ../../rtl/audio_processing/mean_std_2.sv \
         ../../rtl/audio_processing/top_ap.sv \
         top_ap_tb.sv
+verilog work ../../rtl/audio_processing/fftv2/Butterfly.v \
+        ../../rtl/audio_processing/fftv2/DelayBuffer.v \
+        ../../rtl/audio_processing/fftv2/FFT256.v \
+        ../../rtl/audio_processing/fftv2/Multiply.v \
+        ../../rtl/audio_processing/fftv2/SdfUnit.v \
+        ../../rtl/audio_processing/ip/mult_gen_1/mult_gen_1_stub.v \
+        ../../rtl/audio_processing/fftv2/Twiddle256.v 
