@@ -67,7 +67,7 @@ module mean_std (
             end
         end
 
-        tddev_nxt = guess;
+        stddev_nxt = guess;
     end
 
 
