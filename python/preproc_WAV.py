@@ -14,6 +14,7 @@ def extract_features(file_path):
     mfccs = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=13)
     mfccs_mean = np.mean(mfccs, axis=1)
     mfccs_std = np.std(mfccs, axis=1)
+    print(mfccs)
     return np.concatenate([mfccs_mean, mfccs_std])
 
 def save_features_to_mem(features, mem_file, bit_width=16):
@@ -32,8 +33,8 @@ def save_features_to_mem(features, mem_file, bit_width=16):
             f.write(f"{hex_val}\n")
 
 # Path to the WAV file
-wav_file_path = '/home/ferdek/PROJ/Simple-speech-recognisition/python/WAV/test/otherrec.wav'
-mem_output_file = '/home/ferdek/PROJ/Simple-speech-recognisition/python/generated_files/input_vectoroth3.mem'
+wav_file_path = 'C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/python/WAV/test/otherrec.wav'
+mem_output_file = 'C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/python/WAV/other.mem'
 
 # Extract features
 features = extract_features(wav_file_path)
