@@ -1,0 +1,3 @@
+- zamienic arraye w nn 
+- sprawdzic co i jak zegar
+- warningi sdf, mel, adc

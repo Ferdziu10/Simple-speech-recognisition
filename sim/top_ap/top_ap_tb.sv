@@ -52,7 +52,7 @@ module top_ap_tb;
         end
         
         $fclose(data_file);
-        #100; // Wait to capture final outputs
+        #10000; // Wait to capture final outputs
         $finish;
     end
 

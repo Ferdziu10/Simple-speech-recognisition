@@ -3,8 +3,9 @@ module mean_std (
     input logic rst,
     input logic valid_in,
     input logic [15:0] data_in [0:39],
-    output logic [15:0] features [0:25]
-    output logic valid_out,
+    output logic [15:0] mean,
+    output logic [15:0] std,
+    output logic valid_out
 );
 
     // Zmienne pomocnicze
@@ -21,13 +22,13 @@ module mean_std (
 
     always_ff @(posedge clk or posedge rst) begin
         if (rst) begin
-            valid_out   <= 0;
-            features[0] <= 0;
-            features[1] <= 0;
+            valid_out  <= 0;
+            mean <= 0;
+            std <= 0;
         end else begin
             // Zapisanie wyników na wyjściu
-            features[0] <= mean_nxt[15:0];    // Zapisujemy obliczoną srednia
-            features[1] <= stddev_nxt[15:0];  // Zapisujemy obliczone odchyleneis tandardwoe
+            mean <= mean_nxt[15:0];    // Zapisujemy obliczoną srednia
+            std <= stddev_nxt[15:0];  // Zapisujemy obliczone odchyleneis tandardwoe
             valid_out <= valid_nxt;
         end
     end

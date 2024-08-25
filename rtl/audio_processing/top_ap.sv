@@ -24,6 +24,9 @@ logic fft_ready;
 logic [11:0] window_out [255:0];
 logic [11:0] wrap_win;
 logic [15:0] shift_win;
+logic [15:0] mean;
+logic [15:0] std;
+logic valid_fifo;
 
 
 pre_emphasis u_pre_emphasis(
@@ -87,7 +90,7 @@ mel_filter_bank u_mel_filter_bank(
     .s_valid(fft_ready),
     .m_ready(fft_ready)
 );
-reshape_output u_reshape_output(
+/*reshape_output u_reshape_output(
     .clk,
     .reset(rst),
     .in(mel_out),
@@ -96,21 +99,23 @@ reshape_output u_reshape_output(
     .s_valid(m_valid_mel),
     .m_ready(m_valid_mel),
     .m_valid(m_valid_res)
-);
-///TBD
-mean_std_1 u_mean_std_1(
+);*/
+mean_std u_mean_std(
     .clk,
     .rst,
-    .data_in(reshape_out),
-    .sum,
-    .sum_sq
+    .data_in(mel_out),
+    .mean,
+    .std,
+    .valid_in(m_valid_mel),
+    .valid_out(valid_fifo)
 );
-mean_std_2 u_mean_std_2(
+fifo u_fifo(
     .clk,
     .rst,
-    .sum,
-    .sum_sq,
-    .features(output_vector)
+    .valid(valid_fifo),
+    .data_in1(mean),
+    .data_in2(std),
+    .data_out(output_vector)
 );
 /*
 simple_to_axi u_simple_to_axi(

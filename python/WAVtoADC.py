@@ -26,8 +26,8 @@ def process_wav_to_adc(file_path, output_file, adc_bits=12):
 
 
 # Path to the WAV file
-wav_file_path = '/home/ferdek/PROJ/Simple-speech-recognisition/python/WAV/test/off8_aug_10.wav'
-adc_output_file = '/home/ferdek/PROJ/Simple-speech-recognisition/python/generated_files/input_adcoff2.txt'
+wav_file_path = 'C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/python/WAV/test/otherrec.wav'
+adc_output_file = 'C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/python/generated_files/input_adcoff2.txt'
 
 # Process and save the ADC-like data
 process_wav_to_adc(wav_file_path, adc_output_file)

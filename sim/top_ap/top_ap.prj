@@ -7,8 +7,8 @@ sv work ../../rtl/audio_processing/pre_emphasis.sv \
         ../../rtl/audio_processing/mel_filter/dB_LUT.sv \
         ../../rtl/audio_processing/reshape_output.sv \
         ../../rtl/audio_processing/magnitude.sv \
-        ../../rtl/audio_processing/mean_std_1.sv \
-        ../../rtl/audio_processing/mean_std_2.sv \
+        ../../rtl/audio_processing/mean_std.sv \
+        ../../rtl/audio_processing/fifo.sv \
         ../../rtl/audio_processing/top_ap.sv \
         top_ap_tb.sv
 verilog work ../../rtl/audio_processing/fftv2/Butterfly.v \

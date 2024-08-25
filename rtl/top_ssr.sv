@@ -9,13 +9,13 @@ module top_ssr(
 
 logic [1:0] value;
 logic [11:0] adc_data;
-logic [11:0] features [25:0];
-pmod_adc_ad7991 u_pmod_adc_ad7991(
+logic [15:0] features [25:0];
+example_mod u_example_mod(
     .clk,
-    .reset_n(rst),
+    .rst,
     .sda,
     .scl,
-    .adc_ch0_data(adc_data)
+    .adc_data
 );
 top_ap u_top_ap(
     .clk,

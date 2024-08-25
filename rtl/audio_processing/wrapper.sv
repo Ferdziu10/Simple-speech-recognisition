@@ -44,8 +44,8 @@ module wrapper(
         for(i=0; i<256; i++)
         regi_nxt[i] = regi[i];
         out_nxt = out;
-        wrapper_ready_nxt = wrapper_ready;
-        j_nxt = 0;
+        wrapper_ready_nxt = '0;
+        j_nxt = '0;
         end
     end
                 

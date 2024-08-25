@@ -1,6 +1,6 @@
 module fifo (
     input  logic clk,
-    input  logic rst_n,
+    input  logic rst,
     input  logic valid,           // Wejście valid
     input  logic [15:0] data_in1, // Pierwsze dane wejściowe
     input  logic [15:0] data_in2, // Drugie dane wejściowe
@@ -18,8 +18,8 @@ module fifo (
     logic [5:0] counter;
     
     // Proces zapisu do FIFO
-    always_ff @(posedge clk or negedge rst_n) begin
-        if (!rst_n) begin
+    always_ff @(posedge clk) begin
+        if (rst) begin
             head <= 0;
             tail <= 0;
             counter <= 0;
@@ -42,8 +42,8 @@ module fifo (
     end
 
     // Proces odczytu z FIFO na wyjście
-    always_ff @(posedge clk or negedge rst_n) begin
-        if (!rst_n) begin
+    always_ff @(posedge clk) begin
+        if (rst) begin
             data_out <= '{default: 16'h0000};
         end else begin
             // Kopiowanie danych z FIFO na wyjścia w kolejności od najstarszej do najmłodszej

@@ -37,20 +37,36 @@ set sv_files {
     ../rtl/neural_network/dense_layer_3.sv
     ../rtl/neural_network/dense_layer_4.sv
     ../rtl/neural_network/final_layer.sv
-    ../rtl/neural_network/dropout_layer_1.sv
-    ../rtl/neural_network/dropout_layer_2.sv
-    ../rtl/neural_network/dropout_layer_3.sv
     ../rtl/neural_network/nn_parameters.sv
     ../rtl/neural_network/top_nn.sv
     ../rtl/led_logic/led_logic.sv
     ../rtl/board/example_mod.sv
     ../rtl/top_ssr.sv
+    ../rtl/audio_processing/pre_emphasis.sv 
+    ../rtl/audio_processing/framing.sv 
+    ../rtl/audio_processing/windowing.sv 
+    ../rtl/audio_processing/wrapper.sv 
+    ../rtl/audio_processing/zero_padding.sv 
+    ../rtl/audio_processing/mel_filter/mel_filter_bank.sv 
+    ../rtl/audio_processing/mel_filter/dB_LUT.sv 
+    ../rtl/audio_processing/reshape_output.sv 
+    ../rtl/audio_processing/magnitude.sv 
+    ../rtl/audio_processing/mean_std.sv 
+    ../rtl/audio_processing/fifo.sv 
+    ../rtl/audio_processing/top_ap.sv 
     rtl/top_ssr_basys3.sv
 }
 
 # Specify Verilog design files location         -- EDIT
 set verilog_files {
     rtl/clk_wiz_0_clk_wiz.v
+    ../rtl/audio_processing/fftv2/Butterfly.v 
+    ../rtl/audio_processing/fftv2/DelayBuffer.v 
+    ../rtl/audio_processing/fftv2/FFT256.v 
+    ../rtl/audio_processing/fftv2/Multiply.v 
+    ../rtl/audio_processing/fftv2/SdfUnit.v 
+    ../rtl/audio_processing/ip/mult_gen_1/mult_gen_1_stub.v 
+    ../rtl/audio_processing/fftv2/Twiddle256.v 
 }
 
 # Specify VHDL design files location            -- EDIT
