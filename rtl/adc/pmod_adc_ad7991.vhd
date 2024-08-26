@@ -31,7 +31,7 @@ ENTITY pmod_adc_ad7991 IS
     reset_n      : IN    STD_LOGIC;                       --asynchronous active-low reset
     scl          : INOUT STD_LOGIC;                       --I2C serial clock
     sda          : INOUT STD_LOGIC;                       --I2C serial data
-    i2c_ack_err  : OUT   STD_LOGIC;                       --I2C slave acknowledge error flag
+    i2c_ack_err  : BUFFER   STD_LOGIC;                       --I2C slave acknowledge error flag
     adc_ch0_data : OUT   STD_LOGIC_VECTOR(11 DOWNTO 0);   --ADC Channel 0 data obtained
     adc_ch1_data : OUT   STD_LOGIC_VECTOR(11 DOWNTO 0);   --ADC Channel 1 data obtained
     adc_ch2_data : OUT   STD_LOGIC_VECTOR(11 DOWNTO 0);   --ADC Channel 2 data obtained
@@ -67,7 +67,7 @@ ARCHITECTURE behavior OF pmod_adc_ad7991 IS
       data_wr   : IN     STD_LOGIC_VECTOR(7 DOWNTO 0); --data to write to slave
       busy      : OUT    STD_LOGIC;                    --indicates transaction in progress
       data_rd   : OUT    STD_LOGIC_VECTOR(7 DOWNTO 0); --data read from slave
-      ack_error : OUT    STD_LOGIC;                    --flag if improper acknowledge from slave
+      ack_error : BUFFER STD_LOGIC;                    --flag if improper acknowledge from slave
       sda       : INOUT  STD_LOGIC;                    --serial data output of i2c bus
       scl       : INOUT  STD_LOGIC);                   --serial clock output of i2c bus
   END COMPONENT;
