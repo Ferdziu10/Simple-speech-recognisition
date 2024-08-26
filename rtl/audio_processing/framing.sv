@@ -31,16 +31,16 @@ module framing (
         end
     end
     always_comb begin
-        buffer_nxt[index] <= sample_in;
+        buffer_nxt[index] = sample_in;
         if (index == 8'd255) begin
             index_nxt = 8'd0;
             frame_ready_nxt = 1'b1;
             for (k = 0; k < 256; k++) begin
-                frame_out_nxt[k] <= buffer[k];
+                frame_out_nxt[k] = buffer[k];
             end
         end else begin
-            index_nxt <= index + 8'd1;
-            frame_ready_nxt <= 1'b0;
+            index_nxt = index + 8'd1;
+            frame_ready_nxt = 1'b0;
         end
     end
 
