@@ -13,7 +13,7 @@ module mean_std (
     logic [31:0] sum_sq_nxt;
     logic [31:0] mean_nxt;
     logic [31:0] variance_nxt;
-    logic [31:0] stddev_nxt;
+    logic [15:0] stddev_nxt;
     logic [31:0] guess, guess_next;
     logic [31:0] difference;
     logic [15:0] i;
@@ -28,7 +28,7 @@ module mean_std (
         end else begin
             // Zapisanie wyników na wyjściu
             mean <= mean_nxt[15:0];    // Zapisujemy obliczoną srednia
-            std <= stddev_nxt[15:0];  // Zapisujemy obliczone odchyleneis tandardwoe
+            std <= stddev_nxt;  // Zapisujemy obliczone odchyleneis tandardwoe
             valid_out <= valid_nxt;
         end
     end
@@ -74,7 +74,7 @@ module mean_std (
             end
         end
 
-        stddev_nxt = guess;
+        stddev_nxt = guess[15:0];
     end
 
 
