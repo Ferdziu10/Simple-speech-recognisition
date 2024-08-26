@@ -8,7 +8,7 @@ module top_ssr(
 );
 
 logic [1:0] value;
-logic signed [7:0] input_vector [25:0];
+logic [15:0] input_vector [25:0];
 example_mod u_example_mod(
     .clk,
     .rst,
@@ -27,7 +27,7 @@ led_logic u_led_logic(
     .rst,
     .led0,
     .but,
-    .speech_rec(output_value)
+    .speech_rec(value)
 );
 
 endmodule
