@@ -3,25 +3,21 @@ import nn_parameters::*;
 module dense_layer_2 (
     input clk,
     input rst,
-    input logic signed [31:0] input_vector [IN_SIZE_2-1:0],
-    output logic signed [47:0] output_vector [OUT_SIZE_2-1:0]
+    input logic signed [23:0] input_vector [IN_SIZE_2-1:0],
+    output logic signed [31:0] output_vector [OUT_SIZE_2-1:0]
 );
 
 
-    logic signed [15:0] weight_matrix [IN_SIZE_2-1:0][OUT_SIZE_2-1:0];
-    logic signed [15:0] bias_vector [OUT_SIZE_2-1:0];
-    logic signed [47:0] output_vector_nxt [OUT_SIZE_2-1:0];
+    logic signed [7:0] weight_matrix [IN_SIZE_2-1:0][OUT_SIZE_2-1:0];
+    logic signed [7:0] bias_vector [OUT_SIZE_2-1:0];
+    logic signed [31:0] output_vector_nxt [OUT_SIZE_2-1:0];
     logic [7:0] i;
     logic [7:0] i_nxt;
 
     integer j, k;
 
-    initial begin
-        // Load weights from file
-        $readmemh(WEIGHTS_FILE_2, weight_matrix);
-        // Load biases from file
-        $readmemh(BIAS_FILE_2, bias_vector);
-    end
+    assign weight_matrix = WEIGHTS_FILE_2;
+    assign bias_vector = BIAS_FILE_2;
 
     
     always_ff @(posedge clk) begin

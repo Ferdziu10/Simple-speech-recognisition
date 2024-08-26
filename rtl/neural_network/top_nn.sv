@@ -6,13 +6,11 @@ module top_nn (
 );
     import nn_parameters::*;
 
-    logic signed [31:0] dslayer1_output [OUT_SIZE_1-1:0];
-    logic signed [47:0] dslayer2_output [OUT_SIZE_2-1:0];
-    logic signed [63:0] dslayer3_output [OUT_SIZE_3-1:0];
-    logic signed [79:0] dslayer4_output [OUT_SIZE_4-1:0];
+    logic signed [23:0] dslayer1_output [OUT_SIZE_1-1:0];
+    logic signed [31:0] dslayer2_output [OUT_SIZE_2-1:0];
+    logic signed [39:0] dslayer3_output [OUT_SIZE_3-1:0];
+    logic signed [47:0] dslayer4_output [OUT_SIZE_4-1:0];
 
-
-    // Instantiate Dense Layers
 dense_layer_1 u_dense_layer_1 (
     .clk,
     .rst,
