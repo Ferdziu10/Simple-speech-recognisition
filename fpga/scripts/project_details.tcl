@@ -37,9 +37,6 @@ set sv_files {
     ../rtl/neural_network/dense_layer_3.sv
     ../rtl/neural_network/dense_layer_4.sv
     ../rtl/neural_network/final_layer.sv
-    ../rtl/neural_network/dropout_layer_1.sv
-    ../rtl/neural_network/dropout_layer_2.sv
-    ../rtl/neural_network/dropout_layer_3.sv
     ../rtl/neural_network/nn_parameters.sv
     ../rtl/neural_network/top_nn.sv
     ../rtl/led_logic/led_logic.sv

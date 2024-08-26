@@ -15,15 +15,9 @@ module dense_layer_1 (
     logic [7:0] i_nxt;
 
     integer j, k;
-
-    initial begin
-        // Load weights from file
-        $readmemh(WEIGHTS_FILE_1, weight_matrix);
-        // Load biases from file
-        $readmemh(BIAS_FILE_1, bias_vector);
-    end
-
-    
+    assign weight_matrix = WEIGHTS_FILE_1;
+    assign bias_vector = BIAS_FILE_1;
+       
     always_ff @(posedge clk) begin
         if(rst) begin
             for (k = 0; k < OUT_SIZE_1; k++) 
