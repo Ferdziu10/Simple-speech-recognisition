@@ -1,17 +1,17 @@
 //----------------------------------------------------------------------
 //  SdfUnit: Radix-2^2 SDF Unit with Twiddle Conversion
 //----------------------------------------------------------------------
-module SdfUnit #(
+module SdfUnit_TC #(
     parameter   N = 64,     //  Number of FFT Point
     parameter   M = 64,     //  Twiddle Resolution
     parameter   WIDTH = 16, //  Data Bit Length
-    parameter   T4_EN = 0,  //  Use TwiddleConvert4
-    parameter   T8_EN = 1,  //  Use TwiddleConvert8
+    parameter   T4_EN = 1,  //  Use TwiddleConvert4
+    parameter   T8_EN = 0,  //  Use TwiddleConvert8
     parameter   TW_FF = 1,  //  Use Twiddle Output Register
     parameter   TC_FF = 1,  //  Use TwiddleConvert Output Register
     parameter   B1_RH = 0,  //  1st Butterfly Round Half Up
     parameter   B2_RH = 1,  //  2nd Butterfly Round Half Up
-    parameter   LP = 0      //  Power Saving
+    parameter   LP = 1      //  Power Saving
 )(
     input               clock,  //  Master Clock
     input               reset,  //  Active High Asynchronous Reset
@@ -265,7 +265,7 @@ assign  tw_sel[0] = bf2_count[LOG_M-1];
 assign  tw_num = bf2_count << (LOG_N-LOG_M);
 assign  tw_addr = tw_num * tw_sel;
 
-Twiddle #(.TW_FF(TW_FF)) TW (
+Twiddle64 #(.TW_FF(TW_FF)) TW (
     .clock  (clock      ),  //  i
     .addr   (tw_addr_tc ),  //  i
     .tw_re  (tw_re      ),  //  o
