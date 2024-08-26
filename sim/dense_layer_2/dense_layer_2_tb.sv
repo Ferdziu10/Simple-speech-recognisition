@@ -9,8 +9,8 @@ module dense_layer_2_tb;
     // Testbench signals
     logic clk;
     logic rst;
-    logic signed [31:0] input_vector [IN_SIZE_2-1:0];
-    logic signed [47:0] output_vector [OUT_SIZE_2-1:0];
+    logic signed [23:0] input_vector [IN_SIZE_2-1:0];
+    logic signed [31:0] output_vector [OUT_SIZE_2-1:0];
 
     // Instantiate the module under test (MUT)
     dense_layer_2 mut (
@@ -30,10 +30,6 @@ module dense_layer_2_tb;
         rst = 0;
         // Initialize input vector with some values
         $readmemh("../../python/generated_files/in_dp1_hex.txt", input_vector);
-
-        // Load weights, biases, and LUT
-        $readmemh(WEIGHTS_FILE_2, mut.weight_matrix);
-        $readmemh(BIAS_FILE_2, mut.bias_vector);
 
         // Wait for the combinational logic to process the inputs
         #300000;

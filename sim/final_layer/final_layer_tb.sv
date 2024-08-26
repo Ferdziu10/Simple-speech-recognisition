@@ -9,7 +9,7 @@ module final_layer_tb;
     // Testbench signals
     logic clk;
     logic rst;
-    logic signed [79:0] input_vector [OUT_SIZE_4-1:0];
+    logic signed [39:0] input_vector [OUT_SIZE_4-1:0];
     logic [1:0] output_value ;
     
 

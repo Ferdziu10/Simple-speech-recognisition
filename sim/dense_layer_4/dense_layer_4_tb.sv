@@ -9,8 +9,8 @@ module dense_layer_4_tb;
     // Testbench signals
     logic clk;
     logic rst;
-    logic signed [63:0] input_vector [IN_SIZE_4-1:0];
-    logic signed [79:0] output_vector [OUT_SIZE_4-1:0];
+    logic signed [39:0] input_vector [IN_SIZE_4-1:0];
+    logic signed [47:0] output_vector [OUT_SIZE_4-1:0];
     
 
     // Instantiate the module under test (MUT)
@@ -33,9 +33,6 @@ module dense_layer_4_tb;
         // Initialize input vector with some values
         input_vector = '{8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4,8'd1, 8'd2, 8'd3, 8'd4 };
 
-        // Load weights, biases, and LUT
-        $readmemh(WEIGHTS_FILE_4, mut.weight_matrix);
-        $readmemh(BIAS_FILE_4, mut.bias_vector);
 
         // Wait for the combinational logic to process the inputs
         #30000;
