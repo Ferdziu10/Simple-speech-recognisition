@@ -40,7 +40,6 @@ module mel_filter_bank#(parameter N = 256)(
     logic[5:0] q_counter;           // counter to keep track and know when to make m_valid
     logic in_ready;                 // internal signal used for s_ready
     logic in_valid[3];              // pipelined s_valid
-    logic [31:0] q_in;              // delayed input for pipelined calculations
     logic [31:0] product[2];        // pipelined product
     logic [31:0] inverse[2];        // in - scaled_product
     logic [31:0] q_ascending;
@@ -56,7 +55,7 @@ module mel_filter_bank#(parameter N = 256)(
     assign new_window[0] = (filt == 16'd32768);
     
 //    assign product = in * filt;
-    assign inverse[0] = q_in - product[0];
+    assign inverse[0] = in - product[0];
     assign accumulation = q_ascending + product[1];
     
     assign out = bank_shift_reg;
@@ -99,10 +98,9 @@ module mel_filter_bank#(parameter N = 256)(
     always_ff @(posedge clk or posedge reset) begin
         if(reset) begin
             in_ready <= 0;
-            q_in <= 0;
             new_window[1:2] <= {0,0};
             in_valid[1:2] <= {0,0};
-            product[0:1] <= {0,0};
+            product[0:1] <= {0,0};   //POTENCJALNA POPRAWKA
             inverse[1] <= 0;
             q_counter <= 0;
             q_ascending <= 0;
@@ -114,7 +112,6 @@ module mel_filter_bank#(parameter N = 256)(
         end
         else begin
             in_ready <= 1'b1;
-            q_in <= in;
             new_window[1:2] <= new_window[0:1];
             in_valid[1:2] <= in_valid[0:1];
 //            scaled_product[0] <= product[47:15];
