@@ -11,12 +11,12 @@ sv work ../../rtl/audio_processing/pre_emphasis.sv \
         ../../rtl/audio_processing/fifo.sv \
         ../../rtl/audio_processing/top_ap.sv \
         top_ap_tb.sv
-verilog work ../../rtl/audio_processing/fftv2/Butterfly.v \
-        ../../rtl/audio_processing/fftv2/DelayBuffer.v \
-        ../../rtl/audio_processing/fftv2/FFT256.v \
-        ../../rtl/audio_processing/fftv2/TwiddleConvert4.v \
-        ../../rtl/audio_processing/fftv2/TwiddleConvert8.v \
-        ../../rtl/audio_processing/fftv2/Multiply.v \
-        ../../rtl/audio_processing/fftv2/SdfUnit_TC.v \
+verilog work ../../rtl/audio_processing/fft/Butterfly.v \
+        ../../rtl/audio_processing/fft/DelayBuffer.v \
+        ../../rtl/audio_processing/fft/FFT256.v \
+        ../../rtl/audio_processing/fft/TwiddleConvert4.v \
+        ../../rtl/audio_processing/fft/TwiddleConvert8.v \
+        ../../rtl/audio_processing/fft/Multiply.v \
+        ../../rtl/audio_processing/fft/SdfUnit_TC.v \
         ../../rtl/audio_processing/ip/mult_gen_1/mult_gen_1_stub.v \
-        ../../rtl/audio_processing/fftv2/Twiddle64.v 
+        ../../rtl/audio_processing/fft/Twiddle64.v 
