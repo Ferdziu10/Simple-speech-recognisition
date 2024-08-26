@@ -1,15 +1,15 @@
 module top_nn (
     input logic clk,
     input logic rst,
-    input logic signed [15:0] input_vector [0:IN_SIZE_1-1],
+    input logic [15:0] input_vector [IN_SIZE_1-1:0],
     output logic [1:0] output_value 
 );
     import nn_parameters::*;
 
-    logic signed [31:0] dslayer1_output [0:OUT_SIZE_1-1];
-    logic signed [47:0] dslayer2_output [0:OUT_SIZE_2-1];
-    logic signed [63:0] dslayer3_output [0:OUT_SIZE_3-1];
-    logic signed [79:0] dslayer4_output [0:OUT_SIZE_4-1];
+    logic signed [31:0] dslayer1_output [OUT_SIZE_1-1:0];
+    logic signed [47:0] dslayer2_output [OUT_SIZE_2-1:0];
+    logic signed [63:0] dslayer3_output [OUT_SIZE_3-1:0];
+    logic signed [79:0] dslayer4_output [OUT_SIZE_4-1:0];
 
 
     // Instantiate Dense Layers
@@ -31,7 +31,7 @@ dense_layer_3 u_dense_layer_3 (
     .clk,
     .rst,
     .input_vector(dslayer2_output),
-     .output_vector(dslayer3_output)
+    .output_vector(dslayer3_output)
 );
 
 dense_layer_4 u_dense_layer_4 (

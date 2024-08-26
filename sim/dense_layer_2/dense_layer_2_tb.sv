@@ -9,8 +9,8 @@ module dense_layer_2_tb;
     // Testbench signals
     logic clk;
     logic rst;
-    logic signed [23:0] input_vector [0:IN_SIZE_2-1];
-    logic [39:0] output_vector [0:OUT_SIZE_2-1];
+    logic signed [31:0] input_vector [IN_SIZE_2-1:0];
+    logic signed [47:0] output_vector [OUT_SIZE_2-1:0];
 
     // Instantiate the module under test (MUT)
     dense_layer_2 mut (

@@ -2,14 +2,13 @@ import nn_parameters::*;
 module dense_layer_4 (
     input clk,
     input rst,
-    input logic signed [63:0] input_vector [0:IN_SIZE_4-1],
-    output logic signed [79:0] output_vector [0:OUT_SIZE_4-1]
+    input logic signed [63:0] input_vector [IN_SIZE_4-1:0],
+    output logic signed [79:0] output_vector [OUT_SIZE_4-1:0]
 );
 
-    logic signed [15:0] weight_matrix [0:IN_SIZE_4-1][0:OUT_SIZE_4-1];
-    logic signed [15:0] bias_vector [0:OUT_SIZE_4-1];
-
-    logic signed [79:0] output_vector_nxt [0:OUT_SIZE_4-1];
+    logic signed [15:0] weight_matrix [IN_SIZE_4-1:0][OUT_SIZE_4-1:0];
+    logic signed [15:0] bias_vector [OUT_SIZE_4-1:0];
+    logic signed [79:0] output_vector_nxt [OUT_SIZE_4-1:0];
     logic [7:0] i;
     logic [7:0] i_nxt;
 
