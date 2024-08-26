@@ -13,7 +13,7 @@ module dense_layer_1 (
     logic signed [23:0] output_vector_nxt [OUT_SIZE_1-1:0];
     logic [7:0] i;
     logic [7:0] i_nxt;
-
+    
     integer j, k;
     assign weight_matrix = {8'hfd, 8'h04, 8'hfb 8'hfa 8'hf8 8'hfc 8'hfc 16 8'hfe 8'h0a 8'h0a 8'hfb 8'h01 8'hfa 8'h08 8'h01 8'h0c 8'h14 8'hf9 8'h00 8'h18 8'h05 8'hf3 8'h07 8'h16 8'hff 8'h14 8'h0e 8'hf7 8'h07 8'h01 8'h13 8'hf8 8'h0f 8'hfd 8'h02 8'hf9 8'hfc 8'h17 8'h0f 8'h12 8'hfa 8'hfb 8'hf7 8'h0f 8'hfd 8'h0d 8'h0f 8'hfe 8'h12 8'hfd 8'h06 8'hff 8'hfd 8'hf9 8'hfb 8'hfd 8'h0a 8'hfe 8'hfd 8'h05 8'h09 8'h12 8'h05 8'hf8 8'h06 8'hf6 8'hf9 8'h05 8'h02 8'hfc 8'h07 8'h14 8'h12 8'h0e 8'h0a 8'h0d 8'hfd 8'hfc 8'h15 8'hff 8'h17 8'hfc 8'h10 8'h02 8'h17 8'hf6 8'hfd 8'hf8 8'h02 8'h02 8'hf2 8'h0b 8'h10 8'hf8 8'h08 8'h01 8'hfb 8'h03 8'h01 8'h04 8'hf7 8'h05 8'h19 8'hf4 8'h00 8'hf9 8'h01 8'hfd 8'h16 8'h00 8'hf9 8'h18 8'hf8 8'hfe 8'h01 8'hf9 8'h09 8'h14 8'hf6 8'h00 8'hf6 8'hf7 8'hf9 8'h0b 8'h15 8'h08 8'h01
     8'hf3 8'h07 8'h02 8'h14 8'hed 8'heb 8'h06 8'h0b 8'h16 8'h02 8'h14 8'h00 8'hf3 8'h0c 8'hf8 8'h02 8'h13 8'he9 8'hf9 8'h11 8'hf7 8'h01 8'h06 8'h00 8'hf5 8'hea 8'h16 8'h11 8'hff 8'hff 8'hf4 8'h02 8'hdf 8'h14 8'h01 8'he1 8'hfe 8'he4 8'he9 8'hef 8'hfd 8'hfb 8'h00 8'hfa 8'heb 8'h07 8'hec 8'hf4 8'h0a 8'h14 8'h0b 8'h09 8'h0e 8'hee 8'hfa 8'hef 8'h08 8'hec 8'hfc 8'he9 8'hf3 8'hed 8'hf1 8'h03 8'hfb 8'h0c 8'he7 8'hf9 8'h02 8'hed 8'he1 8'h1a 8'h11 8'h0d 8'h0a 8'hfb 8'h0c 8'h04 8'hfc 8'hfd 8'hff 8'h10 8'hfe 8'h13 8'h0f 8'hf2 8'hf0 8'hf8 8'hee 8'he4 8'hf1 8'hef 8'hf2 8'h0f 8'h05 8'h1c 8'h0b 8'hef 8'hfd 8'he9 8'h0d 8'h05 8'he8 8'he8 8'hef 8'h02 8'hef 8'h0b 8'hf7 8'h18 8'hfc 8'h07 8'hee 8'hf4 8'h09 8'h05 8'he4 8'hf6 8'h12 8'heb 8'h08 8'h0d 8'hfb 8'h02 8'hf4 8'hfa 8'hee 8'h03
