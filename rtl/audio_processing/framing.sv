@@ -41,6 +41,9 @@ module framing (
         end else begin
             index_nxt = index + 8'd1;
             frame_ready_nxt = 1'b0;
+            for (k = 0; k < 256; k++) begin
+                frame_out_nxt[k] = frame_out[k];
+            end
         end
     end
 
