@@ -8,7 +8,7 @@ module top_ssr(
 );
 
 logic [1:0] value;
-logic [15:0] input_vector [25:0];
+logic signed [15:0] input_vector [25:0];
 example_mod u_example_mod(
     .clk,
     .rst,

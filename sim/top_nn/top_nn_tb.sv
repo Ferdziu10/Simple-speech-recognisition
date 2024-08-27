@@ -5,7 +5,7 @@ module top_nn_tb;
 
 
     // Testbench signals
-    logic [15:0] input_vector [IN_SIZE-1:0];  // Unpacked array
+    logic signed [15:0] input_vector [IN_SIZE-1:0];  // Unpacked array
     logic [1:0] output_value;  
     logic clk;
     logic rst;

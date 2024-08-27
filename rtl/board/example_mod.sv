@@ -3,10 +3,10 @@ module example_mod(
     input  logic rst,           // reset
     inout logic sda, 
     inout logic scl,           
-    output logic [15:0] input_vector [25:0]        // dioda
+    output logic signed [15:0] input_vector [25:0]        // dioda
 );
 
-logic [15:0] input_vector_nxt [25:0];
+logic signed [15:0] input_vector_nxt [25:0];
 
 integer k;
 always_ff @(posedge clk) begin
