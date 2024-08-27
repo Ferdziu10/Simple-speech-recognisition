@@ -1,31 +1,32 @@
-module i2c_master_tb();
+module i2c_master_tb;
 
   // Parameters
-  localparam input_clk = 50000000;
-  localparam bus_clk = 400000;
-  localparam CLK_PERIOD = 20; // 50 MHz clock period in ns
+  localparam CLK_FREQ = 50_000_000;  // 50 MHz clock
+  localparam I2C_FREQ = 400_000;     // 400 kHz I2C clock
 
-  // Testbench signals
-  logic clk;
-  logic reset_n;
-  logic ena;
-  logic [6:0] addr;
-  logic rw;
-  logic [7:0] data_wr;
-  logic busy;
-  logic [7:0] data_rd;
-  logic ack_error;
+  // Signals
+  reg clk;
+  reg reset_n;
+  reg ena;
+  reg [6:0] addr;
+  reg rw;
+  reg [7:0] data_wr;
+  wire busy;
+  wire [7:0] data_rd;
+  wire ack_error;
   tri sda;
   tri scl;
 
-  // Pullups for I2C lines
-  assign sda = 1'b1;
-  assign scl = 1'b1;
+  // Clock generation
+  initial begin
+    clk = 0;
+    forever #10 clk = ~clk;  // 50 MHz clock
+  end
 
-  // DUT instance
+  // Instantiate the I2C Master module
   i2c_master #(
-    .input_clk(input_clk),
-    .bus_clk(bus_clk)
+    .input_clk(CLK_FREQ),
+    .bus_clk(I2C_FREQ)
   ) uut (
     .clk(clk),
     .reset_n(reset_n),
@@ -40,73 +41,68 @@ module i2c_master_tb();
     .scl(scl)
   );
 
-  // Clock generation
+  // Test process
   initial begin
-    clk = 0;
-    forever #(CLK_PERIOD/2) clk = ~clk;
+    // Initialize signals
+    reset_n = 0;
+    ena = 0;
+    addr = 7'b0000000;
+    rw = 0;
+    data_wr = 8'b00000000;
+
+    // Apply reset
+    #100;
+    reset_n = 1;
+
+    // Test case 1: Write operation
+    #100;
+    addr = 7'b1010000;       // Example slave address
+    rw = 0;                  // Write operation
+    data_wr = 8'h55;         // Data to write
+    ena = 1;                 // Enable transaction
+    #20;
+    ena = 0;                 // Disable transaction
+    wait(busy == 0);         // Wait for transaction to complete
+    if (ack_error) $display("Test Case 1 Failed: Ack error during write operation");
+    else $display("Test Case 1 Passed");
+
+    // Test case 2: Read operation
+    #100;
+    addr = 7'b1010000;       // Example slave address
+    rw = 1;                  // Read operation
+    ena = 1;                 // Enable transaction
+    #20;
+    ena = 0;                 // Disable transaction
+    wait(busy == 0);         // Wait for transaction to complete
+    if (ack_error) $display("Test Case 2 Failed: Ack error during read operation");
+    else if (data_rd !== 8'hXX) $display("Test Case 2 Passed, Read Data: %h", data_rd);
+    else $display("Test Case 2 Failed: Invalid data read");
+
+    // Additional tests for edge cases, e.g., invalid address, handling NACK, etc.
+    // Test case 3: Invalid address
+    #100;
+    addr = 7'b1111111;       // Invalid slave address
+    rw = 0;                  // Write operation
+    data_wr = 8'hAA;
+    ena = 1;                 // Enable transaction
+    #20;
+    ena = 0;                 // Disable transaction
+    wait(busy == 0);         // Wait for transaction to complete
+    if (ack_error) $display("Test Case 3 Passed: Detected NACK for invalid address");
+    else $display("Test Case 3 Failed: NACK not detected for invalid address");
+
+    // Test case 4: Multiple byte transactions
+    // Implement based on your specific protocol requirements...
+
+    // End simulation
+    #100;
+    $finish;
   end
 
-  // Reset task
-  task reset();
-    begin
-      reset_n = 0;
-      ena = 0;
-      addr = 0;
-      rw = 0;
-      data_wr = 0;
-      #100;
-      reset_n = 1;
-    end
-  endtask
-
-  // I2C write task
-  task i2c_write(input [6:0] address, input [7:0] data);
-    begin
-      addr = address;
-      rw = 0;
-      data_wr = data;
-      ena = 1;
-      @(posedge clk);
-      ena = 0;
-      wait (busy == 1);
-      wait (busy == 0);
-      if (ack_error) $display("Write to address %h failed", address);
-      else $display("Write to address %h successful", address);
-    end
-  endtask
-
-  // I2C read task
-  task i2c_read(input [6:0] address, output [7:0] data);
-    begin
-      addr = address;
-      rw = 1;
-      ena = 1;
-      @(posedge clk);
-      ena = 0;
-      wait (busy == 1);
-      wait (busy == 0);
-      if (ack_error) $display("Read from address %h failed", address);
-      else $display("Read from address %h successful, data: %h", address, data_rd);
-      data = data_rd;
-    end
-  endtask
-
-  // Test sequence
+  // Monitor signals for debugging
   initial begin
-    // Apply reset
-    reset();
-
-    // Test write operation
-    $display("Starting I2C write test...");
-    i2c_write(7'h50, 8'hAA);
-
-    // Test read operation
-    $display("Starting I2C read test...");
-    logic [7:0] read_data;
-    i2c_read(7'h50, read_data);
-
-    // Finish simulation
-    $finish;
+    $monitor("Time: %0t | Busy: %b | Ack Error: %b | Data Read: %h | SDA: %b | SCL: %b", 
+              $time, busy, ack_error, data_rd, sda, scl);
   end
 
 endmodule

@@ -14,8 +14,10 @@
 #-----------------------------------------------------#
 # Project name                                  -- EDIT
 set project_name ssr_project
+set project_name ssr_project
 
 # Top module name                               -- EDIT
+set top_module top_ssr_basys3
 set top_module top_ssr_basys3
 
 # FPGA device
