@@ -8,7 +8,7 @@ module top_ap_tb;
     reg clk;
     reg rst;
     reg [DATA_WIDTH-1:0] adc_data;
-    wire [15:0] output_vector [0:25]; // Output from the module under test
+    wire signed [15:0] output_vector [0:25]; // Output from the module under test
 
     // Instantiate the top_ap module
     top_ap uut (
