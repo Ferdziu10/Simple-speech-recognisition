@@ -28,7 +28,7 @@ ENTITY pmod_adc_ad7991 IS
     sys_clk_freq : INTEGER := 100_000_000);                --input clock speed from user logic in Hz
   PORT(
     clk          : IN    STD_LOGIC;                       --system clock
-    reset_n      : IN    STD_LOGIC;                       --asynchronous active-low reset
+    rst          : IN    STD_LOGIC;                       --asynchronous active-high reset
     scl          : INOUT STD_LOGIC;                       --I2C serial clock
     sda          : INOUT STD_LOGIC;                       --I2C serial data
     i2c_ack_err  : BUFFER   STD_LOGIC;                       --I2C slave acknowledge error flag
@@ -60,7 +60,7 @@ ARCHITECTURE behavior OF pmod_adc_ad7991 IS
       bus_clk   : INTEGER); --speed the i2c bus (scl) will run at in Hz
     PORT(
       clk       : IN     STD_LOGIC;                    --system clock
-      reset_n   : IN     STD_LOGIC;                    --active low reset
+      rst   : IN     STD_LOGIC;                    --active low reset
       ena       : IN     STD_LOGIC;                    --latch in command
       addr      : IN     STD_LOGIC_VECTOR(6 DOWNTO 0); --address of target slave
       rw        : IN     STD_LOGIC;                    --'0' is write, '1' is read
@@ -77,16 +77,16 @@ BEGIN
   --instantiate the i2c master
   i2c_master_0:  i2c_master
     GENERIC MAP(input_clk => sys_clk_freq, bus_clk => 400_000)
-    PORT MAP(clk => clk, reset_n => reset_n, ena => i2c_ena, addr => i2c_addr,
+    PORT MAP(clk => clk, rst => rst, ena => i2c_ena, addr => i2c_addr,
              rw => i2c_rw, data_wr => i2c_data_wr, busy => i2c_busy,
              data_rd => i2c_data_rd, ack_error => i2c_ack_err, sda => sda,
              scl => scl);
 
-  PROCESS(clk, reset_n)
+  PROCESS(clk, rst)
     VARIABLE busy_cnt : INTEGER RANGE 0 TO 8 := 0;               --counts the busy signal transitions during one transaction
     VARIABLE counter  : INTEGER RANGE 0 TO sys_clk_freq/10 := 0; --counts 100ms to wait before communicating
   BEGIN
-    IF(reset_n = '0') THEN               --reset activated
+    IF(rst = '1') THEN               --reset activated
       counter := 0;                        --clear wait counter
       i2c_ena <= '0';                      --clear i2c enable
       busy_cnt := 0;                       --clear busy counter

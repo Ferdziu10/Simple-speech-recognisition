@@ -3,7 +3,7 @@ module i2c_master #(
   parameter bus_clk = 400000 // I2C bus speed in Hz
 )(
   input wire clk, // system clock
-  input wire reset_n, // active low reset
+  input wire rst, // active low reset
   input wire ena, // latch in command
   input wire [6:0] addr, // address of target slave
   input wire rw, // '0' is write, '1' is read
@@ -32,8 +32,8 @@ module i2c_master #(
   reg stretch; // identifies if slave is stretching SCL
 
   // generate the timing for the bus clock (scl_clk) and the data clock (data_clk)
-  always_ff @(posedge clk or negedge reset_n) begin
-    if (!reset_n) begin
+  always_ff @(posedge clk or negedge rst) begin
+    if (!rst) begin
       stretch <= 0;
       count <= 0;
     end else begin
@@ -53,8 +53,8 @@ module i2c_master #(
   end
 
   // state machine and writing to SDA during SCL low (data_clk rising edge)
-  always_ff @(posedge clk or negedge reset_n) begin
-    if (!reset_n) begin
+  always_ff @(posedge clk or posedge rst) begin
+    if (!rst) begin
       state <= ready;
       busy <= 1;
       scl_ena <= 0;
