@@ -67,8 +67,8 @@ set verilog_files {
     ../rtl/audio_processing/fft/SdfUnit_TC.v 
     ../rtl/audio_processing/ip/mult_gen_1/mult_gen_1_stub.v 
     ../rtl/audio_processing/fft/Twiddle64.v 
-    ../rtl/audio_processing/fft/TwiddleConver4.v
-    ../rtl/audio_processing/fft/TwiddleConver8.v  
+    ../rtl/audio_processing/fft/TwiddleConvert4.v
+    ../rtl/audio_processing/fft/TwiddleConvert8.v  
 }
 
 # Specify VHDL design files location            -- EDIT
