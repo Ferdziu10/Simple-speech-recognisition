@@ -24,7 +24,7 @@ logic [11:0] wrap_win;
 logic [15:0] shift_win;
 logic [15:0] mean;
 logic [15:0] std;
-logic [15:0] unsigned_vector [25:0]
+logic [15:0] unsigned_vector [25:0];
 logic valid_fifo;
 
 
@@ -119,7 +119,7 @@ fifo u_fifo(
 
 
 
-convert_to_signed u_fifo(
+convert_to_signed u_convert_to_signed(
     .unsigned_vector(unsigned_vector),
     .signed_vector(output_vector)
 );

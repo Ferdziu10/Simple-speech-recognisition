@@ -6,7 +6,7 @@ module convert_to_signed (
     // Konwersja danych wejściowych na signed
     always_comb begin
         for (int i = 0; i < 26; i++) begin
-            signed_vector[i] = signed'(unsigned_vector_vector[i]);
+            signed_vector[i] = signed'(unsigned_vector[i]);
         end
     end
 
