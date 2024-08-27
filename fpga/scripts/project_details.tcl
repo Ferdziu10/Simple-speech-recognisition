@@ -66,16 +66,15 @@ set verilog_files {
     ../rtl/audio_processing/fft/FFT256.v 
     ../rtl/audio_processing/fft/Multiply.v 
     ../rtl/audio_processing/fft/SdfUnit_TC.v 
-    ../rtl/audio_processing/ip/mult_gen_1/mult_gen_1_stub.v 
     ../rtl/audio_processing/fft/Twiddle64.v 
     ../rtl/audio_processing/fft/TwiddleConvert4.v
     ../rtl/audio_processing/fft/TwiddleConvert8.v  
 }
 
 # Specify VHDL design files location            -- EDIT
-# set vhdl_files {
-#    path/to/file.vhd
-# }
+set vhdl_files {
+    ../rtl/audio_processing/ip/mult_gen_0/synth/mult_gen_0.vhd
+}
 
 # Specify files for a memory initialization     -- EDIT
 # set mem_files {
