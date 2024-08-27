@@ -14,7 +14,7 @@ module mean_std (
     logic [31:0] mean_nxt;
     logic [31:0] variance_nxt;
     logic [15:0] stddev_nxt;
-    logic [31:0] guess, guess_next;
+    logic [15:0] guess, guess_next;
     logic [31:0] difference;
     logic [15:0] i;
     logic valid_nxt;
@@ -74,7 +74,7 @@ module mean_std (
             end
         end
 
-        stddev_nxt = guess[15:0];
+        stddev_nxt = guess;
     end
 
 

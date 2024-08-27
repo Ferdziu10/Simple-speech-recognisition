@@ -5,7 +5,7 @@ module Twiddle64 #(
     parameter   TW_FF = 1   //  Use Output Register
 )(
     input           clock,  //  Master Clock
-    input   [7:0]   addr,   //  Twiddle Factor Number
+    input   [5:0]   addr,   //  Twiddle Factor Number
     output  [15:0]  tw_re,  //  Twiddle Factor (Real)
     output  [15:0]  tw_im   //  Twiddle Factor (Imag)
 );

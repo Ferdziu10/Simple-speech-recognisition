@@ -10,7 +10,7 @@ module windowing (
     logic [11:0] windowed_frame_nxt [0:255];
     logic window_ready_nxt;
     logic [11:0] hamming_window [0:255];
-    logic [23:0] mult_result;
+ //   logic [23:0] mult_result;
     logic [23:0] mult_result_nxt;
     integer i,k;
     // Initialize the Hamming window coefficients
@@ -287,12 +287,12 @@ assign hamming_window[255] = 12'd164;
             window_ready <= 1'b0;
             for (k = 0; k < 256; k++)
             windowed_frame[k] <= 12'd0;
-            mult_result <= 24'd0;
+      //      mult_result <= 24'd0;
         end else begin
             window_ready <= window_ready_nxt;
             for (k = 0; k < 256; k++)
             windowed_frame[k] <= windowed_frame_nxt[k];
-            mult_result <= mult_result_nxt;
+       //     mult_result <= mult_result_nxt;
         end 
     end
 
@@ -306,7 +306,7 @@ assign hamming_window[255] = 12'd164;
         end else begin
             for (i = 0; i < 256; i++) 
                 windowed_frame_nxt[i] = windowed_frame[i];
-            mult_result_nxt = mult_result;
+        //    mult_result_nxt = mult_result;
             window_ready_nxt = window_ready;
         end
     end

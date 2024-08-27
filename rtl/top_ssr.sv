@@ -34,7 +34,7 @@ led_logic u_led_logic(
     .rst,
     .led0,
     .but,
-    .speech_rec(output_value)
+    .speech_rec(value)
 );
 
 endmodule
