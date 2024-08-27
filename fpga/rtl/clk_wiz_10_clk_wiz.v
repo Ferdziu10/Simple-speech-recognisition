@@ -1,5 +1,5 @@
 
-// file: clk_wiz_0.v
+// file: clk_wiz_10.v
 // 
 // (c) Copyright 2008 - 2013 Xilinx, Inc. All rights reserved.
 // 
@@ -56,8 +56,7 @@
 //  Output     Output      Phase    Duty Cycle   Pk-to-Pk     Phase
 //   Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)
 //----------------------------------------------------------------------------
-// clk100MHz__100.00000______0.000______50.0______130.958_____98.575
-// clk40MHz__40.00000______0.000______50.0______159.371_____98.575
+// clk_out1___5.00000______0.000______50.0______631.442____346.848
 //
 //----------------------------------------------------------------------------
 // Input Clock   Freq (MHz)    Input Jitter (UI)
@@ -66,23 +65,22 @@
 
 `timescale 1ps/1ps
 
-module clk_wiz_0_clk_wiz 
+module clk_wiz_10_clk_wiz 
 
  (// Clock in ports
   // Clock out ports
-  output        clk100MHz,
-  output        clk40MHz,
+  output        clk_out1,
   // Status and control signals
   output        locked,
-  input         clk
+  input         clk_in1
  );
   // Input buffering
   //------------------------------------
-wire clk_clk_wiz_0;
-wire clk_in2_clk_wiz_0;
+wire clk_in1_clk_wiz_10;
+wire clk_in2_clk_wiz_10;
   IBUF clkin1_ibufg
-   (.O (clk_clk_wiz_0),
-    .I (clk));
+   (.O (clk_in1_clk_wiz_10),
+    .I (clk_in1));
 
 
 
@@ -94,22 +92,23 @@ wire clk_in2_clk_wiz_0;
   //    * Unused inputs are tied off
   //    * Unused outputs are labeled unused
 
-  wire        clk100MHz_clk_wiz_0;
-  wire        clk40MHz_clk_wiz_0;
-  wire        clk_out3_clk_wiz_0;
-  wire        clk_out4_clk_wiz_0;
-  wire        clk_out5_clk_wiz_0;
-  wire        clk_out6_clk_wiz_0;
-  wire        clk_out7_clk_wiz_0;
+  wire        clk_out1_clk_wiz_10;
+  wire        clk_out2_clk_wiz_10;
+  wire        clk_out3_clk_wiz_10;
+  wire        clk_out4_clk_wiz_10;
+  wire        clk_out5_clk_wiz_10;
+  wire        clk_out6_clk_wiz_10;
+  wire        clk_out7_clk_wiz_10;
 
   wire [15:0] do_unused;
   wire        drdy_unused;
   wire        psdone_unused;
   wire        locked_int;
-  wire        clkfbout_clk_wiz_0;
-  wire        clkfbout_buf_clk_wiz_0;
+  wire        clkfbout_clk_wiz_10;
+  wire        clkfbout_buf_clk_wiz_10;
   wire        clkfboutb_unused;
     wire clkout0b_unused;
+   wire clkout1_unused;
    wire clkout1b_unused;
    wire clkout2_unused;
    wire clkout2b_unused;
@@ -123,36 +122,29 @@ wire clk_in2_clk_wiz_0;
   (* KEEP = "TRUE" *) 
   (* ASYNC_REG = "TRUE" *)
   reg  [7 :0] seq_reg1 = 0;
-  (* KEEP = "TRUE" *) 
-  (* ASYNC_REG = "TRUE" *)
-  reg  [7 :0] seq_reg2 = 0;
 
   MMCME2_ADV
   #(.BANDWIDTH            ("OPTIMIZED"),
     .CLKOUT4_CASCADE      ("FALSE"),
     .COMPENSATION         ("ZHOLD"),
     .STARTUP_WAIT         ("FALSE"),
-    .DIVCLK_DIVIDE        (1),
-    .CLKFBOUT_MULT_F      (10.000),
+    .DIVCLK_DIVIDE        (5),
+    .CLKFBOUT_MULT_F      (32.000),
     .CLKFBOUT_PHASE       (0.000),
     .CLKFBOUT_USE_FINE_PS ("FALSE"),
-    .CLKOUT0_DIVIDE_F     (10.000),
+    .CLKOUT0_DIVIDE_F     (128.000),
     .CLKOUT0_PHASE        (0.000),
     .CLKOUT0_DUTY_CYCLE   (0.500),
     .CLKOUT0_USE_FINE_PS  ("FALSE"),
-    .CLKOUT1_DIVIDE       (25),
-    .CLKOUT1_PHASE        (0.000),
-    .CLKOUT1_DUTY_CYCLE   (0.500),
-    .CLKOUT1_USE_FINE_PS  ("FALSE"),
     .CLKIN1_PERIOD        (10.000))
   mmcm_adv_inst
     // Output clocks
    (
-    .CLKFBOUT            (clkfbout_clk_wiz_0),
+    .CLKFBOUT            (clkfbout_clk_wiz_10),
     .CLKFBOUTB           (clkfboutb_unused),
-    .CLKOUT0             (clk100MHz_clk_wiz_0),
+    .CLKOUT0             (clk_out1_clk_wiz_10),
     .CLKOUT0B            (clkout0b_unused),
-    .CLKOUT1             (clk40MHz_clk_wiz_0),
+    .CLKOUT1             (clkout1_unused),
     .CLKOUT1B            (clkout1b_unused),
     .CLKOUT2             (clkout2_unused),
     .CLKOUT2B            (clkout2b_unused),
@@ -162,8 +154,8 @@ wire clk_in2_clk_wiz_0;
     .CLKOUT5             (clkout5_unused),
     .CLKOUT6             (clkout6_unused),
      // Input clock control
-    .CLKFBIN             (clkfbout_buf_clk_wiz_0),
-    .CLKIN1              (clk_clk_wiz_0),
+    .CLKFBIN             (clkfbout_buf_clk_wiz_10),
+    .CLKIN1              (clk_in1_clk_wiz_10),
     .CLKIN2              (1'b0),
      // Tied to always select the primary input clock
     .CLKINSEL            (1'b1),
@@ -194,8 +186,8 @@ wire clk_in2_clk_wiz_0;
   //-----------------------------------
 
   BUFG clkf_buf
-   (.O (clkfbout_buf_clk_wiz_0),
-    .I (clkfbout_clk_wiz_0));
+   (.O (clkfbout_buf_clk_wiz_10),
+    .I (clkfbout_clk_wiz_10));
 
 
 
@@ -204,28 +196,15 @@ wire clk_in2_clk_wiz_0;
 
 
   BUFGCE clkout1_buf
-   (.O   (clk100MHz),
+   (.O   (clk_out1),
     .CE  (seq_reg1[7]),
-    .I   (clk100MHz_clk_wiz_0));
+    .I   (clk_out1_clk_wiz_10));
 
   BUFH clkout1_buf_en
-   (.O   (clk100MHz_clk_wiz_0_en_clk),
-    .I   (clk100MHz_clk_wiz_0));
-  always @(posedge clk100MHz_clk_wiz_0_en_clk)
+   (.O   (clk_out1_clk_wiz_10_en_clk),
+    .I   (clk_out1_clk_wiz_10));
+  always @(posedge clk_out1_clk_wiz_10_en_clk)
         seq_reg1 <= {seq_reg1[6:0],locked_int};
-
-
-  BUFGCE clkout2_buf
-   (.O   (clk40MHz),
-    .CE  (seq_reg2[7]),
-    .I   (clk40MHz_clk_wiz_0));
- 
-  BUFH clkout2_buf_en
-   (.O   (clk40MHz_clk_wiz_0_en_clk),
-    .I   (clk40MHz_clk_wiz_0));
- 
-  always @(posedge clk40MHz_clk_wiz_0_en_clk)
-        seq_reg2 <= {seq_reg2[6:0],locked_int};
 
 
 
