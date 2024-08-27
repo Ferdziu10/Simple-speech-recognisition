@@ -1,22 +1,9 @@
-/**
- * San Jose State University
- * EE178 Lab #4
- * Author: prof. Eric Crabilla
- *
- * Modified by:
- * 2023  AGH University of Science and Technology
- * MTM UEC2
- * Kacper Ferdek
- *
- * Description:
- * Top level synthesizable module including the project top and all the FPGA-referred modules.
- */
-
 `timescale 1 ns / 1 ps
 
 module top_ssr_basys3 (
     input  wire clk,
     input  wire btnC,
+    output wire led0,
     inout wire JA3,
     inout wire JA4 
 );
@@ -72,6 +59,8 @@ top_ssr u_top_ssr (
     .rst(btnC),
     .scl(JA3),
     .sda(JA4),
+    .led0(led0)
+
 );
 
 endmodule

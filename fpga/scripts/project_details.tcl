@@ -33,6 +33,7 @@ set xdc_files {
 # Specify SystemVerilog design files location   -- EDIT
 set sv_files {
     ../rtl/top_ssr.sv
+    ../rtl/ledtest.sv
     rtl/top_ssr_basys3.sv
 }
 
