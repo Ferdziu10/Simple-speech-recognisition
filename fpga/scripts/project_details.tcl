@@ -60,13 +60,15 @@ set sv_files {
 # Specify Verilog design files location         -- EDIT
 set verilog_files {
     rtl/clk_wiz_0_clk_wiz.v
-    ../rtl/audio_processing/fftv2/Butterfly.v 
-    ../rtl/audio_processing/fftv2/DelayBuffer.v 
-    ../rtl/audio_processing/fftv2/FFT256.v 
-    ../rtl/audio_processing/fftv2/Multiply.v 
-    ../rtl/audio_processing/fftv2/SdfUnit.v 
+    ../rtl/audio_processing/fft/Butterfly.v 
+    ../rtl/audio_processing/fft/DelayBuffer.v 
+    ../rtl/audio_processing/fft/FFT256.v 
+    ../rtl/audio_processing/fft/Multiply.v 
+    ../rtl/audio_processing/fft/SdfUnit_TC.v 
     ../rtl/audio_processing/ip/mult_gen_1/mult_gen_1_stub.v 
-    ../rtl/audio_processing/fftv2/Twiddle256.v 
+    ../rtl/audio_processing/fft/Twiddle64.v 
+    ../rtl/audio_processing/fft/TwiddleConver4.v
+    ../rtl/audio_processing/fft/TwiddleConver8.v  
 }
 
 # Specify VHDL design files location            -- EDIT
