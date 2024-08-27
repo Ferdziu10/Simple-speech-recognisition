@@ -31,8 +31,6 @@ y_test_categorical = to_categorical(y_test_encoded)
 
 # Build model
 model = Sequential()
-model.add(Dense(128, input_shape=(X_train.shape[1],), activation='relu'))
-model.add(Dropout(0.2))
 model.add(Dense(64, activation='relu'))
 model.add(Dropout(0.2))
 model.add(Dense(32, activation='relu'))
