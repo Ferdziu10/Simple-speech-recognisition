@@ -17,10 +17,6 @@
 module top_ssr_basys3 (
     input  wire clk,
     input  wire btnC,
-    output wire JA2,
-    output wire JA8,
-    output wire JA9,
-    output wire JA10,
     inout wire JA3,
     inout wire JA4 
 );
@@ -76,11 +72,6 @@ top_ssr u_top_ssr (
     .rst(btnC),
     .scl(JA3),
     .sda(JA4),
-    .adc_ch0_data(JA2),
-    .adc_ch1_data(JA8),
-    .adc_ch2_data(JA9),
-    .adc_ch3_data(JA10)
-
 );
 
 endmodule
