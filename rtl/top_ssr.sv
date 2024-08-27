@@ -9,7 +9,7 @@ module top_ssr(
 
 logic [1:0] value;
 logic [11:0] adc_data;
-logic [15:0] features [25:0];
+logic signed [15:0] features [25:0];
 example_mod u_example_mod(
     .clk,
     .rst,
