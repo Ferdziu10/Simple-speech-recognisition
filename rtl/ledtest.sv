@@ -1,4 +1,4 @@
-module led_test(
+module ledtest(
     input  logic clk,          // zegar systemowy
     input  logic rst,           // reset
     input  wire [11:0] adc_data, // wynik rozpoznania mowy 0(nie rozponzano nic), 1(on), 2(off) 
