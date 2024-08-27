@@ -52,7 +52,8 @@ set sv_files {
     ../rtl/audio_processing/reshape_output.sv 
     ../rtl/audio_processing/magnitude.sv 
     ../rtl/audio_processing/mean_std.sv 
-    ../rtl/audio_processing/fifo.sv 
+    ../rtl/audio_processing/fifo.sv
+    ../rtl/audio_processing/convert_to_signed.sv 
     ../rtl/audio_processing/top_ap.sv 
     rtl/top_ssr_basys3.sv
 }

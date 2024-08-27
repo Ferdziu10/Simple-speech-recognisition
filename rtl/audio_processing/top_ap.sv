@@ -2,7 +2,7 @@ module top_ap(
     input logic clk,
     input logic rst,
     input logic [11:0] adc_data,
-    output logic [15:0] output_vector [25:0]
+    output logic signed [15:0] output_vector [25:0]
 );
 logic s_ready_res;
 logic s_ready_mel;
@@ -24,6 +24,7 @@ logic [11:0] wrap_win;
 logic [15:0] shift_win;
 logic [15:0] mean;
 logic [15:0] std;
+logic [15:0] unsigned_vector [25:0]
 logic valid_fifo;
 
 
@@ -113,8 +114,16 @@ fifo u_fifo(
     .valid(valid_fifo),
     .data_in1(mean),
     .data_in2(std),
-    .data_out(output_vector)
+    .data_out(unsigned_vector)
 );
+
+
+
+convert_to_signed u_fifo(
+    .unsigned_vector(unsigned_vector),
+    .signed_vector(output_vector)
+);
+
 /*
 simple_to_axi u_simple_to_axi(
     .clk,

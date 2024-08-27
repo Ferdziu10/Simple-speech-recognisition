@@ -9,6 +9,7 @@ sv work ../../rtl/audio_processing/pre_emphasis.sv \
         ../../rtl/audio_processing/magnitude.sv \
         ../../rtl/audio_processing/mean_std.sv \
         ../../rtl/audio_processing/fifo.sv \
+        ../../rtl/audio_processing/convert_to_signed.sv \
         ../../rtl/audio_processing/top_ap.sv \
         top_ap_tb.sv
 verilog work ../../rtl/audio_processing/fft/Butterfly.v \
