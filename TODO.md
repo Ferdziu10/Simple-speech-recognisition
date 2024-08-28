@@ -1,17 +1,36 @@
-Warnings, critical warnings and errors from synthesis and implementation
+rnings, critical warnings and errors from synthesis and implementation
 
-Created: 2024-08-28 01:16:59
+Created: 2024-08-28 23:31:50
 
 ----SYNTHESIS----
-WARNING: [Synth 8-3848] Net i2c_data_wr in module/entity pmod_adc_ad7991 does not have driver. [rtl/adc/pmod_adc_ad7991.vhd:48]
-WARNING: [Synth 8-7071] port 'i2c_ack_err' of module 'pmod_adc_ad7991' is unconnected for instance 'u_pmod_adc_ad7991' [rtl/top_ssr.sv:11]
-WARNING: [Synth 8-7071] port 'adc_ch1_data' of module 'pmod_adc_ad7991' is unconnected for instance 'u_pmod_adc_ad7991' [rtl/top_ssr.sv:11]
-WARNING: [Synth 8-7071] port 'adc_ch2_data' of module 'pmod_adc_ad7991' is unconnected for instance 'u_pmod_adc_ad7991' [rtl/top_ssr.sv:11]
-WARNING: [Synth 8-7071] port 'adc_ch3_data' of module 'pmod_adc_ad7991' is unconnected for instance 'u_pmod_adc_ad7991' [rtl/top_ssr.sv:11]
-WARNING: [Synth 8-7023] instance 'u_pmod_adc_ad7991' of module 'pmod_adc_ad7991' has 9 connections declared, but only 5 given [rtl/top_ssr.sv:11]
+WARNING: [Synth 8-3848] Net input_vector_nxt[25] in module/entity example_mod does not have driver. [rtl/board/example_mod.sv:9]
+WARNING: [Synth 8-3848] Net input_vector_nxt[24] in module/entity example_mod does not have driver. [rtl/board/example_mod.sv:9]
+WARNING: [Synth 8-3848] Net input_vector_nxt[23] in module/entity example_mod does not have driver. [rtl/board/example_mod.sv:9]
+WARNING: [Synth 8-3848] Net input_vector_nxt[22] in module/entity example_mod does not have driver. [rtl/board/example_mod.sv:9]
+WARNING: [Synth 8-3848] Net input_vector_nxt[21] in module/entity example_mod does not have driver. [rtl/board/example_mod.sv:9]
+WARNING: [Synth 8-3848] Net input_vector_nxt[20] in module/entity example_mod does not have driver. [rtl/board/example_mod.sv:9]
+WARNING: [Synth 8-3848] Net input_vector_nxt[19] in module/entity example_mod does not have driver. [rtl/board/example_mod.sv:9]
+WARNING: [Synth 8-3848] Net input_vector_nxt[18] in module/entity example_mod does not have driver. [rtl/board/example_mod.sv:9]
+WARNING: [Synth 8-3848] Net input_vector_nxt[17] in module/entity example_mod does not have driver. [rtl/board/example_mod.sv:9]
+WARNING: [Synth 8-3848] Net input_vector_nxt[16] in module/entity example_mod does not have driver. [rtl/board/example_mod.sv:9]
+WARNING: [Synth 8-3848] Net input_vector_nxt[15] in module/entity example_mod does not have driver. [rtl/board/example_mod.sv:9]
+WARNING: [Synth 8-3848] Net input_vector_nxt[14] in module/entity example_mod does not have driver. [rtl/board/example_mod.sv:9]
+WARNING: [Synth 8-3848] Net input_vector_nxt[13] in module/entity example_mod does not have driver. [rtl/board/example_mod.sv:9]
+WARNING: [Synth 8-3848] Net input_vector_nxt[12] in module/entity example_mod does not have driver. [rtl/board/example_mod.sv:9]
+WARNING: [Synth 8-3848] Net input_vector_nxt[11] in module/entity example_mod does not have driver. [rtl/board/example_mod.sv:9]
+WARNING: [Synth 8-3848] Net input_vector_nxt[10] in module/entity example_mod does not have driver. [rtl/board/example_mod.sv:9]
+WARNING: [Synth 8-3848] Net input_vector_nxt[9] in module/entity example_mod does not have driver. [rtl/board/example_mod.sv:9]
+WARNING: [Synth 8-3848] Net input_vector_nxt[8] in module/entity example_mod does not have driver. [rtl/board/example_mod.sv:9]
+WARNING: [Synth 8-3848] Net input_vector_nxt[7] in module/entity example_mod does not have driver. [rtl/board/example_mod.sv:9]
+WARNING: [Synth 8-3848] Net input_vector_nxt[6] in module/entity example_mod does not have driver. [rtl/board/example_mod.sv:9]
+WARNING: [Synth 8-3848] Net input_vector_nxt[5] in module/entity example_mod does not have driver. [rtl/board/example_mod.sv:9]
+WARNING: [Synth 8-3848] Net input_vector_nxt[4] in module/entity example_mod does not have driver. [rtl/board/example_mod.sv:9]
+WARNING: [Synth 8-3848] Net input_vector_nxt[3] in module/entity example_mod does not have driver. [rtl/board/example_mod.sv:9]
+WARNING: [Synth 8-3848] Net input_vector_nxt[2] in module/entity example_mod does not have driver. [rtl/board/example_mod.sv:9]
+WARNING: [Synth 8-3848] Net input_vector_nxt[0] in module/entity example_mod does not have driver. [rtl/board/example_mod.sv:9]
+WARNING: [Synth 8-7071] port 'but' of module 'top_ssr' is unconnected for instance 'u_top_ssr' [fpga/rtl/top_ssr_basys3.sv:55]
+WARNING: [Synth 8-7023] instance 'u_top_ssr' of module 'top_ssr' has 6 connections declared, but only 5 given [fpga/rtl/top_ssr_basys3.sv:55]
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-WARNING: [Synth 8-3332] Sequential element (u_top_ssr/u_pmod_adc_ad7991/i2c_master_0/FSM_onehot_state_reg[5]) is unused and will be removed from module top_ssr_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_ssr/u_pmod_adc_ad7991/i2c_master_0/FSM_onehot_state_reg[4]) is unused and will be removed from module top_ssr_basys3.
+WARNING: [Synth 8-3323] Resources of type DSP have been overutilized. Used = 181, Available = 90. Use report_utilization command for details.
 
 ----IMPLEMENTATION----
-CLEAR :)
