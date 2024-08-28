@@ -29,7 +29,7 @@ set target xc7a35tcpg236-1
 # Specify .xdc files location                   -- EDIT
 set xdc_files {
     constraints/top_ssr_basys3.xdc
-    constraints/clk_wiz_10.xdc
+    constraints/clk_wiz_0.xdc
 }
 
 # Specify SystemVerilog design files location   -- EDIT
@@ -61,7 +61,7 @@ set sv_files {
 
 # Specify Verilog design files location         -- EDIT
 set verilog_files {
-    rtl/clk_wiz_10_clk_wiz.v
+    rtl/clk_wiz_0_clk_wiz.v
 }
 
 # Specify VHDL design files location            -- EDIT
