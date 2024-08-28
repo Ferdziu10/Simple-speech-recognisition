@@ -1,282 +1,121 @@
-WARNING: [Synth 8-324] index 32 out of range [rtl/neural_network_opt/dense_layer_2.sv:106]
-WARNING: [Synth 8-324] index 32 out of range [rtl/neural_network_opt/dense_layer_2.sv:106]
-WARNING: [Synth 8-324] index 32 out of range [rtl/neural_network_opt/dense_layer_2.sv:107]
-WARNING: [Synth 8-324] index 32 out of range [rtl/neural_network_opt/dense_layer_2.sv:107]
-WARNING: [Synth 8-324] index 32 out of range [rtl/neural_network_opt/dense_layer_2.sv:107]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[31]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[30]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[29]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[28]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[27]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[26]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[25]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[24]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[23]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[22]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[21]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[20]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[19]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[18]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[17]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[16]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[15]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[14]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[13]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[12]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[11]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[10]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[9]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[8]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[7]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[6]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[5]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[4]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[3]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[2]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[1]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[0]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-324] index 3 out of range [rtl/neural_network_opt/dense_layer_3.sv:72]
-WARNING: [Synth 8-324] index 3 out of range [rtl/neural_network_opt/dense_layer_3.sv:72]
-WARNING: [Synth 8-324] index 3 out of range [rtl/neural_network_opt/dense_layer_3.sv:73]
-WARNING: [Synth 8-324] index 3 out of range [rtl/neural_network_opt/dense_layer_3.sv:73]
-WARNING: [Synth 8-324] index 3 out of range [rtl/neural_network_opt/dense_layer_3.sv:73]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[2]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_3.sv:80]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[1]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_3.sv:80]
-WARNING: [Synth 8-87] always_comb on 'output_vector_nxt_reg[0]' did not result in combinational logic [rtl/neural_network_opt/dense_layer_3.sv:80]
-WARNING: [Synth 8-7129] Port input_vector[31][31] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[31][30] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[31][29] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[31][28] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[31][27] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[31][26] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[31][25] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[31][24] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[31][23] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[31][22] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[31][21] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[31][20] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[31][19] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[31][18] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[31][17] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[31][16] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[31][15] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[31][14] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[31][13] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[31][12] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[31][11] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[31][10] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[31][9] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[31][8] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[31][7] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[31][6] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[31][5] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[31][4] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[31][3] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[31][2] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[31][1] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[31][0] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[30][31] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[30][30] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[30][29] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[30][28] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[30][27] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[30][26] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[30][25] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[30][24] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[30][23] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[30][22] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[30][21] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[30][20] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[30][19] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[30][18] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[30][17] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[30][16] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[30][15] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[30][14] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[30][13] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[30][12] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[30][11] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[30][10] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[30][9] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[30][8] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[30][7] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[30][6] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[30][5] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[30][4] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[30][3] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[30][2] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[30][1] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[30][0] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[29][31] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[29][30] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[29][29] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[29][28] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[29][27] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[29][26] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[29][25] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[29][24] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[29][23] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[29][22] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[29][21] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[29][20] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[29][19] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[29][18] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[29][17] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[29][16] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[29][15] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[29][14] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[29][13] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[29][12] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[29][11] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[29][10] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[29][9] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[29][8] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[29][7] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[29][6] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[29][5] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[29][4] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[29][3] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[29][2] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[29][1] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[29][0] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[28][31] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[28][30] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[28][29] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port input_vector[28][28] in module dense_layer_3 is either unconnected or has no load
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[31]' [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[30]' [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[29]' [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[28]' [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[27]' [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[26]' [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[25]' [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[24]' [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[23]' [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[22]' [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[21]' [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[20]' [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[19]' [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[18]' [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[17]' [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[16]' [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[15]' [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[14]' [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[13]' [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[12]' [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[11]' [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[10]' [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[9]' [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[8]' [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[7]' [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[6]' [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[5]' [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[4]' [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[3]' [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[2]' [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[1]' [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[0]' [rtl/neural_network_opt/dense_layer_2.sv:114]
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[2]' [rtl/neural_network_opt/dense_layer_3.sv:80]
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[1]' [rtl/neural_network_opt/dense_layer_3.sv:80]
-WARNING: [Synth 8-327] inferring latch for variable 'output_vector_nxt_reg[0]' [rtl/neural_network_opt/dense_layer_3.sv:80]
+from synthesis and implementation
+
+Created: 2024-08-29 01:56:22
+
+----SYNTHESIS----
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[31][31]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[31][30]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[31][29]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[31][28]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[31][27]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[31][26]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[31][25]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[31][24]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[31][23]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[31][22]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[31][21]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[31][20]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[31][19]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[31][18]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[31][17]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[31][16]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[31][15]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[31][14]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[31][13]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[31][12]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[31][11]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[31][10]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[31][9]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[31][8]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[31][7]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[31][6]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[31][5]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[31][4]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[31][3]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[31][2]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[31][1]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[31][0]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[30][31]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[30][30]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[30][29]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[30][28]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[30][27]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[30][26]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[30][25]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[30][24]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[30][23]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[30][22]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[30][21]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[30][20]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[30][19]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[30][18]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[30][17]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[30][16]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[30][15]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[30][14]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[30][13]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[30][12]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[30][11]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[30][10]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[30][9]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[30][8]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[30][7]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[30][6]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[30][5]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[30][4]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[30][3]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[30][2]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[30][1]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[30][0]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[29][31]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[29][30]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[29][29]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[29][28]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[29][27]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[29][26]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[29][25]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[29][24]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[29][23]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[29][22]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[29][21]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[29][20]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[29][19]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[29][18]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[29][17]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[29][16]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[29][15]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[29][14]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[29][13]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[29][12]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[29][11]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[29][10]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[29][9]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[29][8]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[29][7]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[29][6]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[29][5]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[29][4]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[29][3]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[29][2]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[29][1]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[29][0]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[28][31]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[28][30]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[28][29]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3332] Sequential element (output_vector_nxt_reg[28][28]) is unused and will be removed from module dense_layer_2.
-WARNING: [Synth 8-3323] Resources of type DSP have been overutilized. Used = 112, Available = 90. Use report_utilization command for details.
+WARNING: [Synth 8-3323] Resources of type DSP have been overutilized. Used = 181, Available = 90. Use report_utilization command for details.
+
+----IMPLEMENTATION----
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port JA3 expects both input and output buffering but the buffers are incomplete.
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port JA4 expects both input and output buffering but the buffers are incomplete.
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port JA3 expects both input and output buffering but the buffers are incomplete.
+WARNING: [DRC RPBF-3] IO port buffering is incomplete: Device port JA4 expects both input and output buffering but the buffers are incomplete.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[0] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[0]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[11] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[11]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[12] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[12]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[13] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[13]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[15] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[15]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[16] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[16]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[18] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[18]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[1] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[1]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[20] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[20]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[21] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[21]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[22] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[22]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[23] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[23]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[24] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[24]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[25] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[25]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[26] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[26]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[27] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[27]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[28] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[28]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[29] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[29]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[32] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[32]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[33] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[33]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[38] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[38]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[39] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[39]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[3] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[3]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[40] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[40]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[41] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[41]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[43] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[43]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[44] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[44]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[45] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[45]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[46] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[46]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[47] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[47]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[48] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[48]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[49] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[49]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[50] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[50]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[51] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[51]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[52] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[52]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[53] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[53]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[56] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[56]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[57] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[57]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[58] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[58]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[59] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[59]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[5] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[5]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[60] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[60]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[61] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[61]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[62] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[62]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[63] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[63]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[6] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[6]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[8] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[8]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[9] input u_top_ssr/u_top_nn/u_dense_layer_1/output_vector_reg[9]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[0] input u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[0]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[10] input u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[10]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[11] input u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[11]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[12] input u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[12]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[13] input u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[13]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[14] input u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[14]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[15] input u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[15]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[17] input u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[17]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[18] input u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[18]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[19] input u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[19]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[1] input u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[1]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[20] input u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[20]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[22] input u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[22]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[23] input u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[23]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[24] input u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[24]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[25] input u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[25]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[26] input u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[26]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[27] input u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[27]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[28] input u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[28]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[29] input u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[29]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[3] input u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[3]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[4] input u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[4]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[5] input u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[5]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[6] input u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[6]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[7] input u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[7]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[9] input u_top_ssr/u_top_nn/u_dense_layer_2/output_vector_reg[9]/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/p_1_out input u_top_ssr/u_top_nn/u_dense_layer_2/p_1_out/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/p_1_out input u_top_ssr/u_top_nn/u_dense_layer_2/p_1_out/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/p_1_out__0 input u_top_ssr/u_top_nn/u_dense_layer_2/p_1_out__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/p_1_out__0 input u_top_ssr/u_top_nn/u_dense_layer_2/p_1_out__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/p_1_out__1 input u_top_ssr/u_top_nn/u_dense_layer_2/p_1_out__1/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/p_1_out__1 input u_top_ssr/u_top_nn/u_dense_layer_2/p_1_out__1/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/p_1_out__2 input u_top_ssr/u_top_nn/u_dense_layer_2/p_1_out__2/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/p_1_out__2 input u_top_ssr/u_top_nn/u_dense_layer_2/p_1_out__2/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/p_1_out__3 input u_top_ssr/u_top_nn/u_dense_layer_2/p_1_out__3/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_2/p_1_out__3 input u_top_ssr/u_top_nn/u_dense_layer_2/p_1_out__3/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out input u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out input u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__0 input u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__0 input u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__1 input u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__1/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__1 input u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__1/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__2 input u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__2/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__2 input u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__2/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__3 input u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__3/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__3 input u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__3/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__4 input u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__4/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPIP-1] Input pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__4 input u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__4/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC DPOP-1] PREG Output pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out output u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+WARNING: [DRC DPOP-1] PREG Output pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__0 output u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+WARNING: [DRC DPOP-1] PREG Output pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__1 output u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__1/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+WARNING: [DRC DPOP-1] PREG Output pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__2 output u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__2/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+WARNING: [DRC DPOP-1] PREG Output pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__3 output u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__3/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+WARNING: [DRC DPOP-1] PREG Output pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__4 output u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__4/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+WARNING: [DRC DPOP-2] MREG Output pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out multiplier stage u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+WARNING: [DRC DPOP-2] MREG Output pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__0 multiplier stage u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+WARNING: [DRC DPOP-2] MREG Output pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__1 multiplier stage u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__1/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+WARNING: [DRC DPOP-2] MREG Output pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__2 multiplier stage u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__2/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+WARNING: [DRC DPOP-2] MREG Output pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__3 multiplier stage u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__3/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+WARNING: [DRC DPOP-2] MREG Output pipelining: DSP u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__4 multiplier stage u_top_ssr/u_top_nn/u_dense_layer_3/p_1_out__4/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.

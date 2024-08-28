@@ -4,7 +4,7 @@ module dense_layer_1 (
     input clk,
     input rst,
     input logic signed [DATA_WIDTH_0-1:0] input_vector [IN_SIZE_1-1:0],
-    output logic signed [DATA_WIDTH_1-1:0:0] output_vector [OUT_SIZE_1-1:0]
+    output logic signed [DATA_WIDTH_1-1:0] output_vector [OUT_SIZE_1-1:0]
 );
 
 
