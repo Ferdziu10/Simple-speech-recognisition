@@ -79,7 +79,7 @@ ARCHITECTURE mult_gen_0_arch OF mult_gen_0 IS
       C_LATENCY : INTEGER;
       C_A_WIDTH : INTEGER;
       C_A_TYPE : INTEGER;
-      C_B_WIDTH : INTEGER;    .but,
+      C_B_WIDTH : INTEGER;   
       C_B_TYPE : INTEGER;
       C_OUT_HIGH : INTEGER;
       C_OUT_LOW : INTEGER;
