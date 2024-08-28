@@ -267,7 +267,7 @@ assign  tw_addr = tw_num * tw_sel;
 
 Twiddle64 #(.TW_FF(TW_FF)) TW (
     .clock  (clock      ),  //  i
-    .addr   (tw_addr_tc ),  //  i
+    .addr   (tw_addr_tc[5:0] ),  //  i
     .tw_re  (tw_re      ),  //  o
     .tw_im  (tw_im      )   //  o
 );
