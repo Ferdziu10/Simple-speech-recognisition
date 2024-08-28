@@ -11,6 +11,8 @@ module dense_layer_2 (
     logic signed [7:0] weight_matrix [IN_SIZE_2-1:0][OUT_SIZE_2-1:0];
     logic signed [7:0] bias_vector [OUT_SIZE_2-1:0];
     logic signed [31:0] output_vector_nxt [OUT_SIZE_2-1:0];
+    logic signed [31:0] sum [OUT_SIZE_2-1:0];
+    logic signed [31:0] mult [OUT_SIZE_2-1:0];
     logic [7:0] i;
     logic [7:0] i_nxt;
 
@@ -100,10 +102,14 @@ assign bias_vector = {-8'd6, -8'd7, -8'd3, -8'd5, -8'd1, -8'd7, -8'd6, -8'd7, -8
         if (i < IN_SIZE_2) begin
             i_nxt = i + 1;
             for (j = 0; j < OUT_SIZE_2; j++) 
-            output_vector_nxt[j] = output_vector[j] +  bias_vector[j] + input_vector[i] * weight_matrix[i][j];
+                sum[j] = output_vector[j] +  bias_vector[j];
+                mult[j] = input_vector[i] * weight_matrix[i][j];
+                output_vector_nxt[j] = mult[j] + sum[j];
         end else begin
             i_nxt = i;
             for (j = 0; j < OUT_SIZE_2; j++) begin
+                sum[j] = '0;
+                mult[j] = '0;
                 if (output_vector[j] < 0) 
                     output_vector_nxt [j] = 0;
                 else
