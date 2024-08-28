@@ -3,8 +3,8 @@ import nn_parameters::*;
 module final_layer (
     input clk,
     input rst,
-    input logic signed [39:0] input_vector [OUT_SIZE_3-1:0],
-    output logic [1:0] output_value
+    input logic signed [DATA_WIDTH_3-1:0] input_vector [OUT_SIZE_3-1:0],
+    output logic [DATA_WIDTH_FINAL-1:0] output_value
 );
     logic [1:0] output_value_nxt ;
 
