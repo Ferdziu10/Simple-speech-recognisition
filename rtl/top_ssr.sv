@@ -10,12 +10,12 @@ module top_ssr(
 logic [1:0] value;
 logic [11:0] adc_data;
 logic signed [15:0] features [25:0];
-example_mod u_example_mod(
+pmod_adc_ad7991 u_pmod_adc_ad7991(
     .clk,
     .rst,
     .sda,
     .scl,
-    .adc_data
+    .adc_ch0_data(adc_data)
 );
 top_ap u_top_ap(
     .clk,
@@ -34,7 +34,6 @@ led_logic u_led_logic(
     .rst,
     .led0,
     .but,
-    .speech_rec(value)
     .speech_rec(value)
 );
 
