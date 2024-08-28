@@ -64,7 +64,7 @@ module mel_filter_bank#(parameter N = 256)(
     
     dB_LUT dB_calculator(.in(q_descending), .out(dB), .on(new_window[2]));
 
-    mult_gen_0 mult_im (
+    mult_gen_1 mult_im (
       .CLK(clk),  // input wire CLK
       .A(in),      // input wire [31 : 0] A
       .B(filt),      // input wire [15 : 0] B
