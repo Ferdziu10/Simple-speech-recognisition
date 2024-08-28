@@ -67,10 +67,11 @@ assign bias_vector = {8'd11, 8'd53, -8'd62};
     always_comb begin
         if (i < IN_SIZE_3) begin
             i_nxt = i + 1;
-            for (j = 0; j < OUT_SIZE_3; j++) 
+            for (j = 0; j < OUT_SIZE_3; j++) begin
                 sum[j] = output_vector[j] +  bias_vector[j];
                 mult[j] = input_vector[i] * weight_matrix[i][j];
                 output_vector_nxt[j] = mult[j] + sum[j];
+            end
         end else begin
             i_nxt = i;
             for (j = 0; j < OUT_SIZE_3; j++) begin
