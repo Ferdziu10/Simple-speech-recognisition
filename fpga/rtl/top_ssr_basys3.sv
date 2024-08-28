@@ -3,6 +3,7 @@
 module top_ssr_basys3 (
     input  wire clk,
     input  wire btnC,
+    input  wire sw0,
     output wire led0,
     inout wire JA3,
     inout wire JA4 
@@ -57,8 +58,8 @@ top_ssr u_top_ssr (
     .rst(btnC),
     .scl(JA3),
     .sda(JA4),
+    .but(sw0),
     .led0(led0)
-
 );
 
 endmodule
