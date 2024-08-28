@@ -14,8 +14,10 @@
 #-----------------------------------------------------#
 # Project name                                  -- EDIT
 set project_name ssr_project
+set project_name ssr_project
 
 # Top module name                               -- EDIT
+set top_module top_ssr_basys3
 set top_module top_ssr_basys3
 
 # FPGA device
@@ -50,9 +52,10 @@ set verilog_files {
 }
 
 # Specify VHDL design files location            -- EDIT
-# set vhdl_files {
-#    path/to/file.vhd
-# }
+ set vhdl_files {
+    ../rtl/adc/i2c_master.vhd
+    ../rtl/adc/pmod_adc_ad7991.vhd
+ }
 
 # Specify files for a memory initialization     -- EDIT
 # set mem_files {
