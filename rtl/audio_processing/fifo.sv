@@ -23,6 +23,12 @@ module fifo (
             head <= 0;
             tail <= 0;
             counter <= 0;
+
+            // Pętla zerująca rejestry FIFO
+            for (int i = 0; i < 26; i++) begin
+                fifo_mem[i] <= 16'h0000;
+            end
+
         end else if (valid) begin
             // Zapis pierwszych danych do FIFO
             fifo_mem[head] <= data_in1;
@@ -44,11 +50,14 @@ module fifo (
     // Proces odczytu z FIFO na wyjście
     always_ff @(posedge clk) begin
         if (rst) begin
-            data_out <= '{default: 16'h0000};
+            // Pętla zerująca wyjścia
+            for (int i = 0; i < 26; i++) begin
+                data_out[i] <= 16'h0000;
+            end
         end else begin
             // Kopiowanie danych z FIFO na wyjścia w kolejności od najstarszej do najmłodszej
             for (int i = 0; i < 26; i++) begin
-                data_out[i] <= fifo_mem[(tail + i) % 26];
+                data_out[i] <= fifo_mem[(i + tail) % 26];
             end
         end
     end

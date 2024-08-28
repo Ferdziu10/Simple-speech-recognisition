@@ -2654,5 +2654,7 @@ module dB_LUT(
             endcase
         
         end
+        else 
+        _out=190;
     end
 endmodule
