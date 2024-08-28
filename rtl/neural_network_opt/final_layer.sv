@@ -3,12 +3,10 @@ import nn_parameters::*;
 module final_layer (
     input clk,
     input rst,
-    input logic signed [79:0] input_vector [0:OUT_SIZE_4-1],
+    input logic signed [39:0] input_vector [OUT_SIZE_3-1:0],
     output logic [1:0] output_value
 );
     logic [1:0] output_value_nxt ;
-
-integer i,k;
 
 always_ff @(posedge clk) begin
     if(rst) begin

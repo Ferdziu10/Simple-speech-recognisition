@@ -14,8 +14,10 @@
 #-----------------------------------------------------#
 # Project name                                  -- EDIT
 set project_name ssr_project
+set project_name ssr_project
 
 # Top module name                               -- EDIT
+set top_module top_ssr_basys3
 set top_module top_ssr_basys3
 
 # FPGA device
@@ -27,18 +29,17 @@ set target xc7a35tcpg236-1
 # Specify .xdc files location                   -- EDIT
 set xdc_files {
     constraints/top_ssr_basys3.xdc
-    constraints/clk_wiz_0.xdc
+    constraints/clk_wiz_10.xdc
 }
 
 # Specify SystemVerilog design files location   -- EDIT
 set sv_files {
-    ../rtl/neural_network/dense_layer_1.sv
-    ../rtl/neural_network/dense_layer_2.sv
-    ../rtl/neural_network/dense_layer_3.sv
-    ../rtl/neural_network/dense_layer_4.sv
-    ../rtl/neural_network/final_layer.sv
-    ../rtl/neural_network/nn_parameters.sv
-    ../rtl/neural_network/top_nn.sv
+    ../rtl/neural_network_opt/dense_layer_1.sv
+    ../rtl/neural_network_opt/dense_layer_2.sv
+    ../rtl/neural_network_opt/dense_layer_3.sv
+    ../rtl/neural_network_opt/final_layer.sv
+    ../rtl/neural_network_opt/nn_parameters.sv
+    ../rtl/neural_network_opt/top_nn.sv
     ../rtl/led_logic/led_logic.sv
     ../rtl/board/example_mod.sv
     ../rtl/top_ssr.sv
@@ -60,21 +61,14 @@ set sv_files {
 
 # Specify Verilog design files location         -- EDIT
 set verilog_files {
-    rtl/clk_wiz_0_clk_wiz.v
-    ../rtl/audio_processing/fft/Butterfly.v 
-    ../rtl/audio_processing/fft/DelayBuffer.v 
-    ../rtl/audio_processing/fft/FFT256.v 
-    ../rtl/audio_processing/fft/Multiply.v 
-    ../rtl/audio_processing/fft/SdfUnit_TC.v 
-    ../rtl/audio_processing/fft/Twiddle64.v 
-    ../rtl/audio_processing/fft/TwiddleConvert4.v
-    ../rtl/audio_processing/fft/TwiddleConvert8.v  
+    rtl/clk_wiz_10_clk_wiz.v
 }
 
 # Specify VHDL design files location            -- EDIT
-set vhdl_files {
-    ../rtl/audio_processing/ip/mult_gen_0/synth/mult_gen_0.vhd
-}
+ set vhdl_files {
+    ../rtl/adc/i2c_master.vhd
+    ../rtl/adc/pmod_adc_ad7991.vhd
+ }
 
 # Specify files for a memory initialization     -- EDIT
 # set mem_files {

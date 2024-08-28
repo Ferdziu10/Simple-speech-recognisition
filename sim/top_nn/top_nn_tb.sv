@@ -1,12 +1,12 @@
 module top_nn_tb;
 
     // Parameters
-    localparam IN_SIZE = 26;   // Adjust to your actual input size
-    localparam OUT_SIZE = 3;    // Adjust to your actual output size
+    localparam IN_SIZE = 26;  
+
 
     // Testbench signals
-    logic signed [11:0] input_vector [0:IN_SIZE-1];  // Unpacked array
-    logic [1:0] output_value;  // Unpacked array
+    logic signed [15:0] input_vector [IN_SIZE-1:0];  // Unpacked array
+    logic [1:0] output_value;  
     logic clk;
     logic rst;
     // Instantiate the top_nn module
