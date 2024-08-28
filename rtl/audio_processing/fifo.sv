@@ -48,7 +48,7 @@ module fifo (
         end else begin
             // Kopiowanie danych z FIFO na wyjścia w kolejności od najstarszej do najmłodszej
             for (int i = 0; i < 26; i++) begin
-                data_out[i] <= fifo_mem[(tail + i) % 26];
+                data_out[i] <= fifo_mem[(i + tail) % 26];
             end
         end
     end
