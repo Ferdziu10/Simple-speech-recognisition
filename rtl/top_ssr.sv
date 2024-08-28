@@ -23,18 +23,12 @@ top_ap u_top_ap(
     .adc_data,
     .output_vector(features)
 );
-top_nn u_top_nn(
-    .clk,
-    .rst,
-    .input_vector(features),
-    .output_value(value)
-);
+
 led_logic u_led_logic(
     .clk,
     .rst,
     .led0,
     .but,
-    .speech_rec(value)
     .speech_rec(value)
 );
 
