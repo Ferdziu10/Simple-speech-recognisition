@@ -81,6 +81,8 @@ FFT64 u_FFT64(
 );
 
 magnitude u_magnitude(
+    .clk,
+    .rst,
     .imag_part(imag_out),
     .real_part(real_out),
     .magnitude

@@ -10,6 +10,8 @@
 //////////////////////////////////////////////////////////////////////////////
 import ap_parameters::*;
 module magnitude(
+    input logic clk,
+    input logic rst,
     input  logic [FFT_DATA_WIDTH-1:0] real_part,   // 16-bitowa część rzeczywista
     input  logic [FFT_DATA_WIDTH-1:0] imag_part,   // 16-bitowa część urojona
     output logic [MEL_DATA_WIDTH-1:0] magnitude    // 32-bitowy wynik (moduł)
@@ -21,6 +23,10 @@ module magnitude(
     logic [MEL_DATA_WIDTH-1:0] real_squared;
     logic [MEL_DATA_WIDTH-1:0] imag_squared;
     logic [MEL_DATA_WIDTH-1:0] sum_squares;
+    logic [MEL_DATA_WIDTH-1:0] real_squared_nxt;
+    logic [MEL_DATA_WIDTH-1:0] imag_squared_nxt;
+    logic [MEL_DATA_WIDTH-1:0] sum_squares_nxt;
+    logic [MEL_DATA_WIDTH-1:0] magnitude_nxt;
     logic [MEL_DATA_WIDTH-1:0] x;      // approximation of root
     logic [MEL_DATA_WIDTH-1:0] x_next; // next approximation
     logic [MEL_DATA_WIDTH-1:0] error;  // diffrence beyond next approximation
@@ -29,19 +35,45 @@ module magnitude(
     localparam int ITERATIONS = 2;
 
 //------------------------------------------------------------------------------
+// output register with sync reset
+//------------------------------------------------------------------------------
+    always_ff@(posedge clk) begin
+        if (rst) begin
+            magnitude <= '0;
+            real_squared <= '0;
+            imag_squared <= '0;
+            sum_squares <= '0;
+        end else begin
+            magnitude <= magnitude_nxt;
+            real_squared <= real_squared_nxt;
+            imag_squared <= imag_squared_nxt;
+            sum_squares <= sum_squares_nxt;
+        end
+    end
+
+//------------------------------------------------------------------------------
 // logic
 //------------------------------------------------------------------------------j
     always_comb begin
         if( real_part == 0 && imag_part == 0)
-            magnitude = 0;
+            magnitude_nxt = 0;
+            real_squared_nxt = real_squared;
+            imag_squared_nxt = imag_squared;
+            sum_squares_nxt = sum_squares;
         else if(real_part == 0)
-            magnitude = imag_part;
+            magnitude_nxt = imag_part;
+            real_squared_nxt = real_squared;
+            imag_squared_nxt = imag_squared;
+            sum_squares_nxt = sum_squares;
         else if(imag_part == 0)
-            magnitude = real_part;
+            magnitude_nxt = real_part;
+            real_squared_nxt = real_squared;
+            imag_squared_nxt = imag_squared;
+            sum_squares_nxt = sum_squares;
         else begin
-            real_squared = real_part * real_part;
-            imag_squared = imag_part * imag_part;
-            sum_squares  = real_squared + imag_squared;
+            real_squared_nxt = real_part * real_part;
+            imag_squared_nxt = imag_part * imag_part;
+            sum_squares_nxt  = real_squared + imag_squared;
             x = sum_squares;
 
             // Iterative process of Newton-Raphson algorithm
@@ -53,7 +85,7 @@ module magnitude(
                 end
                 x = x_next;
             end
-            magnitude = x;
+            magnitude_nxt = x;
         end
     end
 

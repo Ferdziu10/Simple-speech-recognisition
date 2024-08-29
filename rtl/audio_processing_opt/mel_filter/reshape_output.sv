@@ -45,22 +45,7 @@ module reshape_output#(parameter OUT_WIDTH=20)(
     assign out = banks[0];
     assign s_ready = !q_valid;
     
-    always_comb begin
-        if(s_valid & s_ready) begin
-            d_counter = 6'd0;
-            d_valid = 1'b0;
-        end
-        else begin
-            d_valid = q_counter<OUT_LENGTH-1;
-            if(q_valid && m_ready) begin
-                d_counter = q_counter+1;
-            end else begin
-                d_counter = q_counter;
-            end
-        end
-    end
-    
-    always_ff @(posedge clk or posedge reset) begin
+    always_ff @(posedge clk) begin
         if(reset) begin
             q_counter <= OUT_LENGTH;
             q_valid <= 0;
@@ -83,5 +68,20 @@ module reshape_output#(parameter OUT_WIDTH=20)(
               end
         end
     
+    end
+
+    always_comb begin
+        if(s_valid & s_ready) begin
+            d_counter = 6'd0;
+            d_valid = 1'b0;
+        end
+        else begin
+            d_valid = q_counter<OUT_LENGTH-1;
+            if(q_valid && m_ready) begin
+                d_counter = q_counter+1;
+            end else begin
+                d_counter = q_counter;
+            end
+        end
     end
 endmodule

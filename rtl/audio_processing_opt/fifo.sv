@@ -22,10 +22,6 @@ module fifo (
 // local variables
 //------------------------------------------------------------------------------
     logic [NN_DATA_WIDTH-1:0] fifo_mem [NN_ARRAY_WIDTH:0];
-    logic [4:0] head;
-    logic [4:0] head_nxt;
-    
-    
 //------------------------------------------------------------------------------
 // output register with sync reset
 //------------------------------------------------------------------------------
@@ -38,7 +34,7 @@ module fifo (
 
         end else  begin
             for (int i = 0; i < NN_ARRAY_WIDTH; i++) begin
-                data_out[i] <= fifo_mem[(i + head) % NN_ARRAY_WIDTH];
+                data_out[i] <= fifo_mem[i];
             end
             head <= head_nxt;
         end
@@ -50,15 +46,16 @@ module fifo (
     always_comb begin
             if (valid) begin
             // Save first data to fifo
-            fifo_mem[head] = data_in1;
+            fifo_mem[0] = data_in1;
             // Save second data to fifo
-            fifo_mem[head+1] = data_in2;
-            head_nxt = (head + 2) % NN_ARRAY_WIDTH;
+            fifo_mem[1] = data_in2;
+            for (int i = 2; i < NN_ARRAY_WIDTH; i++) begin
+                fifo_mem[i] = data_out [i-2]
+                end
         end else begin
             for (int i = 0; i < NN_ARRAY_WIDTH; i++) begin
                 fifo_mem[i] = data_out[i];
             end
-            head_nxt = head;
         end
     end
 
