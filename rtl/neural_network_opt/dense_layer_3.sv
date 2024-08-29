@@ -1,3 +1,14 @@
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   dense_layer_3
+ Authors:       Mateusz Gibas, Kacper Ferdek
+ Version:       3.4
+ Last modified: 2024-08-29
+ Coding style: safe, with FPGA sync reset
+ Description:  third layer of neural network
+ */
+//////////////////////////////////////////////////////////////////////////////
+
 import nn_parameters::*;
 
 module dense_layer_3 (
@@ -6,6 +17,10 @@ module dense_layer_3 (
     input logic signed [DATA_WIDTH_2-1:0] input_vector [IN_SIZE_3-1:0],
     output logic signed [DATA_WIDTH_3-1:0] output_vector [OUT_SIZE_3-1:0]
 );
+
+//------------------------------------------------------------------------------
+// local variables
+//------------------------------------------------------------------------------
 
     logic signed [WB_WIDTH-1:0] weight_matrix [IN_SIZE_3-1:0][OUT_SIZE_3-1:0];
     logic signed [WB_WIDTH-1:0] bias_vector [OUT_SIZE_3-1:0];
@@ -54,9 +69,12 @@ assign weight_matrix[31] = {-8'd43, 8'd45, 8'd18};
 
 assign bias_vector = {8'd11, 8'd53, -8'd62};
 
+//------------------------------------------------------------------------------
+// output register with sync reset
+//------------------------------------------------------------------------------
+
     always_ff @(posedge clk) begin
         if (rst) begin
-            // Resetowanie wartości rejestrów
             for (k = 0; k < OUT_SIZE_3; k++) begin
                 output_vector[k] <= '0;
                 sum[k] <= '0;
@@ -64,7 +82,6 @@ assign bias_vector = {8'd11, 8'd53, -8'd62};
             end
             i <= '0;
         end else begin
-            // Przenoszenie wyników pośrednich do następnego etapu
             for (k = 0; k < OUT_SIZE_3; k++) begin
                 output_vector[k] <= output_vector_nxt[k];
                 sum[k] <= sum_nxt[k];
@@ -74,26 +91,30 @@ assign bias_vector = {8'd11, 8'd53, -8'd62};
         end
     end
 
+//------------------------------------------------------------------------------
+// logic
+//------------------------------------------------------------------------------
+
     always_comb begin
         if (i < IN_SIZE_3) begin
 
-            // Aktualizacja indeksu
+            // Indeks update
             i_nxt = i + 1;
 
-            // Etap 1: Obliczenia sum i mnożeń
+            // Stage 1: Calculation sum and mult
             for (j = 0; j < OUT_SIZE_3; j++) begin
                 sum_nxt[j] = output_vector[j] + bias_vector[j];
                 mult_nxt[j] = input_vector[i] * weight_matrix[i][j];
             end
 
-            // Etap 2: Aktualizacja wektora wyjściowego
+            // Stage 2: Update of output vector
             for (j = 0; j < OUT_SIZE_3; j++) begin
-                output_vector_nxt[j] = mult[j] + sum[j]; // Wykorzystanie zarejestrowanych wartości
+                output_vector_nxt[j] = mult[j] + sum[j]; 
             end
 
 
         end else begin
-            // Warunek końcowy: nie zmieniać indeksu ani wyników
+             // Ending condition
             i_nxt = i;
             for (j = 0; j < OUT_SIZE_3; j++) begin
                 sum_nxt[j] = '0;

@@ -1,3 +1,14 @@
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   nn_parameters
+ Authors:       Mateusz Gibas, Kacper Ferdek
+ Version:       1.2
+ Last modified: 2024-08-29
+ Coding style: safe, with FPGA sync reset
+ Description:  package of parameters used in modules in neural network
+ */
+//////////////////////////////////////////////////////////////////////////////
+
 package nn_parameters;
 //parameters for dense 1
 localparam DATA_WIDTH_0 = 16;

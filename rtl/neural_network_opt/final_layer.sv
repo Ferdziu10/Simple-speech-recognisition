@@ -1,3 +1,14 @@
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   final_layer
+ Authors:       Mateusz Gibas, Kacper Ferdek
+ Version:       3.4
+ Last modified: 2024-08-29
+ Coding style: safe, with FPGA sync reset
+ Description:  final layer of neural network
+ */
+//////////////////////////////////////////////////////////////////////////////
+
 import nn_parameters::*;
 
 module final_layer (
@@ -6,7 +17,16 @@ module final_layer (
     input logic signed [DATA_WIDTH_3-1:0] input_vector [OUT_SIZE_3-1:0],
     output logic [DATA_WIDTH_FINAL-1:0] output_value
 );
-    logic [1:0] output_value_nxt ;
+
+//------------------------------------------------------------------------------
+// local variables
+//------------------------------------------------------------------------------
+
+logic [1:0] output_value_nxt ;
+
+//------------------------------------------------------------------------------
+// output register with sync reset
+//------------------------------------------------------------------------------
 
 always_ff @(posedge clk) begin
     if(rst) begin
@@ -15,6 +35,10 @@ always_ff @(posedge clk) begin
         output_value <= output_value_nxt;
     end
 end
+
+//------------------------------------------------------------------------------
+// logic
+//------------------------------------------------------------------------------
 
 always_comb begin
         if(input_vector[0] > input_vector[1]) begin
