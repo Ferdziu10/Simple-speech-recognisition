@@ -85,6 +85,9 @@ assign weight_matrix[63] = {8'd37, 8'd44, -8'd12, 8'd10, -8'd37, 8'd8, -8'd39, -
 
 assign bias_vector = {-8'd6, -8'd7, -8'd3, -8'd5, -8'd1, -8'd7, -8'd6, -8'd7, -8'd7, -8'd3, -8'd48, -8'd6, -8'd9, -8'd9, -8'd5, 8'd0, -8'd8, -8'd6, -8'd7, -8'd7, -8'd8, -8'd4, -8'd5, -8'd9, -8'd6, -8'd10, -8'd9, -8'd8, -8'd4, 8'd23, -8'd7, -8'd9};
 
+    for (k = 0; k < IN_SIZE_2; k++)
+        assign input_vector_nxt = input_vector;
+
     always_ff @(posedge clk) begin
         if(rst) begin
             for (k = 0; k < OUT_SIZE_2; k++) 
@@ -96,8 +99,7 @@ assign bias_vector = {-8'd6, -8'd7, -8'd3, -8'd5, -8'd1, -8'd7, -8'd6, -8'd7, -8
             i <= i_nxt;
     end
     end
-    
-    assign input_vector_nxt = input_vector;
+
 
     always_comb begin
         if (i < IN_SIZE_2) begin
