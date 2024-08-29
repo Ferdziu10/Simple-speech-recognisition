@@ -22,10 +22,6 @@ wire[WIDTH-1:0] su1_do_im;
 wire            su2_do_en;
 wire[WIDTH-1:0] su2_do_re;
 wire[WIDTH-1:0] su2_do_im;
-wire            su3_do_en;
-wire[WIDTH-1:0] su3_do_re;
-wire[WIDTH-1:0] su3_do_im;
-
 
 SdfUnit #(.N(64),.M(64),.WIDTH(WIDTH)) SU1 (
     .clock  (clock      ),  //  i

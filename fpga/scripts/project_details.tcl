@@ -41,9 +41,10 @@ set sv_files {
     ../rtl/audio_processing_opt/framing.sv 
     ../rtl/audio_processing_opt/framing_1.sv 
     ../rtl/audio_processing_opt/windowing.sv 
-    ../rtl/audio_processing_opt/wrapper.sv 
+    ../rtl/audio_processing_opt/unwrapper.sv 
     ../rtl/audio_processing_opt/zero_padding.sv 
     ../rtl/audio_processing_opt/mel_filter/mel_filter_bank.sv 
+    ../rtl/audio_processing_opt/mel_filter/reshape_output.sv 
     ../rtl/audio_processing_opt/mel_filter/dB_LUT.sv
     ../rtl/audio_processing_opt/mel_filter/multiplier.sv 
     ../rtl/audio_processing_opt/magnitude.sv 

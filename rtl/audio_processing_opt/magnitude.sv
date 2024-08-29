@@ -1,23 +1,36 @@
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   magnitude
+ Authors:       Kacper Ferdek, Mateusz Gibas
+ Version:       1.0
+ Last modified: 2024-08-29
+ Coding style: safe, with FPGA sync reset
+ Description:  Calculating magnitude from real part and imaginaris part of fft
+ */
+//////////////////////////////////////////////////////////////////////////////
+import ap_parameters::*;
 module magnitude(
-    input  logic [15:0] real_part,   // 16-bitowa część rzeczywista
-    input  logic [15:0] imag_part,   // 16-bitowa część urojona
-    output logic [31:0] magnitude    // 32-bitowy wynik (moduł)
+    input  logic [FFT_DATA_WIDTH-1:0] real_part,   // 16-bitowa część rzeczywista
+    input  logic [FFT_DATA_WIDTH-1:0] imag_part,   // 16-bitowa część urojona
+    output logic [MEL_DATA_WIDTH-1:0] magnitude    // 32-bitowy wynik (moduł)
 );
 
-    // Zmienne pomocnicze do przechowywania kwadratów i sumy kwadratów
-    logic [31:0] real_squared;
-    logic [31:0] imag_squared;
-    logic [31:0] sum_squares;
-
-    // Zmienne pomocnicze do algorytmu Newtona-Raphsona
-    logic [31:0] x;      // Przybliżenie pierwiastka
-    logic [31:0] x_next; // Następne przybliżenie
-    logic [31:0] error;  // Różnica między kolejnymi przybliżeniami
+//------------------------------------------------------------------------------
+// local variables
+//------------------------------------------------------------------------------
+    logic [MEL_DATA_WIDTH-1:0] real_squared;
+    logic [MEL_DATA_WIDTH-1:0] imag_squared;
+    logic [MEL_DATA_WIDTH-1:0] sum_squares;
+    logic [MEL_DATA_WIDTH-1:0] x;      // Przybliżenie pierwiastka
+    logic [MEL_DATA_WIDTH-1:0] x_next; // Następne przybliżenie
+    logic [MEL_DATA_WIDTH-1:0] error;  // Różnica między kolejnymi przybliżeniami
 
     // Parametr konfiguracyjny określający liczbę iteracji algorytmu Newtona-Raphsona
-    localparam int ITERATIONS = 10;
+    localparam int ITERATIONS = 2;
 
-    // Obliczanie kwadratów i sumy kwadratów części rzeczywistej i urojonej
+//------------------------------------------------------------------------------
+// logic
+//------------------------------------------------------------------------------j
     always_comb begin
         if( real_part == 0 && imag_part == 0)
             magnitude = 0;

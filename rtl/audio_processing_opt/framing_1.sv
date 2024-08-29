@@ -5,7 +5,9 @@ module framing_1 (
     output logic [15:0] frame_out [0:19],
     output logic frame_ready
 );
-    // Wewnetrzne logiki
+//------------------------------------------------------------------------------
+// local variables
+//------------------------------------------------------------------------------
     logic [15:0] frame_out_nxt [0:19];
     logic [15:0] buffer [0:19];
     logic [15:0] buffer_nxt [0:19];
@@ -14,7 +16,9 @@ module framing_1 (
     logic frame_ready_nxt;
     integer i, k;
 
-    // Blok zegarowy (sekwencyjny)
+//------------------------------------------------------------------------------
+// output register with sync reset
+//------------------------------------------------------------------------------
     always_ff @(posedge clk) begin
         if (rst) begin
             index <= 8'd0;
@@ -33,7 +37,9 @@ module framing_1 (
         end
     end
 
-    
+//------------------------------------------------------------------------------
+// logic
+//------------------------------------------------------------------------------
     always_comb begin
         // Domyślne przypisania
         index_nxt = index;

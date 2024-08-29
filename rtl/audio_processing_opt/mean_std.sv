@@ -1,70 +1,88 @@
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   mean_std
+ Authors:       Kacper Ferdek, Mateusz Gibas
+ Version:       1.0
+ Last modified: MS_ARRAY_WIDTH24-08-29
+ Coding style: safe, with FPGA sync reset
+ Description:  Calculating mean and std from mel data
+ */
+//////////////////////////////////////////////////////////////////////////////
+ import ap_parameters::*;
 module mean_std (
     input logic clk,
     input logic rst,
     input logic valid_in,
-    input logic [15:0] data_in [0:19],
-    output logic [15:0] mean,
-    output logic [15:0] std,
+    input logic [MSIN_DATA_WIDTH-1:0] data_in [MS_ARRAY_WIDTH-1:0],
+    output logic [NN_DATA_WIDTH-1:0] mean,
+    output logic [NN_DATA_WIDTH-1:0] std,
     output logic valid_out
 );
 
-    // Zmienne pomocnicze
-    logic [31:0] sum_nxt;
-    logic [31:0] sum_sq_nxt;
-    logic [31:0] mean_nxt;
-    logic [31:0] variance_nxt;
-    logic [15:0] stddev_nxt;
-    logic [15:0] guess, guess_next;
-    logic [31:0] difference;
-    logic [15:0] i;
+//------------------------------------------------------------------------------
+// local variables
+//------------------------------------------------------------------------------
+    logic [MS_DATA_WIDTH-1:0] sum_nxt;
+    logic [MS_DATA_WIDTH-1:0] sum_sq_nxt;
+    logic [MS_DATA_WIDTH-1:0] mean_nxt;
+    logic [MS_DATA_WIDTH-1:0] variance_nxt;
+    logic [MSIN_DATA_WIDTH-1:0] stddev_nxt;
+    logic [MSIN_DATA_WIDTH-1:0] guess, guess_next;
+    logic [MS_DATA_WIDTH-1:0] difference;
+    logic [MSIN_DATA_WIDTH-1:0] i;
     logic valid_nxt;
     logic converged;
 
+//------------------------------------------------------------------------------
+// output register with sync reset
+//------------------------------------------------------------------------------
     always_ff @(posedge clk or posedge rst) begin
         if (rst) begin
             valid_out  <= 0;
             mean <= 0;
             std <= 0;
         end else begin
-            // Zapisanie wyników na wyjściu
-            mean <= mean_nxt[15:0];    // Zapisujemy obliczoną srednia
-            std <= stddev_nxt;  // Zapisujemy obliczone odchyleneis tandardwoe
+            mean <= mean_nxt[MSIN_DATA_WIDTH-1:0];    
+            std <= stddev_nxt; 
             valid_out <= valid_nxt;
         end
     end
 
+//------------------------------------------------------------------------------
+// logic
+//------------------------------------------------------------------------------
     always_comb begin
         valid_nxt = valid_in;
         sum_nxt = 0;
         sum_sq_nxt = 0;
 
-        // Obliczanie sumy wszystkich wartości
-        for (i = 0; i < 20; i = i + 1) begin
+        // Computing sum
+        for (i = 0; i < MS_ARRAY_WIDTH; i = i + 1) begin
             sum_nxt = sum_nxt + data_in[i];
         end
 
-        // Obliczanie średniej
-        mean_nxt = sum_nxt / 20;
+        // computing mean
+        mean_nxt = sum_nxt / MS_ARRAY_WIDTH;
 
-        // Obliczanie sumy kwadratów różnic od średniej
-        for (i = 0; i < 20; i = i + 1) begin
+        // Computing sum of squares subtraction from mean
+        for (i = 0; i < MS_ARRAY_WIDTH; i = i + 1) begin
             sum_sq_nxt = sum_sq_nxt + (data_in[i] - mean_nxt) * (data_in[i] - mean_nxt);
         end
 
-        // Obliczanie wariancji
-        variance_nxt = sum_sq_nxt / 20;
+        // computing variance
+        variance_nxt = sum_sq_nxt / MS_ARRAY_WIDTH;
 
-        // Obliczanie odchylenia standardowego
+        // computing std
         //stddev_nxt = $clog2(variance_nxt);
-        // Algorytm Newtona-Raphsona w pełni kombinacyjny
-        guess = variance_nxt >> 1;  // Początkowe przybliżenie
+        // Algorithm Newtona-Raphsona fully combitional
+        guess = variance_nxt >> 1;  // First approximation
         converged = 0;
 
-        for (i = 0; i < 8; i = i + 1) begin
+        for (i = 0; i < 4; i = i + 1) begin
             if (!converged && guess != 0) begin
                 guess_next = (guess + variance_nxt / guess) >> 1;
 
-                // Sprawdzenie, czy algorytm się zbiega
+                // Checking that algorithms are coverged
                 difference = guess > guess_next ? guess - guess_next : guess_next - guess;
                 if (difference < 2) begin
                     converged = 1;
