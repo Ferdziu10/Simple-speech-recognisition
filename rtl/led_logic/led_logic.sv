@@ -1,13 +1,33 @@
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   led_logic
+ Authors:       Mateusz Gibas, Kacper Ferdek
+ Version:       1.2
+ Last modified: 2024-08-29
+ Coding style: safe, with FPGA sync reset
+ Description:  control the state of the led
+ */
+//////////////////////////////////////////////////////////////////////////////
+
+
 module led_logic(
-    input  logic clk,          // zegar systemowy
+    input  logic clk,          // clock
     input  logic rst,           // reset
-    input  logic [1:0] speech_rec, // wynik rozpoznania mowy 0(nie rozponzano nic), 1(on), 2(off) 
-    input  logic but,           // przełącznik
-    output logic led0           // dioda
+    input  logic [1:0] speech_rec, // result of speach recognision 0(other), 1(on), 2(off) 
+    input  logic but,           // switch
+    output logic led0           // diode
 );
+
+
+//------------------------------------------------------------------------------
+// local variables
+//------------------------------------------------------------------------------
 
 logic led0_nxt;
 
+//------------------------------------------------------------------------------
+// output register with sync reset
+//------------------------------------------------------------------------------
 
 always_ff @(posedge clk) begin
     if(rst)
@@ -15,6 +35,10 @@ always_ff @(posedge clk) begin
     else
         led0 <= led0_nxt;
 end
+
+//------------------------------------------------------------------------------
+// logic
+//------------------------------------------------------------------------------
 
 always_comb begin
     if(but) begin
