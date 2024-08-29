@@ -51,7 +51,7 @@ module fifo (
             if (valid) begin
             // Save first data to fifo
             fifo_mem[head] = data_in1;
-            // SAve second data to fifo
+            // Save second data to fifo
             fifo_mem[head+1] = data_in2;
             head_nxt = (head + 2) % NN_ARRAY_WIDTH;
         end else begin

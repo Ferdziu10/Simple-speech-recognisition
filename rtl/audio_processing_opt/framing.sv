@@ -52,24 +52,21 @@ module framing (
 // logic
 //------------------------------------------------------------------------------
     always_comb begin
-        // Domyślne przypisania
         index_nxt = index;
         frame_ready_nxt = 1'b0;
         for (k = 0; k < FRAME_ARRAY_WIDTH; k++) begin
             buffer_nxt[k] = buffer[k];
             frame_out_nxt[k] = frame_out[k];
         end
-
-        // Logika przetwarzania
-        buffer_nxt[index] = sample_in; // Zapis próbki do bufora
+        buffer_nxt[index] = sample_in; 
         if (index == 8'd63) begin
             index_nxt = 8'd0;
             frame_ready_nxt = 1'b1;
             for (k = 0; k < FRAME_ARRAY_WIDTH; k++) begin
-                frame_out_nxt[k] = buffer[k]; // Przypisanie bufora do wyjścia ramki
+                frame_out_nxt[k] = buffer[k]; 
             end
         end else begin
-            index_nxt = index + 8'd1; // Inkrementacja indeksu
+            index_nxt = index + 8'd1; 
         end
     end
 

@@ -21,11 +21,11 @@ module magnitude(
     logic [MEL_DATA_WIDTH-1:0] real_squared;
     logic [MEL_DATA_WIDTH-1:0] imag_squared;
     logic [MEL_DATA_WIDTH-1:0] sum_squares;
-    logic [MEL_DATA_WIDTH-1:0] x;      // Przybliżenie pierwiastka
-    logic [MEL_DATA_WIDTH-1:0] x_next; // Następne przybliżenie
-    logic [MEL_DATA_WIDTH-1:0] error;  // Różnica między kolejnymi przybliżeniami
+    logic [MEL_DATA_WIDTH-1:0] x;      // approximation of root
+    logic [MEL_DATA_WIDTH-1:0] x_next; // next approximation
+    logic [MEL_DATA_WIDTH-1:0] error;  // diffrence beyond next approximation
 
-    // Parametr konfiguracyjny określający liczbę iteracji algorytmu Newtona-Raphsona
+    // config parameter for iteration of Newton-Raphson algorithm
     localparam int ITERATIONS = 2;
 
 //------------------------------------------------------------------------------
@@ -42,25 +42,17 @@ module magnitude(
             real_squared = real_part * real_part;
             imag_squared = imag_part * imag_part;
             sum_squares  = real_squared + imag_squared;
-            //magnitude    = $sqrt(sum_squares);  // Obliczanie pierwiastka kwadratowego z sumy kwadratów
-
-            // Inicjalizacja przybliżenia
             x = sum_squares;
 
-            // Iteracyjny proces algorytmu Newtona-Raphsona
+            // Iterative process of Newton-Raphson algorithm
             for (int i = 0; i < ITERATIONS; i++) begin
                 x_next = (x + sum_squares / x) >> 1; // x_next = (x + sum_squares / x) / 2
                 error = (x > x_next) ? (x - x_next) : (x_next - x);
-
-                // Jeżeli różnica między kolejnymi przybliżeniami jest mała, można przerwać iterację
                 if (error < 1) begin
                     break;
                 end
                 x = x_next;
             end
-        
-
-            // Wynik końcowy to przybliżone x po zakończeniu iteracji
             magnitude = x;
         end
     end

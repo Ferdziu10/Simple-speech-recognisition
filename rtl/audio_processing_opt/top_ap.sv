@@ -32,7 +32,9 @@ logic [15:0] unsigned_vector [25:0];
 logic valid_fifo;
 logic frame_ready_1;
 
-
+//------------------------------------------------------------------------------
+// module instances
+//------------------------------------------------------------------------------
 /*pre_emphasis u_pre_emphasis(
     .clk,
     .rst,
