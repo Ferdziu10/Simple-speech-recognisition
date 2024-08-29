@@ -7,7 +7,7 @@ module dense_layer_2 (
     output logic signed [DATA_WIDTH_2-1:0] output_vector [OUT_SIZE_2-1:0]
 );
 
-
+    logic signed [DATA_WIDTH_1-1:0] input_vector_nxt [IN_SIZE_2-1:0],
     logic signed [WB_WIDTH-1:0] weight_matrix [IN_SIZE_2-1:0][OUT_SIZE_2-1:0];
     logic signed [WB_WIDTH-1:0] bias_vector [OUT_SIZE_2-1:0];
     logic signed [DATA_WIDTH_2-1:0] output_vector_nxt [OUT_SIZE_2-1:0];
