@@ -12,6 +12,8 @@ module dense_layer_2 (
     logic signed [DATA_WIDTH_2-1:0] output_vector_nxt [OUT_SIZE_2-1:0];
     logic signed [DATA_WIDTH_2-1:0] sum [OUT_SIZE_2-1:0];
     logic signed [DATA_WIDTH_2-1:0] mult [OUT_SIZE_2-1:0];
+    logic state;
+    logic state_nxt;
     logic [7:0] i;
     logic [7:0] i_nxt;
 
@@ -89,24 +91,33 @@ assign bias_vector = {-8'd6, -8'd7, -8'd3, -8'd5, -8'd1, -8'd7, -8'd6, -8'd7, -8
             for (k = 0; k < OUT_SIZE_2; k++) 
             output_vector[k] <= '0;
             i <= '0;
+            state <= '0;
         end else begin
             for (k = 0; k < OUT_SIZE_2; k++)
             output_vector[k] <= output_vector_nxt[k];
             i <= i_nxt;
+            state <= state_nxt;
     end
     end
 
 
     always_comb begin
         if (i < IN_SIZE_2) begin
-            i_nxt = i + 1;
+            if(!state) begin
+            state_nxt = state + 1
             for (j = 0; j < OUT_SIZE_2; j++) begin
                 sum[j] = output_vector[j] +  bias_vector[j];
                 mult[j] = input_vector[i] * weight_matrix[i][j];
-                output_vector_nxt[j] = mult[j] + sum[j];
+            end
+        end else begin
+            i_nxt = i + 1;
+            state_nxt = 0;
+            for (j = 0; j < OUT_SIZE_2; j++)
+                output_vector_nxt[j] = mult[j] + sum[j];           
             end
         end else begin
             i_nxt = i;
+            state_nxt = state;
             for (j = 0; j < OUT_SIZE_2; j++) begin
                 sum[j] = '0;
                 mult[j] = '0;
