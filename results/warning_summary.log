@@ -1,13 +1,14 @@
 Warnings, critical warnings and errors from synthesis and implementation
 
-Created: 2024-08-30 01:27:53
+Created: 2024-08-30 01:31:51
 
 ----SYNTHESIS----
-ERROR: [Synth 8-2716] syntax error near 'end' [C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/rtl/audio_processing_opt/fifo.sv:54]
-ERROR: [Synth 8-10307] SystemVerilog keyword 'end' used in incorrect context [C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/rtl/audio_processing_opt/fifo.sv:54]
-ERROR: [Synth 8-36] 'head' is not declared [C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/rtl/audio_processing_opt/fifo.sv:30]
-ERROR: [Synth 8-36] 'head' is not declared [C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/rtl/audio_processing_opt/fifo.sv:39]
-ERROR: [Synth 8-36] 'head_nxt' is not declared [C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/rtl/audio_processing_opt/fifo.sv:39]
+ERROR: [Synth 8-2716] syntax error near 'else' [C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/rtl/audio_processing_opt/magnitude.sv:63]
+ERROR: [Synth 8-10307] SystemVerilog keyword 'else' used in incorrect context [C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/rtl/audio_processing_opt/magnitude.sv:63]
+ERROR: [Synth 8-2716] syntax error near 'else' [C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/rtl/audio_processing_opt/magnitude.sv:68]
+ERROR: [Synth 8-10307] SystemVerilog keyword 'else' used in incorrect context [C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/rtl/audio_processing_opt/magnitude.sv:68]
+ERROR: [Synth 8-2716] syntax error near 'else' [C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/rtl/audio_processing_opt/magnitude.sv:73]
+ERROR: [Synth 8-10307] SystemVerilog keyword 'else' used in incorrect context [C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/rtl/audio_processing_opt/magnitude.sv:73]
 ERROR: [Synth 8-439] module 'top_ssr_basys3' not found
 ERROR: [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details
 

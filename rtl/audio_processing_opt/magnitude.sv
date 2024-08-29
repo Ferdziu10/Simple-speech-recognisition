@@ -55,22 +55,22 @@ module magnitude(
 // logic
 //------------------------------------------------------------------------------j
     always_comb begin
-        if( real_part == 0 && imag_part == 0)
+        if( real_part == 0 && imag_part == 0) begin
             magnitude_nxt = 0;
             real_squared_nxt = real_squared;
             imag_squared_nxt = imag_squared;
             sum_squares_nxt = sum_squares;
-        else if(real_part == 0)
+        end else if(real_part == 0) begin
             magnitude_nxt = imag_part;
             real_squared_nxt = real_squared;
             imag_squared_nxt = imag_squared;
             sum_squares_nxt = sum_squares;
-        else if(imag_part == 0)
+        end else if(imag_part == 0) begin
             magnitude_nxt = real_part;
             real_squared_nxt = real_squared;
             imag_squared_nxt = imag_squared;
             sum_squares_nxt = sum_squares;
-        else begin
+        end else begin
             real_squared_nxt = real_part * real_part;
             imag_squared_nxt = imag_part * imag_part;
             sum_squares_nxt  = real_squared + imag_squared;

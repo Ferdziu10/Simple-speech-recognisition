@@ -47,8 +47,8 @@ module fifo (
             // Save second data to fifo
             fifo_mem[1] = data_in2;
             for (int i = 2; i < NN_ARRAY_WIDTH; i++) begin
-                fifo_mem[i] = data_out [i-2]
-                end
+                fifo_mem[i] = data_out [i-2];
+            end
         end else begin
             for (int i = 0; i < NN_ARRAY_WIDTH; i++) begin
                 fifo_mem[i] = data_out[i];
