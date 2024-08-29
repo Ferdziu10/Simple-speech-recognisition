@@ -49,6 +49,7 @@ module mel_filter_bank#(parameter N = 256)(
     logic [31:0] d_descending;      // ascending and descending side lobes of the filter banks
     logic [31:0] accumulation;      // just used to save one adder
     logic [15:0] dB;                //take dB of spectral energy
+    logic [31:0] product_reg;
     
     assign s_ready = in_ready;
     assign in_valid[0] = s_valid;
@@ -64,11 +65,18 @@ module mel_filter_bank#(parameter N = 256)(
     
     dB_LUT dB_calculator(.in(q_descending), .out(dB), .on(new_window[2]));
 
-    mult_gen_1 mult_im (
+    /*mult_gen_0 mult_im (
       .CLK(clk),  // input wire CLK
       .A(in),      // input wire [31 : 0] A
       .B(filt),      // input wire [15 : 0] B
-      .P(product[0])      // output wire [63 : 0] P
+      .P(product_reg)      // output wire [31 : 0] P
+    );*/
+    multiplier mult_im(
+        .clk,
+        .rst(reset),
+        .a(in),
+        .b(filt),
+        .p(product_reg)
     );
     
     always_comb begin        
@@ -117,6 +125,7 @@ module mel_filter_bank#(parameter N = 256)(
             q_in <= in;
             new_window[1:2] <= new_window[0:1];
             in_valid[1:2] <= in_valid[0:1];
+            product[0] <= product_reg;
 //            scaled_product[0] <= product[47:15];
             product[1] <= product[0];
             inverse[1] <= inverse[0];

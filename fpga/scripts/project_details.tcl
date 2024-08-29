@@ -43,6 +43,7 @@ set sv_files {
     ../rtl/led_logic/led_logic.sv
     ../rtl/board/example_mod.sv
     ../rtl/top_ssr.sv
+    ../rtl/audio_processing/ap_parameters.sv
     ../rtl/audio_processing/pre_emphasis.sv 
     ../rtl/audio_processing/framing.sv 
     ../rtl/audio_processing/windowing.sv 
@@ -50,6 +51,7 @@ set sv_files {
     ../rtl/audio_processing/zero_padding.sv 
     ../rtl/audio_processing/mel_filter/mel_filter_bank.sv 
     ../rtl/audio_processing/mel_filter/dB_LUT.sv 
+    ../rtl/audio_processing/mel_filter/multiplier.sv 
     ../rtl/audio_processing/reshape_output.sv 
     ../rtl/audio_processing/magnitude.sv 
     ../rtl/audio_processing/mean_std.sv 
@@ -74,7 +76,6 @@ set verilog_files {
 
 # Specify VHDL design files location            -- EDIT
 set vhdl_files {
-    ../rtl/audio_processing/ip/mult_gen_0/synth/mult_gen_0.vhd
     ../rtl/adc/pmod_adc_ad7991.vhd
     ../rtl/adc/i2c_master.vhd
 }
