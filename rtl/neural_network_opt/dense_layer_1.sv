@@ -13,6 +13,8 @@ module dense_layer_1 (
     logic signed [DATA_WIDTH_1-1:0] output_vector_nxt [OUT_SIZE_1-1:0];
     logic signed [DATA_WIDTH_1-1:0] sum [OUT_SIZE_1-1:0];
     logic signed [DATA_WIDTH_1-1:0] mult [OUT_SIZE_1-1:0];
+    logic signed [DATA_WIDTH_1-1:0] sum_nxt [OUT_SIZE_1-1:0];
+    logic signed [DATA_WIDTH_1-1:0] mult_nxt [OUT_SIZE_1-1:0];
     logic [7:0] i;
     logic [7:0] i_nxt;
 
@@ -47,39 +49,55 @@ assign weight_matrix[25] = {-8'd36, -8'd3, 8'd0, -8'd20, 8'd7, -8'd14, -8'd14, 8
 
 assign bias_vector = {-8'd5, -8'd6, -8'd3, 8'd2, -8'd25, 8'd4, -8'd3, -8'd12, 8'd0, 8'd0, -8'd14, -8'd2, -8'd7, 8'd7, -8'd10, -8'd6, -8'd5, -8'd4, 8'd8, -8'd1, -8'd8, 8'd0, -8'd2, -8'd3, -8'd11, -8'd3, 8'd1, 8'd0, 8'd0, 8'd0, 8'd12, -8'd5, 8'd0, 8'd0, -8'd14, 8'd7, -8'd3, -8'd4, -8'd34, -8'd5, -8'd2, -8'd23, 8'd3, -8'd11, 8'd0, 8'd23, 8'd0, -8'd5, -8'd1, 8'd0, -8'd5, -8'd10, -8'd13, 8'd0, 8'd6, -8'd1, 8'd0, -8'd7, -8'd9, 8'd0, -8'd6, 8'd0, 8'd5, -8'd18};
 
- always_ff @(posedge clk) begin
-        if(rst) begin
-    for (k = 0; k < OUT_SIZE_1; k++) 
-        output_vector[k] <= '0;
+    always_ff @(posedge clk) begin
+        if (rst) begin
+            // Resetowanie wartości rejestrów
+            for (k = 0; k < OUT_SIZE_1; k++) begin
+                output_vector[k] <= '0;
+                sum[k] <= '0;
+                mult[k] <= '0;
+            end
             i <= '0;
         end else begin
-            for (k = 0; k < OUT_SIZE_1; k++)
-            output_vector[k] <= output_vector_nxt[k];
+            // Przenoszenie wyników pośrednich do następnego etapu
+            for (k = 0; k < OUT_SIZE_1; k++) begin
+                output_vector[k] <= output_vector_nxt[k];
+                sum[k] <= sum_nxt[k];
+                mult[k] <= mult_nxt[k];
+            end
             i <= i_nxt;
+        end
     end
-    end
-    
 
     always_comb begin
-        
         if (i < IN_SIZE_1) begin
+
+            // Aktualizacja indeksu
             i_nxt = i + 1;
+
+            // Etap 1: Obliczenia sum i mnożeń
             for (j = 0; j < OUT_SIZE_1; j++) begin
-                sum[j] = output_vector[j] +  bias_vector[j];
-                mult[j] = input_vector[i] * weight_matrix[i][j];
-                output_vector_nxt[j] = mult[j] + sum[j];
+                sum_nxt[j] = output_vector[j] + bias_vector[j];
+                mult_nxt[j] = input_vector[i] * weight_matrix[i][j];
             end
+
+            // Etap 2: Aktualizacja wektora wyjściowego
+            for (j = 0; j < OUT_SIZE_1; j++) begin
+                output_vector_nxt[j] = mult[j] + sum[j]; // Wykorzystanie zarejestrowanych wartości
+            end
+
+
         end else begin
+            // Warunek końcowy: nie zmieniać indeksu ani wyników
             i_nxt = i;
             for (j = 0; j < OUT_SIZE_1; j++) begin
-                sum[j] = '0;
-                mult[j] = '0;
+                sum_nxt[j] = '0;
+                mult_nxt[j] = '0;
                 if (output_vector[j] < 0) 
-                    output_vector_nxt [j] = 0;
+                    output_vector_nxt[j] = 0;
                 else
-                    output_vector_nxt [j] = output_vector [j];
+                    output_vector_nxt[j] = output_vector[j];
             end
         end
-
-        end
+    end
 endmodule
