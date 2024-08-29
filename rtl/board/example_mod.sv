@@ -17,10 +17,12 @@ end
 end
 
 always_comb begin
-    if(sda == scl) 
-        adc_data_nxt = 11'b00000000001;
+    if(sda == scl)
+        for (k = 0; k < 26; k++)  
+            input_vector_nxt[k] = 16'b00000001;
     else
-        adc_data_nxt = adc_data;
+        for (k = 0; k < 26; k++) 
+            input_vector_nxt[k] = input_vector[k];
 end
 
 endmodule

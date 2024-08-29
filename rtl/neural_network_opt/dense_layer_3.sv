@@ -1,15 +1,34 @@
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   dense_layer_3
+ Authors:       Mateusz Gibas, Kacper Ferdek
+ Version:       3.4
+ Last modified: 2024-08-29
+ Coding style: safe, with FPGA sync reset
+ Description:  third layer of neural network
+ */
+//////////////////////////////////////////////////////////////////////////////
+
 import nn_parameters::*;
 
 module dense_layer_3 (
     input clk,
     input rst,
-    input logic signed [31:0] input_vector [IN_SIZE_3-1:0],
-    output logic signed [39:0] output_vector [OUT_SIZE_3-1:0]
+    input logic signed [DATA_WIDTH_2-1:0] input_vector [IN_SIZE_3-1:0],
+    output logic signed [DATA_WIDTH_3-1:0] output_vector [OUT_SIZE_3-1:0]
 );
 
-    logic signed [7:0] weight_matrix [IN_SIZE_3-1:0][OUT_SIZE_3-1:0];
-    logic signed [7:0] bias_vector [OUT_SIZE_3-1:0];
-    logic signed [39:0] output_vector_nxt [OUT_SIZE_3-1:0];
+//------------------------------------------------------------------------------
+// local variables
+//------------------------------------------------------------------------------
+
+    logic signed [WB_WIDTH-1:0] weight_matrix [IN_SIZE_3-1:0][OUT_SIZE_3-1:0];
+    logic signed [WB_WIDTH-1:0] bias_vector [OUT_SIZE_3-1:0];
+    logic signed [DATA_WIDTH_3-1:0] output_vector_nxt [OUT_SIZE_3-1:0];
+    logic signed [DATA_WIDTH_3-1:0] sum [OUT_SIZE_3-1:0];
+    logic signed [DATA_WIDTH_3-1:0] mult [OUT_SIZE_3-1:0];
+    logic signed [DATA_WIDTH_3-1:0] sum_nxt [OUT_SIZE_3-1:0];
+    logic signed [DATA_WIDTH_3-1:0] mult_nxt [OUT_SIZE_3-1:0];
     logic [7:0] i;
     logic [7:0] i_nxt;
 
@@ -50,32 +69,61 @@ assign weight_matrix[31] = {-8'd43, 8'd45, 8'd18};
 
 assign bias_vector = {8'd11, 8'd53, -8'd62};
 
+//------------------------------------------------------------------------------
+// output register with sync reset
+//------------------------------------------------------------------------------
+
     always_ff @(posedge clk) begin
-        if(rst) begin
-            for (k = 0; k < OUT_SIZE_3; k++) 
-            output_vector[k] <= '0;
+        if (rst) begin
+            for (k = 0; k < OUT_SIZE_3; k++) begin
+                output_vector[k] <= '0;
+                sum[k] <= '0;
+                mult[k] <= '0;
+            end
             i <= '0;
         end else begin
-            for (k = 0; k < OUT_SIZE_3; k++)
-            output_vector[k] <= output_vector_nxt[k];
+            for (k = 0; k < OUT_SIZE_3; k++) begin
+                output_vector[k] <= output_vector_nxt[k];
+                sum[k] <= sum_nxt[k];
+                mult[k] <= mult_nxt[k];
+            end
             i <= i_nxt;
+        end
     end
-    end
-    
+
+//------------------------------------------------------------------------------
+// logic
+//------------------------------------------------------------------------------
+
     always_comb begin
         if (i < IN_SIZE_3) begin
+
+            // Indeks update
             i_nxt = i + 1;
-            for (j = 0; j < OUT_SIZE_3; j++) 
-            output_vector_nxt[j] = output_vector[j] +  bias_vector[j] + input_vector[i] * weight_matrix[i][j];
+
+            // Stage 1: Calculation sum and mult
+            for (j = 0; j < OUT_SIZE_3; j++) begin
+                sum_nxt[j] = output_vector[j] + bias_vector[j];
+                mult_nxt[j] = input_vector[i] * weight_matrix[i][j];
+            end
+
+            // Stage 2: Update of output vector
+            for (j = 0; j < OUT_SIZE_3; j++) begin
+                output_vector_nxt[j] = mult[j] + sum[j]; 
+            end
+
+
         end else begin
+             // Ending condition
             i_nxt = i;
             for (j = 0; j < OUT_SIZE_3; j++) begin
-            if (output_vector[j] < 0) 
-            output_vector_nxt [j] = 0;
-            else
-            output_vector_nxt [j] = output_vector [j];
+                sum_nxt[j] = '0;
+                mult_nxt[j] = '0;
+                if (output_vector[j] < 0) 
+                    output_vector_nxt[j] = 0;
+                else
+                    output_vector_nxt[j] = output_vector[j];
             end
         end
-
-        end
+    end
 endmodule

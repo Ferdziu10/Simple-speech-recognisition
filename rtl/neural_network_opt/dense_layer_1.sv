@@ -1,16 +1,34 @@
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   dense_layer_1
+ Authors:       Mateusz Gibas, Kacper Ferdek
+ Version:       3.4
+ Last modified: 2024-08-29
+ Coding style: safe, with FPGA sync reset
+ Description:  first layer of neural network
+ */
+//////////////////////////////////////////////////////////////////////////////
+
 import nn_parameters::*;
 
 module dense_layer_1 (
     input clk,
     input rst,
-    input logic signed [15:0] input_vector [IN_SIZE_1-1:0],
-    output logic signed [23:0] output_vector [OUT_SIZE_1-1:0]
+    input logic signed [DATA_WIDTH_0-1:0] input_vector [IN_SIZE_1-1:0],
+    output logic signed [DATA_WIDTH_1-1:0] output_vector [OUT_SIZE_1-1:0]
 );
 
+//------------------------------------------------------------------------------
+// local variables
+//------------------------------------------------------------------------------
 
-    logic signed [7:0] weight_matrix [IN_SIZE_1-1:0][OUT_SIZE_1-1:0];
-    logic signed [7:0] bias_vector [OUT_SIZE_1-1:0];
-    logic signed [23:0] output_vector_nxt [OUT_SIZE_1-1:0];
+    logic signed [WB_WIDTH-1:0] weight_matrix [IN_SIZE_1-1:0][OUT_SIZE_1-1:0];
+    logic signed [WB_WIDTH-1:0] bias_vector [OUT_SIZE_1-1:0];
+    logic signed [DATA_WIDTH_1-1:0] output_vector_nxt [OUT_SIZE_1-1:0];
+    logic signed [DATA_WIDTH_1-1:0] sum [OUT_SIZE_1-1:0];
+    logic signed [DATA_WIDTH_1-1:0] mult [OUT_SIZE_1-1:0];
+    logic signed [DATA_WIDTH_1-1:0] sum_nxt [OUT_SIZE_1-1:0];
+    logic signed [DATA_WIDTH_1-1:0] mult_nxt [OUT_SIZE_1-1:0];
     logic [7:0] i;
     logic [7:0] i_nxt;
 
@@ -45,34 +63,60 @@ assign weight_matrix[25] = {-8'd36, -8'd3, 8'd0, -8'd20, 8'd7, -8'd14, -8'd14, 8
 
 assign bias_vector = {-8'd5, -8'd6, -8'd3, 8'd2, -8'd25, 8'd4, -8'd3, -8'd12, 8'd0, 8'd0, -8'd14, -8'd2, -8'd7, 8'd7, -8'd10, -8'd6, -8'd5, -8'd4, 8'd8, -8'd1, -8'd8, 8'd0, -8'd2, -8'd3, -8'd11, -8'd3, 8'd1, 8'd0, 8'd0, 8'd0, 8'd12, -8'd5, 8'd0, 8'd0, -8'd14, 8'd7, -8'd3, -8'd4, -8'd34, -8'd5, -8'd2, -8'd23, 8'd3, -8'd11, 8'd0, 8'd23, 8'd0, -8'd5, -8'd1, 8'd0, -8'd5, -8'd10, -8'd13, 8'd0, 8'd6, -8'd1, 8'd0, -8'd7, -8'd9, 8'd0, -8'd6, 8'd0, 8'd5, -8'd18};
 
- always_ff @(posedge clk) begin
-        if(rst) begin
-    for (k = 0; k < OUT_SIZE_1; k++) 
-        output_vector[k] <= '0;
+//------------------------------------------------------------------------------
+// output register with sync reset
+//------------------------------------------------------------------------------
+
+    always_ff @(posedge clk) begin
+        if (rst) begin
+            for (k = 0; k < OUT_SIZE_1; k++) begin
+                output_vector[k] <= '0;
+                sum[k] <= '0;
+                mult[k] <= '0;
+            end
             i <= '0;
         end else begin
-            for (k = 0; k < OUT_SIZE_1; k++)
-            output_vector[k] <= output_vector_nxt[k];
+            for (k = 0; k < OUT_SIZE_1; k++) begin
+                output_vector[k] <= output_vector_nxt[k];
+                sum[k] <= sum_nxt[k];
+                mult[k] <= mult_nxt[k];
+            end
             i <= i_nxt;
+        end
     end
-    end
-    
+
+//------------------------------------------------------------------------------
+// logic
+//------------------------------------------------------------------------------
 
     always_comb begin
-        
         if (i < IN_SIZE_1) begin
+
+            // Indeks update
             i_nxt = i + 1;
-            for (j = 0; j < OUT_SIZE_1; j++) 
-            output_vector_nxt[j] = output_vector[j] +  bias_vector[j] + input_vector[i] * weight_matrix[i][j];
+
+            // Stage 1: Calculation sum and mult
+            for (j = 0; j < OUT_SIZE_1; j++) begin
+                sum_nxt[j] = output_vector[j] + bias_vector[j];
+                mult_nxt[j] = input_vector[i] * weight_matrix[i][j];
+            end
+
+            // Stage 2: Update of output vector 
+            for (j = 0; j < OUT_SIZE_1; j++) begin
+                output_vector_nxt[j] = mult[j] + sum[j]; // Wykorzystanie zarejestrowanych wartości
+            end
+            
         end else begin
+            // Ending condition
             i_nxt = i;
             for (j = 0; j < OUT_SIZE_1; j++) begin
-            if (output_vector[j] < 0) 
-            output_vector_nxt [j] = 0;
-            else
-            output_vector_nxt [j] = output_vector [j];
+                sum_nxt[j] = '0;
+                mult_nxt[j] = '0;
+                if (output_vector[j] < 0) 
+                    output_vector_nxt[j] = 0;
+                else
+                    output_vector_nxt[j] = output_vector[j];
             end
         end
-
-        end
+    end
 endmodule
