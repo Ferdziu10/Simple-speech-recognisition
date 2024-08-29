@@ -78,7 +78,7 @@ module mean_std (
         guess = variance_nxt >> 1;  // First approximation
         converged = 0;
 
-        for (i = 0; i < 4; i = i + 1) begin
+        for (i = 0; i < 2; i = i + 1) begin
             if (!converged && guess != 0) begin
                 guess_next = (guess + variance_nxt / guess) >> 1;
 
