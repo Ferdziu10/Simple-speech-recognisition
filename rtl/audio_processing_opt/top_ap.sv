@@ -1,4 +1,4 @@
-module top_ap1(
+module top_ap(
     input logic clk,
     input logic rst,
     input logic [11:0] adc_data,
@@ -14,18 +14,19 @@ logic [15:0] imag_out;
 logic [15:0] real_out;
 logic [31:0] magnitude;
 //logic [11:0] emph_out;
-logic [11:0] framed_out [255:0];
+logic [11:0] framed_out [63:0];
 logic frame_ready;
 logic window_ready;
 logic wrapper_ready;
 logic fft_ready;
-logic [11:0] window_out [255:0];
+logic [11:0] window_out [63:0];
 logic [11:0] wrap_win;
 logic [15:0] shift_win;
 logic [15:0] mean;
 logic [15:0] std;
 logic [15:0] unsigned_vector [25:0];
 logic valid_fifo;
+logic frame_ready_1;
 
 
 /*pre_emphasis u_pre_emphasis(
@@ -62,7 +63,7 @@ zero_padding u_zero_padding(
     .data_out(shift_win)
 );
 
-FFT256 u_FFT256(
+FFT64 u_FFT64(
     .clock(clk),
     .reset(rst),
     .di_en(wrapper_ready),
@@ -78,8 +79,14 @@ magnitude u_magnitude(
     .real_part(real_out),
     .magnitude
 );
-
-mel_filter_bank u_mel_filter_bank(
+framing_1 u_framing_1(
+    .clk,
+    .rst,
+    .sample_in(magnitude),
+    .frame_out(mel_out),
+    .frame_ready(frame_ready_1)
+);
+/*mel_filter_bank u_mel_filter_bank(
     .clk,
     .reset(rst),
     .in(magnitude),
@@ -88,7 +95,7 @@ mel_filter_bank u_mel_filter_bank(
     .m_valid(m_valid_mel),
     .s_valid(fft_ready),
     .m_ready(fft_ready)
-);
+);**/
 /*reshape_output u_reshape_output(
     .clk,
     .reset(rst),
@@ -105,7 +112,7 @@ mean_std u_mean_std(
     .data_in(mel_out),
     .mean,
     .std,
-    .valid_in(m_valid_mel),
+    .valid_in(frame_ready_1),
     .valid_out(valid_fifo)
 );
 fifo u_fifo(
