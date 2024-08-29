@@ -27,16 +27,13 @@ module fifo (
 //------------------------------------------------------------------------------
     always_ff @(posedge clk) begin
         if (rst) begin
-            head <= '0;
             for (int i = 0; i < NN_ARRAY_WIDTH; i++) begin
                 data_out[i] <= 16'h0000;
             end
-
         end else  begin
             for (int i = 0; i < NN_ARRAY_WIDTH; i++) begin
                 data_out[i] <= fifo_mem[i];
             end
-            head <= head_nxt;
         end
     end
 
