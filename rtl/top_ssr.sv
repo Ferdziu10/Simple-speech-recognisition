@@ -1,3 +1,14 @@
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   top_ssr
+ Authors:       Mateusz Gibas, Kacper Ferdek
+ Version:       2.2
+ Last modified: 2024-08-29
+ Coding style: safe, with FPGA sync reset
+ Description:   top module of simple speach recognition project
+ */
+//////////////////////////////////////////////////////////////////////////////
+
 module top_ssr(
     input logic clk,
     input logic rst,
@@ -7,9 +18,18 @@ module top_ssr(
     output logic led0 
 );
 
+//------------------------------------------------------------------------------
+// local variables
+//------------------------------------------------------------------------------
+
 logic [1:0] value;
 logic [11:0] adc_data;
 logic signed [15:0] features [25:0];
+
+//------------------------------------------------------------------------------
+// module instances
+//------------------------------------------------------------------------------
+
 pmod_adc_ad7991 u_pmod_adc_ad7991(
     .clk,
     .rst,
