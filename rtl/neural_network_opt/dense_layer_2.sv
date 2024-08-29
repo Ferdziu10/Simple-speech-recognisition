@@ -7,7 +7,6 @@ module dense_layer_2 (
     output logic signed [DATA_WIDTH_2-1:0] output_vector [OUT_SIZE_2-1:0]
 );
 
-    logic signed [DATA_WIDTH_1-1:0] input_vector_nxt [IN_SIZE_2-1:0],
     logic signed [WB_WIDTH-1:0] weight_matrix [IN_SIZE_2-1:0][OUT_SIZE_2-1:0];
     logic signed [WB_WIDTH-1:0] bias_vector [OUT_SIZE_2-1:0];
     logic signed [DATA_WIDTH_2-1:0] output_vector_nxt [OUT_SIZE_2-1:0];
@@ -85,9 +84,6 @@ assign weight_matrix[63] = {8'd37, 8'd44, -8'd12, 8'd10, -8'd37, 8'd8, -8'd39, -
 
 assign bias_vector = {-8'd6, -8'd7, -8'd3, -8'd5, -8'd1, -8'd7, -8'd6, -8'd7, -8'd7, -8'd3, -8'd48, -8'd6, -8'd9, -8'd9, -8'd5, 8'd0, -8'd8, -8'd6, -8'd7, -8'd7, -8'd8, -8'd4, -8'd5, -8'd9, -8'd6, -8'd10, -8'd9, -8'd8, -8'd4, 8'd23, -8'd7, -8'd9};
 
-    for (k = 0; k < IN_SIZE_2; k++)
-        assign input_vector_nxt = input_vector;
-
     always_ff @(posedge clk) begin
         if(rst) begin
             for (k = 0; k < OUT_SIZE_2; k++) 
@@ -106,7 +102,7 @@ assign bias_vector = {-8'd6, -8'd7, -8'd3, -8'd5, -8'd1, -8'd7, -8'd6, -8'd7, -8
             i_nxt = i + 1;
             for (j = 0; j < OUT_SIZE_2; j++) begin
                 sum[j] = output_vector[j] +  bias_vector[j];
-                mult[j] = input_vector_nxt[i] * weight_matrix[i][j];
+                mult[j] = input_vector[i] * weight_matrix[i][j];
                 output_vector_nxt[j] = mult[j] + sum[j];
             end
         end else begin
