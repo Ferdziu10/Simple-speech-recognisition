@@ -1,7 +1,7 @@
 module example_mod1(
     input  logic clk,          // zegar systemowy
     input  logic rst,           // reset
-    input logic features, 
+    input logic signed [15:0] features [25:0], 
     output logic [1:0] value
 );
 
@@ -16,7 +16,7 @@ end
 end
 
 always_comb begin
-    if(features == 16'd0) 
+    if(features[0] == 16'd0) 
         value_nxt = 2'd1;
     else
         value_nxt = value;

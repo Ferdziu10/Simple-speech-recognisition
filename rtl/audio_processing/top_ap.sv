@@ -4,16 +4,16 @@ module top_ap(
     input logic [11:0] adc_data,
     output logic signed [15:0] output_vector [25:0]
 );
-logic s_ready_res;
+//logic s_ready_res;
 logic s_ready_mel;
 logic m_valid_mel;
-logic m_valid_res;
+//logic m_valid_res;
 logic [15:0] mel_out [39:0];
 //logic [15:0] reshape_out [39:0];
 logic [15:0] imag_out;
 logic [15:0] real_out;
 logic [31:0] magnitude;
-logic [11:0] emph_out;
+//logic [11:0] emph_out;
 logic [11:0] framed_out [255:0];
 logic frame_ready;
 logic window_ready;
@@ -28,16 +28,16 @@ logic [15:0] unsigned_vector [25:0];
 logic valid_fifo;
 
 
-pre_emphasis u_pre_emphasis(
+/*pre_emphasis u_pre_emphasis(
     .clk,
     .rst,
     .sample_in(adc_data),
     .sample_out(emph_out)
-);
+);*/
 framing u_framing(
     .clk,
     .rst,
-    .sample_in(emph_out),
+    .sample_in(adc_data),
     .frame_out(framed_out),
     .frame_ready
 );

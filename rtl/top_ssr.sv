@@ -23,6 +23,12 @@ top_ap u_top_ap(
     .adc_data,
     .output_vector(features)
 );
+example_mod1 u_example_mod1(
+    .clk,
+    .rst,
+    .features,
+    .value
+);
 
 led_logic u_led_logic(
     .clk,
