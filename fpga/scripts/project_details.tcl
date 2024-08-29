@@ -31,17 +31,11 @@ set target xc7a35tcpg236-1
 # Specify .xdc files location                   -- EDIT
 set xdc_files {
     constraints/top_ssr_basys3.xdc
-    constraints/clk_wiz_10.xdc
+    constraints/clk_wiz_1.xdc
 }
 
 # Specify SystemVerilog design files location   -- EDIT
 set sv_files {
-    ../rtl/neural_network_opt/dense_layer_1.sv
-    ../rtl/neural_network_opt/dense_layer_2.sv
-    ../rtl/neural_network_opt/dense_layer_3.sv
-    ../rtl/neural_network_opt/final_layer.sv
-    ../rtl/neural_network_opt/nn_parameters.sv
-    ../rtl/neural_network_opt/top_nn.sv
     ../rtl/led_logic/led_logic.sv
     ../rtl/board/example_mod.sv
     ../rtl/top_ssr.sv
@@ -51,8 +45,8 @@ set sv_files {
     ../rtl/audio_processing/wrapper.sv 
     ../rtl/audio_processing/zero_padding.sv 
     ../rtl/audio_processing/mel_filter/mel_filter_bank.sv 
-    ../rtl/audio_processing/mel_filter/dB_LUT.sv 
-    ../rtl/audio_processing/reshape_output.sv 
+    ../rtl/audio_processing/mel_filter/dB_LUT.sv
+    ../rtl/audio_processing/mel_filter/multiplier.sv 
     ../rtl/audio_processing/magnitude.sv 
     ../rtl/audio_processing/mean_std.sv 
     ../rtl/audio_processing/fifo.sv
@@ -75,11 +69,9 @@ set verilog_files {
 }
 
 # Specify VHDL design files location            -- EDIT
-set vhdl_files {
-    ../rtl/audio_processing/ip/mult_gen_0/synth/mult_gen_0.vhd
-    ../rtl/adc/pmod_adc_ad7991.vhd
-    ../rtl/adc/i2c_master.vhd
-}
+#set vhdl_files {
+    #../rtl/adc/i2c_master.vhd
+#}
 
 # Specify files for a memory initialization     -- EDIT
 # set mem_files {
