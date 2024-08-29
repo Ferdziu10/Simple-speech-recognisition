@@ -26,7 +26,7 @@ wire            su3_do_en;
 wire[WIDTH-1:0] su3_do_re;
 wire[WIDTH-1:0] su3_do_im;
 
-SdfUnit_TC #(.N(256),.M(256),.WIDTH(WIDTH)) SU1 (
+SdfUnit #(.N(256),.M(256),.WIDTH(WIDTH)) SU1 (
     .clock  (clock      ),  //  i
     .reset  (reset      ),  //  i
     .di_en  (di_en      ),  //  i
@@ -37,7 +37,7 @@ SdfUnit_TC #(.N(256),.M(256),.WIDTH(WIDTH)) SU1 (
     .do_im  (su1_do_im  )   //  o
 );
 
-SdfUnit_TC #(.N(256),.M(64),.WIDTH(WIDTH)) SU2 (
+SdfUnit #(.N(256),.M(64),.WIDTH(WIDTH)) SU2 (
     .clock  (clock      ),  //  i
     .reset  (reset      ),  //  i
     .di_en  (su1_do_en  ),  //  i
@@ -48,7 +48,7 @@ SdfUnit_TC #(.N(256),.M(64),.WIDTH(WIDTH)) SU2 (
     .do_im  (su2_do_im  )   //  o
 );
 
-SdfUnit_TC #(.N(256),.M(16),.WIDTH(WIDTH)) SU3 (
+SdfUnit #(.N(256),.M(16),.WIDTH(WIDTH)) SU3 (
     .clock  (clock      ),  //  i
     .reset  (reset      ),  //  i
     .di_en  (su2_do_en  ),  //  i
@@ -59,7 +59,7 @@ SdfUnit_TC #(.N(256),.M(16),.WIDTH(WIDTH)) SU3 (
     .do_im  (su3_do_im  )   //  o
 );
 
-SdfUnit_TC #(.N(256),.M(4),.WIDTH(WIDTH)) SU4 (
+SdfUnit #(.N(256),.M(4),.WIDTH(WIDTH)) SU4 (
     .clock  (clock      ),  //  i
     .reset  (reset      ),  //  i
     .di_en  (su3_do_en  ),  //  i
