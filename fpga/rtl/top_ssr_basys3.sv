@@ -43,8 +43,8 @@ wire locked;
  clk_wiz_1_clk_wiz inst
  (
  // Clock out ports  
- .clk_out1(5MHz),
- .clk_out2(20MHz),
+ .clk_out1(clk5MHz),
+ .clk_out2(clk20MHz),
  // Status and control signals               
  .locked(locked),
 // Clock in ports
