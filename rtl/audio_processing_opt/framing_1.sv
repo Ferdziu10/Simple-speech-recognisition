@@ -1,7 +1,7 @@
 module framing_1 (
     input logic clk,
     input logic rst,
-    input logic [15:0] sample_in,
+    input logic [31:0] sample_in,
     output logic [15:0] frame_out [0:19],
     output logic frame_ready
 );
@@ -44,7 +44,7 @@ module framing_1 (
         end
 
         // Logika przetwarzania
-        buffer_nxt[index] = sample_in; // Zapis próbki do bufora
+        buffer_nxt[index] = sample_in[31:15]; // Zapis próbki do bufora
         if (index == 8'd19) begin
             index_nxt = 8'd0;
             frame_ready_nxt = 1'b1;

@@ -8,7 +8,7 @@ module top_ap(
 logic s_ready_mel;
 logic m_valid_mel;
 //logic m_valid_res;
-logic [15:0] mel_out [39:0];
+logic [15:0] mel_out [19:0];
 //logic [15:0] reshape_out [39:0];
 logic [15:0] imag_out;
 logic [15:0] real_out;
