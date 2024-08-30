@@ -34,7 +34,7 @@ module magnitude(
     logic [MEL_DATA_WIDTH-1:0] error;  // diffrence beyond next approximation
 
     // config parameter for iteration of Newton-Raphson algorithm
-    localparam int ITERATIONS = 2;
+    localparam int ITERATIONS = 1;
 
 //------------------------------------------------------------------------------
 // output register with sync reset

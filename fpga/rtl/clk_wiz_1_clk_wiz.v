@@ -194,8 +194,8 @@ wire clk_in2_clk_wiz_1;
   //-----------------------------------
 
   BUFG clkf_buf
-   (.O (clkfbout_buf_clk_wiz_1),
-    .I (clkfbout_clk_wiz_1));
+  (.O (clkfbout_buf_clk_wiz_1),
+   .I (clkfbout_clk_wiz_1));
 
 
 
@@ -203,29 +203,29 @@ wire clk_in2_clk_wiz_1;
 
 
 
-  BUFGCE clkout1_buf
-   (.O   (clk_out1),
-    .CE  (seq_reg1[7]),
-    .I   (clk_out1_clk_wiz_1));
+ BUFGCE clkout1_buf
+  (.O   (clk_out1),
+   .CE  (seq_reg1[7]),
+   .I   (clk_out1_clk_wiz_1));
 
-  BUFH clkout1_buf_en
-   (.O   (clk_out1_clk_wiz_1_en_clk),
-    .I   (clk_out1_clk_wiz_1));
-  always @(posedge clk_out1_clk_wiz_1_en_clk)
-        seq_reg1 <= {seq_reg1[6:0],locked_int};
+ BUFH clkout1_buf_en
+  (.O   (clk_out1_clk_wiz_1_en_clk),
+   .I   (clk_out1_clk_wiz_1));
+ always @(posedge clk_out1_clk_wiz_1_en_clk)
+       seq_reg1 <= {seq_reg1[6:0],locked_int};
 
 
-  BUFGCE clkout2_buf
-   (.O   (clk_out2),
-    .CE  (seq_reg2[7]),
-    .I   (clk_out2_clk_wiz_1));
- 
-  BUFH clkout2_buf_en
-   (.O   (clk_out2_clk_wiz_1_en_clk),
-    .I   (clk_out2_clk_wiz_1));
- 
-  always @(posedge clk_out2_clk_wiz_1_en_clk)
-        seq_reg2 <= {seq_reg2[6:0],locked_int};
+ BUFGCE clkout2_buf
+  (.O   (clk_out2),
+   .CE  (seq_reg2[7]),
+   .I   (clk_out2_clk_wiz_1));
+
+ BUFH clkout2_buf_en
+  (.O   (clk_out2_clk_wiz_1_en_clk),
+   .I   (clk_out2_clk_wiz_1));
+
+ always @(posedge clk_out2_clk_wiz_1_en_clk)
+       seq_reg2 <= {seq_reg2[6:0],locked_int};
 
 
 

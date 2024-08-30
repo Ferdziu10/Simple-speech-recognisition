@@ -33,15 +33,13 @@ y_test_categorical = to_categorical(y_test_encoded)
 model = Sequential()
 model.add(Dense(64, activation='relu'))
 model.add(Dropout(0.2))
-model.add(Dense(32, activation='relu'))
-model.add(Dropout(0.2))
 model.add(Dense(3, activation='softmax'))  # Change to 3 output units for 3 classes
 
 # Compile model
 model.compile(optimizer=Adam(learning_rate=0.001), loss='categorical_crossentropy', metrics=['accuracy'])
 
 # Train model
-history = model.fit(X_train, y_train_categorical, epochs=250, batch_size=64, validation_data=(X_test, y_test_categorical))
+history = model.fit(X_train, y_train_categorical, epochs=200, batch_size=64, validation_data=(X_test, y_test_categorical))
 plt.plot(history.history['accuracy'])
 plt.plot(history.history['val_accuracy'])
 plt.title('model accuracy')

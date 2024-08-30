@@ -36,9 +36,9 @@ pmod_adc_ad7991 u_pmod_adc_ad7991(
     .sda,
     .scl,
     .adc_ch0_data(adc_data),
-    .adc_ch0_data(0),
-    .adc_ch0_data(0),
-    .adc_ch0_data(0)
+    .adc_ch1_data(),
+    .adc_ch2_data(),
+    .adc_ch3_data()
 );
 top_ap u_top_ap(
     .clk,
