@@ -41,7 +41,10 @@ end
 // logic
 //------------------------------------------------------------------------------
 always_comb begin
-    p_reg_nxt = a * b;
+    if (a == '0 | b == '0) 
+        p_reg_nxt = 0;
+    else
+        p_reg_nxt = a * b;
     p_nxt = p_reg[A_WIDTH+B_WIDTH-1:A_WIDTH+B_WIDTH-P_WIDTH-1];
 end
 endmodule
