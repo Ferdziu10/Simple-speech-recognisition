@@ -12,10 +12,10 @@ import ap_parameters::*;
 module fifo (
     input  logic clk,
     input  logic rst,
-    input  logic valid,           // Wejście valid
-    input  logic [NN_DATA_WIDTH-1:0] data_in1, // Pierwsze dane wejściowe
-    input  logic [NN_DATA_WIDTH-1:0] data_in2, // Drugie dane wejściowe
-    output logic [NN_DATA_WIDTH-1:0] data_out [NN_ARRAY_WIDTH-1:0] // Wyjście: 26 16-bitowych danych
+    input  logic valid,          
+    input  logic [NN_DATA_WIDTH-1:0] data_in1, 
+    input  logic [NN_DATA_WIDTH-1:0] data_in2, 
+    output logic [NN_DATA_WIDTH-1:0] data_out [NN_ARRAY_WIDTH-1:0] 
 );
 
 //------------------------------------------------------------------------------
