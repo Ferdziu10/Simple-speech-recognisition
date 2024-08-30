@@ -40,8 +40,7 @@ set sv_files {
     ../rtl/board/example_mod.sv
     ../rtl/board/example_mod1.sv
     ../rtl/top_ssr.sv 
-    ../rtl/audio_processing_opt/framing.sv 
-    ../rtl/audio_processing_opt/framing_1.sv 
+    ../rtl/audio_processing_opt/framing.sv  
     ../rtl/audio_processing_opt/windowing.sv 
     ../rtl/audio_processing_opt/unwrapper.sv 
     ../rtl/audio_processing_opt/zero_padding.sv 
@@ -54,7 +53,13 @@ set sv_files {
     ../rtl/audio_processing_opt/fifo.sv
     ../rtl/audio_processing_opt/convert_to_signed.sv 
     ../rtl/audio_processing_opt/top_ap.sv
-    ../rtl/audio_processing_opt/ap_parameters.sv 
+    ../rtl/audio_processing_opt/ap_parameters.sv
+    ../rtl/neural_network_opt/nn_parameters.sv
+    ../rtl/neural_network_opt/dense_layer_3.sv
+    ../rtl/neural_network_opt/dense_layer_2.sv
+    ../rtl/neural_network_opt/dense_layer_1.sv
+    ../rtl/neural_network_opt/final_layer.sv
+    ../rtl/neural_network_opt/top_nn.sv
     rtl/top_ssr_basys3.sv
 }
 
@@ -71,9 +76,10 @@ set verilog_files {
 }
 
 # Specify VHDL design files location            -- EDIT
-#set vhdl_files {
-    #../rtl/adc/i2c_master.vhd
-#}
+set vhdl_files {
+    ../rtl/adc/i2c_master.vhd
+    ../rtl/adc/pmod_adc_ad7991.vhd
+}
 
 # Specify files for a memory initialization     -- EDIT
 # set mem_files {
