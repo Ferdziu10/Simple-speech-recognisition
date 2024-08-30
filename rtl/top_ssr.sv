@@ -38,7 +38,8 @@ pmod_adc_ad7991 u_pmod_adc_ad7991(
     .adc_ch0_data(adc_data),
     .adc_ch1_data(),
     .adc_ch2_data(),
-    .adc_ch3_data()
+    .adc_ch3_data(),
+    .i2c_ack_err()
 );
 top_ap u_top_ap(
     .clk,

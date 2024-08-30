@@ -14,7 +14,7 @@ import nn_parameters::*;
 module final_layer (
     input clk,
     input rst,
-    input logic signed [DATA_WIDTH_3-1:0] input_vector [OUT_SIZE_3-1:0],
+    input logic signed [DATA_WIDTH_2-1:0] input_vector [OUT_SIZE_2-1:0],
     output logic [DATA_WIDTH_FINAL-1:0] output_value
 );
 

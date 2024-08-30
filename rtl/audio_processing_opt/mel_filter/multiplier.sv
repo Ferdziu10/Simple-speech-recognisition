@@ -45,6 +45,6 @@ always_comb begin
         p_reg_nxt = 0;
     else
         p_reg_nxt = a * b;
-    p_nxt = p_reg[A_WIDTH+B_WIDTH-1:A_WIDTH+B_WIDTH-P_WIDTH-1];
+    p_nxt = p_reg[47:16];
 end
 endmodule

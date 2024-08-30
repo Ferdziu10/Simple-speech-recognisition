@@ -29,8 +29,8 @@ def process_2d_array(input_file, output_file):
 
 
 # Define input and output files
-input_file = 'C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/python/generated_files/dense_biases1.txt'
-output_file = 'C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/python/generated_files/dense_biases1_rd.txt'
+input_file = 'C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/python/generated_files/dense_biases21.txt'
+output_file = 'C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/python/generated_files/dense_biases21_rd.txt'
 
 # Process the 2D array file
 process_2d_array(input_file, output_file)

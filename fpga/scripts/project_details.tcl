@@ -37,8 +37,6 @@ set xdc_files {
 # Specify SystemVerilog design files location   -- EDIT
 set sv_files {
     ../rtl/led_logic/led_logic.sv
-    ../rtl/board/example_mod.sv
-    ../rtl/board/example_mod1.sv
     ../rtl/top_ssr.sv 
     ../rtl/audio_processing_opt/framing.sv  
     ../rtl/audio_processing_opt/windowing.sv 
@@ -54,12 +52,11 @@ set sv_files {
     ../rtl/audio_processing_opt/convert_to_signed.sv 
     ../rtl/audio_processing_opt/top_ap.sv
     ../rtl/audio_processing_opt/ap_parameters.sv
-    ../rtl/neural_network_opt/nn_parameters.sv
-    ../rtl/neural_network_opt/dense_layer_3.sv
-    ../rtl/neural_network_opt/dense_layer_2.sv
-    ../rtl/neural_network_opt/dense_layer_1.sv
-    ../rtl/neural_network_opt/final_layer.sv
-    ../rtl/neural_network_opt/top_nn.sv
+    ../rtl/neural_network_optim/nn_parameters.sv
+    ../rtl/neural_network_optim/dense_layer_2.sv
+    ../rtl/neural_network_optim/dense_layer_1.sv
+    ../rtl/neural_network_optim/final_layer.sv
+    ../rtl/neural_network_optim/top_nn.sv
     rtl/top_ssr_basys3.sv
 }
 
