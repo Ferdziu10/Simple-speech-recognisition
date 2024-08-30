@@ -38,34 +38,36 @@ set xdc_files {
 set sv_files {
     ../rtl/led_logic/led_logic.sv
     ../rtl/board/example_mod.sv
-    ../rtl/top_ssr.sv
-    ../rtl/audio_processing/pre_emphasis.sv 
-    ../rtl/audio_processing/framing.sv 
-    ../rtl/audio_processing/windowing.sv 
-    ../rtl/audio_processing/wrapper.sv 
-    ../rtl/audio_processing/zero_padding.sv 
-    ../rtl/audio_processing/mel_filter/mel_filter_bank.sv 
-    ../rtl/audio_processing/mel_filter/dB_LUT.sv
-    ../rtl/audio_processing/mel_filter/multiplier.sv 
-    ../rtl/audio_processing/magnitude.sv 
-    ../rtl/audio_processing/mean_std.sv 
-    ../rtl/audio_processing/fifo.sv
-    ../rtl/audio_processing/convert_to_signed.sv 
-    ../rtl/audio_processing/top_ap.sv 
+    ../rtl/board/example_mod1.sv
+    ../rtl/top_ssr.sv 
+    ../rtl/audio_processing_opt/framing.sv 
+    ../rtl/audio_processing_opt/framing_1.sv 
+    ../rtl/audio_processing_opt/windowing.sv 
+    ../rtl/audio_processing_opt/unwrapper.sv 
+    ../rtl/audio_processing_opt/zero_padding.sv 
+    ../rtl/audio_processing_opt/mel_filter/mel_filter_bank.sv 
+    ../rtl/audio_processing_opt/mel_filter/reshape_output.sv 
+    ../rtl/audio_processing_opt/mel_filter/dB_LUT.sv
+    ../rtl/audio_processing_opt/mel_filter/multiplier.sv 
+    ../rtl/audio_processing_opt/magnitude.sv 
+    ../rtl/audio_processing_opt/mean_std.sv 
+    ../rtl/audio_processing_opt/fifo.sv
+    ../rtl/audio_processing_opt/convert_to_signed.sv 
+    ../rtl/audio_processing_opt/top_ap.sv
+    ../rtl/audio_processing_opt/ap_parameters.sv 
     rtl/top_ssr_basys3.sv
 }
 
 # Specify Verilog design files location         -- EDIT
 set verilog_files {
-    rtl/clk_wiz_10_clk_wiz.v
-    ../rtl/audio_processing/fft/Butterfly.v 
-    ../rtl/audio_processing/fft/DelayBuffer.v 
-    ../rtl/audio_processing/fft/FFT256.v 
-    ../rtl/audio_processing/fft/Multiply.v 
-    ../rtl/audio_processing/fft/SdfUnit_TC.v 
-    ../rtl/audio_processing/fft/Twiddle64.v 
-    ../rtl/audio_processing/fft/TwiddleConvert4.v
-    ../rtl/audio_processing/fft/TwiddleConvert8.v  
+    rtl/clk_wiz_1_clk_wiz.v
+    ../rtl/audio_processing_opt/fft/Butterfly.v 
+    ../rtl/audio_processing_opt/fft/DelayBuffer.v 
+    ../rtl/audio_processing_opt/fft/FFT64.v 
+    ../rtl/audio_processing_opt/fft/Multiply.v 
+    ../rtl/audio_processing_opt/fft/SdfUnit.v 
+    ../rtl/audio_processing_opt/fft/Twiddle64.v 
+ 
 }
 
 # Specify VHDL design files location            -- EDIT

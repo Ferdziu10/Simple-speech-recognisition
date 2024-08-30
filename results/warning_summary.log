@@ -1,0 +1,13 @@
+Warnings, critical warnings and errors from synthesis and implementation
+
+Created: 2024-08-30 02:30:26
+
+----SYNTHESIS----
+WARNING: [Synth 8-6014] Unused sequential element mu_do_re_reg was removed.  [C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/rtl/audio_processing_opt/fft/SdfUnit.v:260]
+WARNING: [Synth 8-6014] Unused sequential element mu_do_im_reg was removed.  [C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/rtl/audio_processing_opt/fft/SdfUnit.v:261]
+WARNING: [Synth 8-6014] Unused sequential element mu_do_en_reg was removed.  [C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/rtl/audio_processing_opt/fft/SdfUnit.v:266]
+WARNING: [Synth 8-6014] Unused sequential element mu_en_reg was removed.  [C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/rtl/audio_processing_opt/fft/SdfUnit.v:244]
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+
+----IMPLEMENTATION----
+No implementation log file found!

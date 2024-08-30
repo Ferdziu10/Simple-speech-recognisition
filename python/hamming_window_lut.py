@@ -16,7 +16,7 @@ def generate_hamming_window(N, bit_depth):
     return hamming_window_fixed
 
 # Parameters
-N = 256  # Number of points in the window
+N = 64  # Number of points in the window
 bit_depth = 12 # 16-bit signed fixed-point representation
 
 # Generate Hamming window coefficients
@@ -24,7 +24,7 @@ hamming_window_fixed = generate_hamming_window(N, bit_depth)
 
 # Print the results in Verilog format
 for i, coeff in enumerate(hamming_window_fixed):
-    print(f"hamming_window[{i}] = 12'd{coeff};")
+    print(f"assign hamming_window[{i}] = 12'd{coeff};")
 
 
 

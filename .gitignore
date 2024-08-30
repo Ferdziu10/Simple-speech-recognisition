@@ -37,9 +37,7 @@ xcelium.d
 xrun.log
 
 # extra
-*.bit
 *.tiff
-*.log
 *.npy
 *.h5
 .DS_Store

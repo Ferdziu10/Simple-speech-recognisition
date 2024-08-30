@@ -4,30 +4,37 @@ module top_ap(
     input logic [11:0] adc_data,
     output logic signed [15:0] output_vector [25:0]
 );
-//logic s_ready_res;
+
+//------------------------------------------------------------------------------
+// local variables
+//------------------------------------------------------------------------------
+logic s_ready_res;
 logic s_ready_mel;
 logic m_valid_mel;
-//logic m_valid_res;
+logic m_valid_res;
 logic [15:0] mel_out [39:0];
-//logic [15:0] reshape_out [39:0];
+logic [15:0] reshape_out [19:0];
 logic [15:0] imag_out;
 logic [15:0] real_out;
 logic [31:0] magnitude;
 //logic [11:0] emph_out;
-logic [11:0] framed_out [255:0];
+logic [11:0] framed_out [63:0];
 logic frame_ready;
 logic window_ready;
 logic wrapper_ready;
 logic fft_ready;
-logic [11:0] window_out [255:0];
+logic [11:0] window_out [63:0];
 logic [11:0] wrap_win;
 logic [15:0] shift_win;
 logic [15:0] mean;
 logic [15:0] std;
 logic [15:0] unsigned_vector [25:0];
 logic valid_fifo;
+logic frame_ready_1;
 
-
+//------------------------------------------------------------------------------
+// module instances
+//------------------------------------------------------------------------------
 /*pre_emphasis u_pre_emphasis(
     .clk,
     .rst,
@@ -49,7 +56,7 @@ windowing u_windowing(
     .window_ready,
     .windowed_frame(window_out)
 );
-wrapper u_wrapper(
+unwrapper u_unwrapper(
     .clk,
     .rst,
     .window_ready,
@@ -62,7 +69,7 @@ zero_padding u_zero_padding(
     .data_out(shift_win)
 );
 
-FFT256 u_FFT256(
+FFT64 u_FFT64(
     .clock(clk),
     .reset(rst),
     .di_en(wrapper_ready),
@@ -74,11 +81,19 @@ FFT256 u_FFT256(
 );
 
 magnitude u_magnitude(
+    .clk,
+    .rst,
     .imag_part(imag_out),
     .real_part(real_out),
     .magnitude
 );
-
+/*framing_1 u_framing_1(
+    .clk,
+    .rst,
+    .sample_in(magnitude),
+    .frame_out(mel_out),
+    .frame_ready(frame_ready_1)
+);*/
 mel_filter_bank u_mel_filter_bank(
     .clk,
     .reset(rst),
@@ -89,7 +104,7 @@ mel_filter_bank u_mel_filter_bank(
     .s_valid(fft_ready),
     .m_ready(fft_ready)
 );
-/*reshape_output u_reshape_output(
+reshape_output u_reshape_output(
     .clk,
     .reset(rst),
     .in(mel_out),
@@ -98,14 +113,14 @@ mel_filter_bank u_mel_filter_bank(
     .s_valid(m_valid_mel),
     .m_ready(m_valid_mel),
     .m_valid(m_valid_res)
-);*/
+);
 mean_std u_mean_std(
     .clk,
     .rst,
-    .data_in(mel_out),
+    .data_in(reshape_out),
     .mean,
     .std,
-    .valid_in(m_valid_mel),
+    .valid_in(m_valid_res),
     .valid_out(valid_fifo)
 );
 fifo u_fifo(
@@ -117,46 +132,9 @@ fifo u_fifo(
     .data_out(unsigned_vector)
 );
 
-
-
 convert_to_signed u_convert_to_signed(
     .unsigned_vector(unsigned_vector),
     .signed_vector(output_vector)
 );
-
-/*
-simple_to_axi u_simple_to_axi(
-    .clk,
-    .rst,
-    .simple_data_in(ext_data),
-    .simple_valid_in,
-    .simple_ready_out,
-    .axi_tdata(axi_indata),
-    .axi_tvalid(s_axis_tvalid),
-    .axi_tready(s_axis_tready)
-);
-mfcc u_mfcc(
-    .clk,
-    .reset(rst),
-    .s_axis_tdata(axi_indata),
-    .m_axis_tdata(axi_outdata),
-    .s_axis_tready,
-    .s_axis_tvalid,
-    .m_axis_tvalid,
-    .m_axis_tlast,
-    .m_axis_tready
-);
-axi_to_simple u_axi_to_simple(
-    .clk,
-    .rst,
-    .axi_tdata(axi_outdata),
-    .axi_tvalid(m_axis_tvalid),
-    .axi_tready(m_axis_tready),
-    .axi_tlast(m_axis_tlast),
-    .simple_data_out(output_vector),
-    .simple_valid_out,
-    .simple_last_out
-);
-*/
 
 endmodule
