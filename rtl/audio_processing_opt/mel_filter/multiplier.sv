@@ -5,35 +5,34 @@
  Version:       1.0
  Last modified: 2024-08-29
  Coding style: safe, with FPGA sync reset
- Description:  Simple multiplier
+ Description:  Simple multiplying module
  */
-//////////////////////////////////////////////////////////////////////////////
-import ap_parameters::*;
-module multiplier(
-    input logic clk,
-    input logic rst,
-    input logic [A_WIDTH-1:0] a,
-    input logic [B_WIDTH-1:0] b,
-    output logic [P_WIDTH-1:0] p
+/////////////////////////////////////////////////////////////////////////////
+module multiplier (
+    input logic clk,            
+    input logic rst,            
+    input logic [31:0] a,       
+    input logic [15:0] b,       
+    output logic [31:0] p
 );
 
 //------------------------------------------------------------------------------
 // local variables
 //------------------------------------------------------------------------------
-logic [P_WIDTH-1:0] p_nxt;
-logic [A_WIDTH+B_WIDTH-1:0] p_reg;
-logic [A_WIDTH+B_WIDTH-1:0] p_reg_nxt;
+logic [47:0] product;
+logic [47:0] product_nxt;
+logic [31:0] p_nxt;
 
 //------------------------------------------------------------------------------
 // output register with sync reset
 //------------------------------------------------------------------------------
 always_ff @(posedge clk) begin
-    if(rst) begin
-        p <= '0;
-        p_reg <= '0;
+    if (rst) begin
+        p <= 32'd0;
+        product <= 48'd0;    
     end else begin
         p <= p_nxt;
-        p_reg <= p_reg_nxt;
+        product <= product_nxt;    
     end
 end
 
@@ -41,10 +40,8 @@ end
 // logic
 //------------------------------------------------------------------------------
 always_comb begin
-    if (a == '0 | b == '0) 
-        p_reg_nxt = 0;
-    else
-        p_reg_nxt = a * b;
-    p_nxt = p_reg[47:16];
+    product_nxt = a * b;
+    p_nxt = product[47:16];  
 end
+
 endmodule

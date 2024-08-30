@@ -2,8 +2,8 @@
 /*
  Module name:   magnitude
  Authors:       Kacper Ferdek, Mateusz Gibas
- Version:       1.0
- Last modified: 2024-08-29
+ Version:       1.7
+ Last modified: 2024-08-30
  Coding style: safe, with FPGA sync reset
  Description:  Calculating magnitude from real part and imaginaris part of fft
  */

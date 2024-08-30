@@ -31,7 +31,7 @@ set target xc7a35tcpg236-1
 # Specify .xdc files location                   -- EDIT
 set xdc_files {
     constraints/top_ssr_basys3.xdc
-    constraints/clk_wiz_1.xdc
+    constraints/clk_wiz_4.xdc
 }
 
 # Specify SystemVerilog design files location   -- EDIT
@@ -62,7 +62,7 @@ set sv_files {
 
 # Specify Verilog design files location         -- EDIT
 set verilog_files {
-    rtl/clk_wiz_1_clk_wiz.v
+    rtl/clk_wiz_4_clk_wiz.v
     ../rtl/audio_processing_opt/fft/Butterfly.v 
     ../rtl/audio_processing_opt/fft/DelayBuffer.v 
     ../rtl/audio_processing_opt/fft/FFT64.v 

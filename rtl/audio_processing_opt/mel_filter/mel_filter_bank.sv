@@ -48,6 +48,7 @@ module mel_filter_bank#(parameter N = 64)(
     logic [31:0] accumulation;      // just used to save one adder
     logic [15:0] dB;                //take dB of spectral energy
     logic [31:0] product_reg;
+
     
     assign s_ready = in_ready;
     assign in_valid[0] = s_valid;
