@@ -28,8 +28,7 @@ module reshape_output#(parameter OUT_WIDTH=20)(
     input s_valid,
     output s_ready,
     output m_valid,
-    input m_ready,
-    output m_last
+    input m_ready
     );
     localparam OUT_LENGTH = 40/OUT_WIDTH;
     
@@ -41,7 +40,6 @@ module reshape_output#(parameter OUT_WIDTH=20)(
     logic q_valid;
     
     assign m_valid = q_valid;
-    assign m_last = q_counter == OUT_LENGTH-1;
     assign out = banks[0];
     assign s_ready = !q_valid;
     

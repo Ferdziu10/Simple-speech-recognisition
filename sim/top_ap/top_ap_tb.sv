@@ -1,16 +1,34 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   top_ap_tb
+ Authors:       Mateusz Gibas, Kacper Ferdek
+ Version:       1.2
+ Last modified: 2024-08-29
+ Coding style: safe, with FPGA sync reset
+ Description:  test bench for audio processing top module
+ */
+//////////////////////////////////////////////////////////////////////////////
+ import ap_parameters::*;
 module top_ap_tb;
 
-    // Parameters
+//------------------------------------------------------------------------------
+// Parameters
+//------------------------------------------------------------------------------
     parameter DATA_WIDTH = 12; // ADC is 12-bit
     parameter DATA_FILE = "../../python/generated_files/input_adcoff2.txt"; // File containing the ADC-like data
 
-    // Testbench signals
+//------------------------------------------------------------------------------
+// Testbench signals
+//------------------------------------------------------------------------------
     reg clk;
     reg rst;
     reg [DATA_WIDTH-1:0] adc_data;
     wire signed [15:0] output_vector [0:25]; // Output from the module under test
 
-    // Instantiate the top_ap module
+//------------------------------------------------------------------------------
+// DUT instantiation
+//------------------------------------------------------------------------------
     top_ap uut (
         .clk(clk),
         .rst(rst),
@@ -18,10 +36,14 @@ module top_ap_tb;
         .output_vector(output_vector)
     );
 
-    // Clock generation
+//------------------------------------------------------------------------------
+// Clock generation
+//------------------------------------------------------------------------------
     always #5 clk = ~clk; // 100 MHz clock
 
-    // Load data from file and feed to DUT
+//------------------------------------------------------------------------------
+// Testbench logic
+//------------------------------------------------------------------------------
     initial begin
         integer data_file;
         integer scan_result;

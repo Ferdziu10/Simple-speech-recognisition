@@ -1,9 +1,0 @@
-sv work FFT256_tb.sv
-
-verilog work ../../rtl/audio_processing/fftv2/Butterfly.v \
-        ../../rtl/audio_processing/fftv2/DelayBuffer.v \
-        ../../rtl/audio_processing/fftv2/FFT256.v \
-        ../../rtl/audio_processing/fftv2/Multiply.v \
-        ../../rtl/audio_processing/fftv2/SdfUnit.v \
-        ../../rtl/audio_processing/fftv2/Twiddle256.v 
-        

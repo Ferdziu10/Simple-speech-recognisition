@@ -1,5 +1,6 @@
-sv work magnitude_tb.sv \
-        ../../rtl/audio_processing/magnitude.sv 
+sv work ../../rtl/audio_processing_opt/ap_parameters.sv \
+        ../../rtl/audio_processing_opt/magnitude.sv \
+        magnitude_tb.sv
 
 
         

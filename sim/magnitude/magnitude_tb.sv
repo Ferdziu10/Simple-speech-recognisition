@@ -1,51 +1,93 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   magnitude_tb
+ Authors:       Mateusz Gibas, Kacper Ferdek
+ Version:       2.2
+ Last modified: 2024-08-29
+ Coding style: safe, with FPGA sync reset
+ Description:  test bench for computing the magnitude
+ */
+//////////////////////////////////////////////////////////////////////////////
+
+
 module magnitude_tb;
 
-    // Deklaracja sygnałów
-    logic [15:0] real_part;
-    logic [15:0] imag_part;
-    logic [31:0] magnitude;
+//------------------------------------------------------------------------------
+// Testbench parameters
+//------------------------------------------------------------------------------
 
-    // Instancja testowanego modułu
-    magnitude uut (
-        .real_part(real_part),
-        .imag_part(imag_part),
-        .magnitude(magnitude)
-    );
+parameter FFT_DATA_WIDTH = 16;    // Bit width for real and imaginary parts
+parameter MEL_DATA_WIDTH = 32;    // Bit width for the magnitude result
 
-    // Procedura testowa
-    initial begin
-        // Test 1: Część rzeczywista i urojona to 0 (oczekiwany wynik: 0)
-        real_part = 16'h0000;
-        imag_part = 16'h0000;
-        #10;  // Czekamy 10 jednostek czasu
-        $display("Test 1: real_part=0x%h, imag_part=0x%h, magnitude=0x%h", real_part, imag_part, magnitude);
+//------------------------------------------------------------------------------
+// Testbench signals
+//------------------------------------------------------------------------------
 
-        // Test 2: Część rzeczywista to 3, część urojona to 4 (oczekiwany wynik: 5)
-        real_part = 16'h0003;
-        imag_part = 16'h0004;
-        #10;  // Czekamy 10 jednostek czasu
-        $display("Test 2: real_part=0x%h, imag_part=0x%h, magnitude=0x%h", real_part, imag_part, magnitude);
+reg clk;                         // Clock signal
+reg rst;                         // Reset signal
+reg [FFT_DATA_WIDTH-1:0] real_part;  // Input real part
+reg [FFT_DATA_WIDTH-1:0] imag_part;  // Input imaginary part
+wire [MEL_DATA_WIDTH-1:0] magnitude; // Output magnitude result
 
-        // Test 3: Część rzeczywista to 3000, część urojona to 4000 (oczekiwany wynik: około 5000)
-        real_part = 16'h0BB8;  // 3000 w systemie szesnastkowym
-        imag_part = 16'h0FA0;  // 4000 w systemie szesnastkowym
-        #10;  // Czekamy 10 jednostek czasu
-        $display("Test 3: real_part=0x%h, imag_part=0x%h, magnitude=0x%h", real_part, imag_part, magnitude);
+//------------------------------------------------------------------------------
+// DUT instantiation
+//------------------------------------------------------------------------------
 
-        // Test 4: Część rzeczywista to 16383, część urojona to 16383 (oczekiwany wynik: około 23169)
-        real_part = 16'h3FFF;  // 16383 w systemie szesnastkowym
-        imag_part = 16'h3FFF;  // 16383 w systemie szesnastkowym
-        #10;  // Czekamy 10 jednostek czasu
-        $display("Test 4: real_part=0x%h, imag_part=0x%h, magnitude=0x%h", real_part, imag_part, magnitude);
+magnitude uut (
+    .clk(clk), 
+    .rst(rst), 
+    .real_part(real_part), 
+    .imag_part(imag_part), 
+    .magnitude(magnitude)
+);
+//------------------------------------------------------------------------------
+// Clock generation
+//------------------------------------------------------------------------------
 
-        // Test 5: Część rzeczywista to 65535, część urojona to 0 (oczekiwany wynik: około 65535)
-        real_part = 16'hFFFF;  // 65535 w systemie szesnastkowym
-        imag_part = 16'h0000;  // 0 w systemie szesnastkowym
-        #10;  // Czekamy 10 jednostek czasu
-        $display("Test 5: real_part=0x%h, imag_part=0x%h, magnitude=0x%h", real_part, imag_part, magnitude);
+always #5 clk = ~clk; // 100 MHz clock (10 ns period)
 
-        // Zakończenie symulacji
-        $stop;
-    end
+//------------------------------------------------------------------------------
+// Testbench logic
+//------------------------------------------------------------------------------
 
+initial begin
+    // Initialize signals
+    clk = 0;
+    rst = 1;
+    real_part = 0;
+    imag_part = 0;
+    // Reset the DUT
+    #10 rst = 0;
+    #10 rst = 1;
+    rst = 0;
+    //------------------------------------------------------------------------------
+    // Apply test vectors
+    //------------------------------------------------------------------------------
+    
+    // Test case 1: real_part = 3, imag_part = 4 (Expected magnitude = 5)
+    real_part = 16'd3;
+    imag_part = 16'd4;
+    #10; // Wait for a few clock cycles
+    // Test case 2: real_part = 5, imag_part = 12 (Expected magnitude = 13)
+    real_part = 16'd5;
+    imag_part = 16'd12;
+    #10;
+    // Test case 3: real_part = 8, imag_part = 15 (Expected magnitude = 17)
+    real_part = 16'd8;
+    imag_part = 16'd15;
+    #10;
+    // Test case 4: real_part = 0, imag_part = 0 (Expected magnitude = 0)
+    real_part = 16'd0;
+    imag_part = 16'd0;
+    #10;
+
+    $finish;
+end
+//------------------------------------------------------------------------------
+// Monitor the output
+//------------------------------------------------------------------------------
+always @(posedge clk) begin
+    $display("Time: %0t | real_part: %0d | imag_part: %0d | magnitude: %0d", $time, real_part, imag_part, magnitude);
+end
 endmodule

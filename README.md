@@ -57,3 +57,7 @@ generate_bitstream
 ```
 program_fpga
 ```
+
+
+
+Aby mel_filter_bank działał poprawnie należy do folderu Simple-speech-recognisition\fpga\build\ssr_project.gen\sources_1 dodac folder ip zawarty w folderu rtl/mel_filer lub wygenerowac ip core multiple o zadanych właściwościach

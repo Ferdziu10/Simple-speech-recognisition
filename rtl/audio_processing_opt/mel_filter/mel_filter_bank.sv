@@ -64,20 +64,21 @@ module mel_filter_bank#(parameter N = 64)(
     
     dB_LUT dB_calculator(.in(q_descending), .out(dB), .on(new_window[2]));
 
-    mult_gen_0 mult_im (
+    /*mult_gen_0 mult_im (
       .CLK(clk),  // input wire CLK
       .A(in),      // input wire [31 : 0] A
       .B(filt),      // input wire [15 : 0] B
       .P(product_reg)      // output wire [31 : 0] P
-    );
-    /*multiplier mult_im(
+    );*/
+    //for synthesis
+    multiplier mult_im(
         .clk,
         .rst(reset),
         .a(in),
         .b(filt),
         .p(product_reg)
-    );*/
-    
+    );
+    //for simulation
     always_comb begin        
         if(in_valid[2] && s_ready) begin
             if(new_window[2]) begin
