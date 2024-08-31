@@ -8,14 +8,14 @@
  Description:  top module of neural network connecting all the dense layers
  */
 //////////////////////////////////////////////////////////////////////////////
-
+import nn_parameters::*;
 module top_nn (
     input logic clk,
     input logic rst,
     input logic signed [15:0] input_vector [IN_SIZE_1-1:0],
     output logic [1:0] output_value 
 );
-    import nn_parameters::*;
+
 
 //------------------------------------------------------------------------------
 // local variables

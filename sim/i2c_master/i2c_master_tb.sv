@@ -6,7 +6,7 @@ module i2c_master_tb;
 
   // Signals
   reg clk;
-  reg reset_n;
+  reg rst;
   reg ena;
   reg [6:0] addr;
   reg rw;
@@ -29,7 +29,7 @@ module i2c_master_tb;
     .bus_clk(I2C_FREQ)
   ) uut (
     .clk(clk),
-    .reset_n(reset_n),
+    .rst(rst),
     .ena(ena),
     .addr(addr),
     .rw(rw),
@@ -44,7 +44,7 @@ module i2c_master_tb;
   // Test process
   initial begin
     // Initialize signals
-    reset_n = 0;
+    rst = 0;
     ena = 0;
     addr = 7'b0000000;
     rw = 0;
@@ -52,7 +52,9 @@ module i2c_master_tb;
 
     // Apply reset
     #100;
-    reset_n = 1;
+    rst = 1;
+    #100
+    rst = 0;
 
     // Test case 1: Write operation
     #100;

@@ -1,5 +1,4 @@
 `timescale 1ns / 1ps
-import nn_parameters::*;
 module dense_layer_2_tb;
 
     // Parameters for the testbench (these should match the values in your `nn_parameters` package)

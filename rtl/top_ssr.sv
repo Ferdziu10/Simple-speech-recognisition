@@ -13,8 +13,8 @@ module top_ssr(
     input logic clk,
     input logic rst,
     input logic but,
-    inout logic scl,
-    inout logic sda,
+    inout wire scl,
+    inout wire sda,
     output logic led0 
 );
 
