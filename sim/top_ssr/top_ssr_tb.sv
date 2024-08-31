@@ -13,8 +13,8 @@ module top_ssr_tb;
 logic clk;
 logic rst;
 logic but;
-wire scl;  // Changed to wire
-wire sda;  // Changed to wire
+wire scl;  
+wire sda;  
 logic led0;
 
 //------------------------------------------------------------------------------
