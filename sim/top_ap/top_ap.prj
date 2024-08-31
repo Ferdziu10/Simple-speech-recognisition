@@ -12,7 +12,6 @@ sv work ../../rtl/audio_processing_opt/ap_parameters.sv \
     ../../rtl/audio_processing_opt/fifo.sv \
     ../../rtl/audio_processing_opt/convert_to_signed.sv \
     ../../rtl/audio_processing_opt/top_ap.sv \
-    ../../rtl/audio_processing_opt/mel_filter/multiplier.sv \
         top_ap_tb.sv
 verilog work ../../rtl/audio_processing_opt/fft/Butterfly.v \
         ../../rtl/audio_processing_opt/fft/DelayBuffer.v \

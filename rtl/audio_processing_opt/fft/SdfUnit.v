@@ -139,7 +139,7 @@ assign  db1_di_im = bf1_bf ? bf1_y1_im : di_im;
 assign  bf1_sp_re = bf1_bf ? bf1_y0_re : bf1_mj ?  db1_do_im : db1_do_re;
 assign  bf1_sp_im = bf1_bf ? bf1_y0_im : bf1_mj ? -db1_do_re : db1_do_im;
 
-always @(posedge clocks) begin
+always @(posedge clock) begin
     if (reset) begin
         bf1_sp_en <= 1'b0;
         bf1_count <= {LOG_N{1'b0}};
