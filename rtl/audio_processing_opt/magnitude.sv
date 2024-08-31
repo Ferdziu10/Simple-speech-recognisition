@@ -33,12 +33,8 @@ module magnitude(
     logic [MEL_DATA_WIDTH-1:0] x1_nxt;
     logic [MEL_DATA_WIDTH-1:0] x2;
     logic [MEL_DATA_WIDTH-1:0] x2_nxt;
-    logic [MEL_DATA_WIDTH-1:0] x3;
-    logic [MEL_DATA_WIDTH-1:0] x3_nxt;
-    logic [MEL_DATA_WIDTH-1:0] error;  // diffrence beyond next approximation
-
-    // config parameter for iteration of Newton-Raphson algorithm
-    localparam int ITERATIONS = 2;
+    //logic [MEL_DATA_WIDTH-1:0] x3;
+    //logic [MEL_DATA_WIDTH-1:0] x3_nxt;
 
 //------------------------------------------------------------------------------
 // output register with sync reset
@@ -52,7 +48,7 @@ module magnitude(
             x0 <= '0;
             x1 <= '0;
             x2 <= '0;
-            x3 <= '0;
+            //x3 <= '0;
         end else begin
             magnitude <= magnitude_nxt;
             real_squared <= real_squared_nxt;
@@ -61,7 +57,7 @@ module magnitude(
             x0 <= x0_nxt;
             x1 <= x1_nxt;
             x2 <= x2_nxt;
-            x3 <= x3_nxt;
+            //x3 <= x3_nxt;
         end
     end
 
@@ -70,50 +66,42 @@ module magnitude(
 //------------------------------------------------------------------------------j
     always_comb begin
         if( real_part == 0 && imag_part == 0) begin
-            magnitude_nxt = 0;
+            magnitude_nxt = '0;
             real_squared_nxt = real_squared;
             imag_squared_nxt = imag_squared;
             sum_squares_nxt = sum_squares;
             x0_nxt = x0;
             x1_nxt = x1;
             x2_nxt = x2;
-            x3_nxt = x3;
+            //x3_nxt = x3;
         end else if(real_part == 0) begin
-            magnitude_nxt = imag_part;
+            magnitude_nxt = {16'h0, imag_part};
             real_squared_nxt = real_squared;
             imag_squared_nxt = imag_squared;
             sum_squares_nxt = sum_squares;
             x0_nxt = x0;
             x1_nxt = x1;
             x2_nxt = x2;
-            x3_nxt = x3;
+            //x3_nxt = x3;
         end else if(imag_part == 0) begin
-            magnitude_nxt = real_part;
+            magnitude_nxt = {16'h0, real_part};
             real_squared_nxt = real_squared;
             imag_squared_nxt = imag_squared;
             sum_squares_nxt = sum_squares;
             x0_nxt = x0;
             x1_nxt = x1;
             x2_nxt = x2;
-            x3_nxt = x3;
+            //x3_nxt = x3;
         end else begin
             real_squared_nxt = real_part * real_part;
             imag_squared_nxt = imag_part * imag_part;
             sum_squares_nxt  = real_squared + imag_squared;
-            x0_nxt = sum_squares;
 
-            // Iterative process of Newton-Raphson algorithm
-            for (int i = 0; i < ITERATIONS; i++) begin
-                x1_nxt = x0 + sum_squares; // x_next = (x + sum_squares / x) / 2
-                x2_nxt = x1 / x0;
-                x3_nxt = x2 >> 1;
-                error = (x0 > x3) ? (x0 - x3) : (x3 - x0);
-                if (error < 1) begin
-                    break;
-                end
-                x0_nxt = x3;
-            end
-            magnitude_nxt = x0;
+            // Newton-Raphson Iterative Process
+            x0_nxt = sum_squares;                                                           //do poprawy sum_square w kazdej linijce czyli iteracji musi byc inne czyli trzeba dodac sum square next 1 2 3
+            x1_nxt = (x0 + (sum_squares / x0)) >> 1;  // Iteration 1
+            x2_nxt = (x1 + (sum_squares / x1)) >> 1;  // Iteration 2
+            magnitude_nxt = x2;  // Final value after iterations
         end
     end
 
