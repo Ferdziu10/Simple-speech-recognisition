@@ -1,6 +1,6 @@
 Warnings, critical warnings and errors from synthesis and implementation
 
-Created: 2024-08-30 13:01:18
+Created: 2024-08-31 19:36:49
 
 ----SYNTHESIS----
 WARNING: [Synth 8-3848] Net i2c_data_wr in module/entity pmod_adc_ad7991 does not have driver. [C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/rtl/adc/pmod_adc_ad7991.vhd:48]
@@ -9,56 +9,7 @@ WARNING: [Synth 8-6014] Unused sequential element mu_do_im_reg was removed.  [C:
 WARNING: [Synth 8-6014] Unused sequential element mu_do_en_reg was removed.  [C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/rtl/audio_processing_opt/fft/SdfUnit.v:266]
 WARNING: [Synth 8-6014] Unused sequential element mu_en_reg was removed.  [C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/rtl/audio_processing_opt/fft/SdfUnit.v:244]
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[47]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[46]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[45]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[44]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[43]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[42]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[41]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[40]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[39]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[38]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[37]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[36]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[35]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[34]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[33]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[32]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[31]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[30]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[29]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[28]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[27]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[26]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[25]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[24]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[23]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[22]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[21]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[20]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[19]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[18]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[17]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[15]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[14]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[13]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[12]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[11]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[10]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[9]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[8]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[7]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[6]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[5]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[4]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[3]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[2]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[1]) is unused and will be removed from module mel_filter_bank.
-WARNING: [Synth 8-3332] Sequential element (mult_im/product_reg[0]) is unused and will be removed from module mel_filter_bank.
 WARNING: [Synth 8-3323] Resources of type DSP have been overutilized. Used = 191, Available = 90. Use report_utilization command for details.
-WARNING: [Synth 8-3332] Sequential element (u_top_ssr/u_pmod_adc_ad7991/i2c_master_0/FSM_onehot_state_reg[5]) is unused and will be removed from module top_ssr_basys3.
-WARNING: [Synth 8-3332] Sequential element (u_top_ssr/u_pmod_adc_ad7991/i2c_master_0/FSM_onehot_state_reg[4]) is unused and will be removed from module top_ssr_basys3.
 
 ----IMPLEMENTATION----
 WARNING: [Power 33-332] Found switching activity that implies high-fanout reset nets being asserted for excessive periods of time which may result in inaccurate power analysis.
