@@ -70,7 +70,7 @@ module mel_filter_bank#(parameter N = 64)(
       .B(filt),      // input wire [15 : 0] B
       .P(product_reg)      // output wire [31 : 0] P
     );*/
-    //for synthesis
+    //for synthesis(not neccesary)
     multiplier mult_im(
         .clk,
         .rst(reset),
@@ -78,7 +78,7 @@ module mel_filter_bank#(parameter N = 64)(
         .b(filt),
         .p(product_reg)
     );
-    //for simulation
+    //for simulation & synthesis
     always_comb begin        
         if(in_valid[2] && s_ready) begin
             if(new_window[2]) begin

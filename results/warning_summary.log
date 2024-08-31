@@ -1,6 +1,6 @@
 Warnings, critical warnings and errors from synthesis and implementation
 
-Created: 2024-08-31 20:36:38
+Created: 2024-08-31 22:50:29
 
 ----SYNTHESIS----
 WARNING: [Synth 8-3848] Net i2c_data_wr in module/entity pmod_adc_ad7991 does not have driver. [C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/rtl/adc/pmod_adc_ad7991.vhd:48]
