@@ -1,13 +1,13 @@
 Warnings, critical warnings and errors from synthesis and implementation
 
-Created: 2024-08-31 22:50:29
+Created: 2024-09-01 00:51:23
 
 ----SYNTHESIS----
 WARNING: [Synth 8-3848] Net i2c_data_wr in module/entity pmod_adc_ad7991 does not have driver. [C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/rtl/adc/pmod_adc_ad7991.vhd:48]
-WARNING: [Synth 8-6014] Unused sequential element mu_do_re_reg was removed.  [C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/rtl/audio_processing_opt/fft/SdfUnit.v:260]
-WARNING: [Synth 8-6014] Unused sequential element mu_do_im_reg was removed.  [C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/rtl/audio_processing_opt/fft/SdfUnit.v:261]
-WARNING: [Synth 8-6014] Unused sequential element mu_do_en_reg was removed.  [C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/rtl/audio_processing_opt/fft/SdfUnit.v:266]
-WARNING: [Synth 8-6014] Unused sequential element mu_en_reg was removed.  [C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/rtl/audio_processing_opt/fft/SdfUnit.v:244]
+WARNING: [Synth 8-6014] Unused sequential element mu_do_re_reg was removed.  [C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/rtl/audio_processing_opt/fft/SdfUnit.v:261]
+WARNING: [Synth 8-6014] Unused sequential element mu_do_im_reg was removed.  [C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/rtl/audio_processing_opt/fft/SdfUnit.v:262]
+WARNING: [Synth 8-6014] Unused sequential element mu_do_en_reg was removed.  [C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/rtl/audio_processing_opt/fft/SdfUnit.v:267]
+WARNING: [Synth 8-6014] Unused sequential element mu_en_reg was removed.  [C:/Users/Kacper/Desktop/UEC/Projekt/Simple-speech-recognisition/rtl/audio_processing_opt/fft/SdfUnit.v:245]
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 WARNING: [Synth 8-3323] Resources of type DSP have been overutilized. Used = 191, Available = 90. Use report_utilization command for details.
 
