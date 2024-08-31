@@ -74,7 +74,7 @@ module top_ap_tb;
         end
         
         $fclose(data_file);
-        #10000; // Wait to capture final outputs
+        #10; // Wait to capture final outputs
         $finish;
     end
 
@@ -82,7 +82,7 @@ module top_ap_tb;
     always @(posedge clk) begin
         if (rst) begin
             $display("Time: %0t, ADC Data: %0h", $time, adc_data);
-            $display("Output Vector: %p", output_vector);
+            $monitor("Output Vector: %p", output_vector);
         end
     end
 

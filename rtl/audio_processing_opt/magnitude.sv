@@ -22,10 +22,10 @@ module magnitude(
 //------------------------------------------------------------------------------
     logic [MEL_DATA_WIDTH-1:0] real_squared;
     logic [MEL_DATA_WIDTH-1:0] imag_squared;
-    logic [MEL_DATA_WIDTH-1:0] sum_squares;
+    logic [MEL_DATA_WIDTH-1:0] sum_squares, sum_squares1, sum_squares2;
     logic [MEL_DATA_WIDTH-1:0] real_squared_nxt;
     logic [MEL_DATA_WIDTH-1:0] imag_squared_nxt;
-    logic [MEL_DATA_WIDTH-1:0] sum_squares_nxt3,sum_squares_nxt2,sum_squares_nxt1;
+    logic [MEL_DATA_WIDTH-1:0] sum_squares_nxt,sum_squares_nxt1,sum_squares_nxt2;
     logic [MEL_DATA_WIDTH-1:0] magnitude_nxt;
     logic [MEL_DATA_WIDTH-1:0] x0;  // approximation of root
     logic [MEL_DATA_WIDTH-1:0] x0_nxt;
@@ -47,7 +47,6 @@ module magnitude(
             sum_squares <= '0;
             sum_squares1 <= '0;
             sum_squares2 <= '0;
-            sum_squares3 <= '0;
             x0 <= '0;
             x1 <= '0;
             x2 <= '0;
@@ -59,7 +58,6 @@ module magnitude(
             sum_squares <= sum_squares_nxt;
             sum_squares1 <= sum_squares_nxt1;
             sum_squares2 <= sum_squares_nxt2;
-            sum_squares3 <= sum_squares_nxt3;
             x0 <= x0_nxt;
             x1 <= x1_nxt;
             x2 <= x2_nxt;
@@ -76,8 +74,8 @@ module magnitude(
             real_squared_nxt = real_squared;
             imag_squared_nxt = imag_squared;
             sum_squares_nxt = sum_squares;
-            sum_squares_nxt1 = sum_squares1
-            sum_squares_nxt2 = sum_square2
+            sum_squares_nxt1 = sum_squares1;
+            sum_squares_nxt2 = sum_squares2;
             x0_nxt = x0;
             x1_nxt = x1;
             x2_nxt = x2;
@@ -87,8 +85,8 @@ module magnitude(
             real_squared_nxt = real_squared;
             imag_squared_nxt = imag_squared;
             sum_squares_nxt = sum_squares;
-            sum_squares_nxt1 = sum_squares1
-            sum_squares_nxt2 = sum_square2
+            sum_squares_nxt1 = sum_squares1;
+            sum_squares_nxt2 = sum_squares2;
             x0_nxt = x0;
             x1_nxt = x1;
             x2_nxt = x2;
@@ -98,8 +96,8 @@ module magnitude(
             real_squared_nxt = real_squared;
             imag_squared_nxt = imag_squared;
             sum_squares_nxt = sum_squares;
-            sum_squares_nxt1 = sum_squares1
-            sum_squares_nxt2 = sum_square2
+            sum_squares_nxt1 = sum_squares1;
+            sum_squares_nxt2 = sum_squares2;
             x0_nxt = x0;
             x1_nxt = x1;
             x2_nxt = x2;
@@ -108,8 +106,8 @@ module magnitude(
             real_squared_nxt = real_part * real_part;
             imag_squared_nxt = imag_part * imag_part;
             sum_squares_nxt  = real_squared + imag_squared;
-            sum_squares_nxt1 = sum_square
-            sum_squares_nxt2 = sum_square1
+            sum_squares_nxt1 = sum_squares;
+            sum_squares_nxt2 = sum_squares1;
             // Newton-Raphson Iterative Process
             x0_nxt = sum_squares;                                                           //do poprawy sum_square w kazdej linijce czyli iteracji musi byc inne czyli trzeba dodac sum square next 1 2 3
             x1_nxt = (x0 + (sum_squares1 / x0)) >> 1;  // Iteration 1

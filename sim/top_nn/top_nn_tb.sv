@@ -26,11 +26,11 @@ module top_nn_tb;
         rst = 1;
         #1000;
         rst = 0;
-        // Initialize input_vector with values from a preprocessed WAV file
-        $readmemh("../../python/generated_files/input_vectoroth3.mem", input_vector);
+        // Initialize input_vector with values from a preprocessed WAV file(can choose from: input_vector***.mem ***-oth[],on[],off[])
+        $readmemh("../../python/generated_files/input_vectoroth.mem", input_vector);
 
         // Wait for some time to observe output
-        #100;
+
         #300000;
         // Display intermediate and output probabilities
         $display(" output_value: %p;; 0-nothing, 1-on, 2-off", output_value);

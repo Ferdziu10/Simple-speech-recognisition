@@ -77,6 +77,53 @@ initial begin
     real_part = 16'd8;
     imag_part = 16'd15;
     #10;
+    // Test case 2: real_part = 5, imag_part = 12 (Expected magnitude = 13)
+    real_part = 16'd5;
+    imag_part = 16'd12;
+    #10;
+    // Test case 3: real_part = 8, imag_part = 15 (Expected magnitude = 17)
+    real_part = 16'd8;
+    imag_part = 16'd15;
+    #10;
+    // Test case 2: real_part = 5, imag_part = 12 (Expected magnitude = 13)
+    real_part = 16'd5;
+    imag_part = 16'd12;
+    #10;
+    // Test case 3: real_part = 8, imag_part = 15 (Expected magnitude = 17)
+    real_part = 16'd8;
+    imag_part = 16'd15;
+    #10;
+    // Test case 2: real_part = 5, imag_part = 12 (Expected magnitude = 13)
+    real_part = 16'd5;
+    imag_part = 16'd12;
+    #10;// Test case 2: real_part = 5, imag_part = 12 (Expected magnitude = 13)
+    real_part = 16'd5;
+    imag_part = 16'd12;
+    #10;
+    // Test case 3: real_part = 8, imag_part = 15 (Expected magnitude = 17)
+    real_part = 16'd8;
+    imag_part = 16'd15;
+    #10;
+    // Test case 2: real_part = 5, imag_part = 12 (Expected magnitude = 13)
+    real_part = 16'd5;
+    imag_part = 16'd12;
+    #10;
+    // Test case 3: real_part = 8, imag_part = 15 (Expected magnitude = 17)
+    real_part = 16'd8;
+    imag_part = 16'd15;
+    #10;
+    // Test case 2: real_part = 5, imag_part = 12 (Expected magnitude = 13)
+    real_part = 16'd5;
+    imag_part = 16'd12;
+    #10;
+    // Test case 3: real_part = 8, imag_part = 15 (Expected magnitude = 17)
+    real_part = 16'd8;
+    imag_part = 16'd15;
+    #10;
+    // Test case 3: real_part = 8, imag_part = 15 (Expected magnitude = 17)
+    real_part = 16'd8;
+    imag_part = 16'd15;
+    #10;
     // Test case 4: real_part = 0, imag_part = 0 (Expected magnitude = 0)
     real_part = 16'd0;
     imag_part = 16'd0;
