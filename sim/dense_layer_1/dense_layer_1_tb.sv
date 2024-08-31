@@ -4,7 +4,7 @@ module dense_layer_1_tb;
 
     // Parameters for the testbench (these should match the values in your `nn_parameters` package)
     parameter IN_SIZE_1 = 26;  // Example input size
-    parameter OUT_SIZE_1 = 128;  // Example output size
+    parameter OUT_SIZE_1 = 32;  // Example output size
 
     // Testbench signals
     logic clk;

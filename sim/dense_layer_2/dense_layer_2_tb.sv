@@ -3,8 +3,8 @@ import nn_parameters::*;
 module dense_layer_2_tb;
 
     // Parameters for the testbench (these should match the values in your `nn_parameters` package)
-    parameter IN_SIZE_2 = 128;  // Example input size
-    parameter OUT_SIZE_2 = 64;  // Example output size
+    parameter IN_SIZE_2 = 32;  // Example input size
+    parameter OUT_SIZE_2 = 3;  // Example output size
 
     // Testbench signals
     logic clk;
