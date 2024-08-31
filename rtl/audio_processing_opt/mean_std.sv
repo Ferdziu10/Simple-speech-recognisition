@@ -36,7 +36,7 @@ module mean_std (
 //------------------------------------------------------------------------------
 // output register with sync reset
 //------------------------------------------------------------------------------
-    always_ff @(posedge clk or posedge rst) begin
+    always_ff @(posedge clk ) begin
         if (rst) begin
             valid_out  <= 0;
             mean <= 0;
@@ -76,22 +76,11 @@ module mean_std (
         //stddev_nxt = $clog2(variance_nxt);
         // Algorithm Newtona-Raphsona fully combitional
         guess = variance_nxt >> 1;  // First approximation
-        converged = 0;
 
         for (i = 0; i < 2; i = i + 1) begin
-            if (!converged && guess != 0) begin
                 guess_next = (guess + variance_nxt / guess) >> 1;
-
-                // Checking that algorithms are coverged
-                difference = guess > guess_next ? guess - guess_next : guess_next - guess;
-                if (difference < 2) begin
-                    converged = 1;
-                end else begin
-                    guess = guess_next;
+                guess = guess_next;
                 end
-            end
-        end
-
         stddev_nxt = guess;
     end
 

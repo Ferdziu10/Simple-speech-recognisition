@@ -104,7 +104,7 @@ module mel_filter_bank#(parameter N = 64)(
         end
     end
     
-    always_ff @(posedge clk or posedge reset) begin
+    always_ff @(posedge clk ) begin
         if(reset) begin
             in_ready <= 0;
             q_in <= 0;

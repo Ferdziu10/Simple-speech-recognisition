@@ -25,7 +25,7 @@ USE ieee.std_logic_1164.all;
 
 ENTITY pmod_adc_ad7991 IS
   GENERIC(
-    sys_clk_freq : INTEGER := 5_000_000);                --input clock speed from user logic in Hz
+    sys_clk_freq : INTEGER := 4_500_000);                --input clock speed from user logic in Hz
   PORT(
     clk          : IN    STD_LOGIC;                       --system clock
     rst          : IN    STD_LOGIC;                       --asynchronous active-high reset
