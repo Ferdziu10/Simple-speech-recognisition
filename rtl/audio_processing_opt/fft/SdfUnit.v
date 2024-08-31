@@ -241,7 +241,7 @@ Twiddle64 TW (
 
 //  Multiplication is bypassed when twiddle address is 0.
 always @(posedge clock) begin
-    mu_en <= (tw_addr != {LOG_N{1'b0}});                ///wywalic
+    mu_en <= (tw_addr != {LOG_N{1'b0}});               
 end
 //  Set unknown value x for verification
 assign  mu_a_re = mu_en ? bf2_do_re : {WIDTH{1'bx}};
@@ -257,14 +257,14 @@ Multiply #(.WIDTH(WIDTH)) MU (
 );
 
 always @(posedge clock) begin
-    mu_do_re <= mu_en ? mu_m_re : bf2_do_re;    /// wywalic
+    mu_do_re <= mu_en ? mu_m_re : bf2_do_re;    
     mu_do_im <= mu_en ? mu_m_im : bf2_do_im;
 end
 
 always @(posedge clock ) begin
     if (reset) begin
         mu_do_en <= 1'b0;
-    end else begin                              ///wywalic
+    end else begin                              
         mu_do_en <= bf2_do_en;
     end
 end
