@@ -28,10 +28,8 @@ module mean_std (
     logic [MS_DATA_WIDTH-1:0] variance_nxt;
     logic [MSIN_DATA_WIDTH-1:0] stddev_nxt;
     logic [MSIN_DATA_WIDTH-1:0] guess, guess_next;
-    logic [MS_DATA_WIDTH-1:0] difference;
     logic [MSIN_DATA_WIDTH-1:0] i;
     logic valid_nxt;
-    logic converged;
 
 //------------------------------------------------------------------------------
 // output register with sync reset

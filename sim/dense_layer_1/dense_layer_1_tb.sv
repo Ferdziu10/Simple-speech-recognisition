@@ -1,4 +1,13 @@
-`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   desne_layer_1_tb
+ Authors:       Mateusz Gibas, Kacper Ferdek
+ Version:       1.1
+ Last modified: 2024-08-29
+ Coding style: safe, with FPGA sync reset
+ Description:  test bench for first dense layer of neural network
+ */
+//////////////////////////////////////////////////////////////////////////////
 module dense_layer_1_tb;
 
     // Parameters for the testbench (these should match the values in your `nn_parameters` package)
@@ -28,7 +37,7 @@ module dense_layer_1_tb;
         #1000;
         rst = 0;
         // Initialize input vector with some values
-        $readmemh("../../python/generated_files/input_vectoroth.mem", input_vector);
+        $readmemh("../python/generated_files/input_vectoroth.mem", input_vector);
 
         // Load weights, biases, and LUT
 

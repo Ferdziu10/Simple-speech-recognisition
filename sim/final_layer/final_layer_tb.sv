@@ -1,4 +1,14 @@
-`timescale 1ns / 1ps
+`timescale 1ns/1ps
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   final_layer_tb
+ Authors:       Mateusz Gibas, Kacper Ferdek
+ Version:       1.1
+ Last modified: 2024-08-29
+ Coding style: safe, with FPGA sync reset
+ Description:  test bench for final layer of neural network
+ */
+//////////////////////////////////////////////////////////////////////////////
 module final_layer_tb;
 
     // Parameters for the testbench (these should match the values in your `nn_parameters` package)

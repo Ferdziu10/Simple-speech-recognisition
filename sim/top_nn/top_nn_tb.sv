@@ -1,3 +1,15 @@
+`timescale 1ns/1ps
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   led_nn_tb
+ Authors:       Mateusz Gibas, Kacper Ferdek
+ Version:       1.1
+ Last modified: 2024-08-29
+ Coding style: safe, with FPGA sync reset
+ Description:  test bench for neural network top module
+ */
+//////////////////////////////////////////////////////////////////////////////
+
 module top_nn_tb;
 
     // Parameters
@@ -27,7 +39,7 @@ module top_nn_tb;
         #1000;
         rst = 0;
         // Initialize input_vector with values from a preprocessed WAV file(can choose from: input_vector***.mem ***-oth[],on[],off[])
-        $readmemh("../../python/generated_files/input_vectoroth.mem", input_vector);
+        $readmemh("../python/generated_files/input_vectoroth.mem", input_vector);
 
         // Wait for some time to observe output
 

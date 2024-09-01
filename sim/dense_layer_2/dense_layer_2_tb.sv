@@ -1,4 +1,14 @@
-`timescale 1ns / 1ps
+`timescale 1ns/1ps
+//////////////////////////////////////////////////////////////////////////////
+/*
+ Module name:   desne_layer_2_tb
+ Authors:       Mateusz Gibas, Kacper Ferdek
+ Version:       1.1
+ Last modified: 2024-08-29
+ Coding style: safe, with FPGA sync reset
+ Description:  test bench for second layer of neural network
+ */
+//////////////////////////////////////////////////////////////////////////////
 module dense_layer_2_tb;
 
     // Parameters for the testbench (these should match the values in your `nn_parameters` package)
@@ -28,7 +38,7 @@ module dense_layer_2_tb;
         #1000;
         rst = 0;
         // Initialize input vector with some values
-        $readmemh("../../python/generated_files/in_dp1_hex.txt", input_vector);
+        $readmemh("../python/generated_files/in_dp1_hex.txt", input_vector);
 
         // Wait for the combinational logic to process the inputs
         #300000;

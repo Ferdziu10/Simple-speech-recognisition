@@ -1,5 +1,13 @@
+`timescale 1ns/1ps
 //////////////////////////////////////////////////////////////////////////////
-// Testbench for top_ssr module
+/*
+ Module name:   top_ssr_tb
+ Authors:       Mateusz Gibas, Kacper Ferdek
+ Version:       1.1
+ Last modified: 2024-08-29
+ Coding style: safe, with FPGA sync reset
+ Description:  test bench for top module of ssr
+ */
 //////////////////////////////////////////////////////////////////////////////
 
 `timescale 1ns/1ps
