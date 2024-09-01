@@ -16,7 +16,7 @@ module top_ap_tb;
 // Parameters
 //------------------------------------------------------------------------------
     parameter DATA_WIDTH = 12; // ADC is 12-bit
-    parameter DATA_FILE = "../../python/generated_files/input_adcoff2.txt"; // File containing the ADC-like data
+    parameter DATA_FILE = "../python/generated_files/input_adcoff2.txt"; // File containing the ADC-like data
 
 //------------------------------------------------------------------------------
 // Testbench signals
